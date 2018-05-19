@@ -1,0 +1,71 @@
+{{#xlsxRemove "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row" 3}}{{/xlsxRemove}}
+{{#each saldos}}
+    {{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+        <row>
+            <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{nombre}}</t></is></c>
+        </row>
+    {{/xlsxAdd}}
+    
+    {{#each dec}}
+        {{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+            <row>
+                <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{serie}} - {{factura}}</t></is></c>
+                <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t>{{#formatDate fecha}}{{/formatDate}}</t></is></c>
+                <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{totalfac}}</v></c>
+                <c s="{{@root.$removedItem.c.[4].$.s}}"><v></v></c>
+                <c s="{{@root.$removedItem.c.[5].$.s}}"><v>{{saldo}}</v></c>
+            </row>
+        {{/xlsxAdd}}
+        
+        {{#each dfac}}
+            {{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+                <row>
+                    <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t></t></is></c>
+                    <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{tipotrans}} - {{documento}}</t></is></c>
+                    <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{#formatDate fecha}}{{/formatDate}}</t></is></c>
+                    <c s="{{@root.$removedItem.c.[4].$.s}}"><v>{{monto}}</v></c>
+                    <c s="{{@root.$removedItem.c.[5].$.s}}"><v></v></c>
+                </row>
+            {{/xlsxAdd}}
+        {{/each}}
+        
+    {{/each}}
+    
+    {{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+        <row>
+            <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t></t></is></c>
+            <c s="{{@root.$removedItem.c.[2].$.s}}"><v></v></c>
+            <c s="{{@root.$removedItem.c.[3].$.s}}"><v></v></c>
+            <c s="{{@root.$removedItem.c.[4].$.s}}"><v></v></c>
+            <c s="{{@root.$removedItem.c.[5].$.s}}"><v>{{tsaldo}}</v></c>
+        </row>
+    {{/xlsxAdd}}
+{{/each}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>Total de saldos</t></is></c>
+        <c s="{{@root.$removedItem.c.[2].$.s}}">
+            <f>
+                SUM(C4:C{{contSaldos}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}">
+            <f>
+                SUM(D4:D{{contSaldos}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}">
+            <f>
+                SUM(E4:E{{contSaldos}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[5].$.s}}">
+            <f>
+                SUM(F4:F{{contSaldos}})
+            </f>
+        </c>
+    </row>
+{{/xlsxAdd}}
+{{{xlsxPrint}}}

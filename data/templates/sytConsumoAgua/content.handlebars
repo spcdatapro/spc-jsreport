@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; font-size:0.83em; font-family: Arial;}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            .brdtop{ border-top: solid 0.1em black;}
+            .brdbtm{ border-bottom: solid 0.1em black;}
+            .cntr{ text-align: center; }
+        </style>
+    </head>
+    <body style="font-family: Arial; font-size: 0.83em">
+        <table class="tbl">
+            <tbody>
+                {{#each contadores}}
+                <tr>
+                    <td colspan="11"><span class="bld padbot" style="font-size: 11pt">{{empresa}}</span></td>
+                </tr>
+                {{#each proyectos}}
+                <tr>
+                    <td colspan="11"><span class="bld padbot" style="font-size: 9pt">{{proyecto}}</span></td>
+                </tr>
+                {{#each consumos}}
+                <tr>
+                    <td class="padbot" style="width: 9%">{{numidentificacion}}</td>
+                    <td class="padbot" style="width: 9%">{{unidad}}</td>
+                    <td class="padbot" style="width: 26%">{{nombre}}</td>
+                    <td class="cntr padbot" style="width: 7%">{{fechainicial}}</td>
+                    <td class="cntr padbot" style="width: 7%">{{fechafinal}}</td>
+                    <td class="num padbot" style="width: 7%">{{lecturainicial}}</td>
+                    <td class="num padbot" style="width: 7%">{{lectura}}</td>
+                    <td class="num padbot" style="width: 7%">{{consumo}}</td>
+                    <td class="num padbot" style="width: 7%">{{preciomcubsug}}</td>
+                    <td class="num padbot" style="width: 7%">{{mcubsug}}</td>
+                    <td class="num padbot" style="width: 7%">{{montosiniva}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+                <tr><td colspan="11"></td></tr>
+                <tr>
+                    <td colspan="7" class="num brdtop"><span class="bld">Totales de empresa:</span></td>
+                    <td class="num brdtop">{{sumatoria.consumo}}</td>
+                    <td colspan="2" class="brdtop"></td>
+                    <td class="num brdtop">{{sumatoria.montosiniva}}</td>
+                </tr>
+                <tr><td colspan="11"></td></tr>
+                <tr><td colspan="11"></td></tr>
+                <tr><td colspan="11"></td></tr>
+                <tr><td colspan="11" class="brdbtm"></td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

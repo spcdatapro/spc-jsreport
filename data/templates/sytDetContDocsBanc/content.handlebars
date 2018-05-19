@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tdw{ width: 10%; }
+            .strw{ width: 25%; }
+            .numw{ width: 15%; }
+            .brdtpbt{ border-top: solid 0.2em black; border-bottom: solid 0.2em black; }
+            .brdtp{ border-top: solid 0.15em black; }
+            .brdbt{ border-bottom: solid 0.2em black; }
+            .ltxt{ text-align: left; }
+            .tipo{ font-family: Arial; font-size: 9.75pt;}
+            .bld{ font-weight: bold; }
+            .centxt{ text-align: center; }
+            .pdlft{ padding-left: 0.5em; }
+            .pdbtm{ padding-bottom: 0.75em; }
+            .padtop{ padding-top: 1.25em; }
+            .nowrap{ white-space: nowrap;}
+            .fontsm{ font-size: 8.5pt; }
+            .titulodetcon{
+                /*border-top: solid 0.1em lightgray;*/
+                border-bottom: solid 0.1em lightgray; 
+                text-align: center; 
+                padding-top:0.5em; 
+                padding-bottom: 0.2em; 
+                font-weight: bold;
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="tbl tipo">
+            <tbody>
+                {{#each documentos.docs}}
+                <tr>
+                    <td class="bld">{{tipotrans}}</td>
+                    <td class="bld">{{documento}}</td>
+                    <td class="bld"></td>
+                    <td class="bld">{{fecha}}</td>
+                    <td class="nowrap bld">{{#shortStr beneficiario 15}}{{/shortStr}}</td>
+                    <td colspan="4" class="bld">{{#shortStr concepto 40}}{{/shortStr}}</td>
+                    <td class="num bld">{{monto}}</td>
+                </tr>
+                <tr><td colspan="10"></td></tr>
+                {{#imprimir detcont}}
+                <tr>
+                    <td colspan="5"></td>
+                    <td class="num bld brdbt">--Debe--</td>
+                    <td class="num bld brdbt">--Haber--</td>
+                    <td colspan="3"></td>
+                </tr>
+                {{else}}
+                {{/imprimir}}
+                {{#each detcont}}
+                <tr>
+                    <td colspan="2"></td>
+                    <td>{{codigo}}</td>
+                    <td colspan="2" class="fontsm{{#estot2 cuenta}}{{/estot2}}">{{#shortStr cuenta 20}}{{/shortStr}}</td>
+                    <td class="num{{#estot cuenta}}{{/estot}}">{{debe}}</td>
+                    <td class="num{{#estot cuenta}}{{/estot}}">{{haber}}</td>
+                    <td colspan="3"></td>
+                </tr>
+                {{/each}}
+                {{#imprimir docsop}}
+                <tr>
+                    <td colspan="5" class="padtop"></td>
+                    <td class="num bld brdbt padtop">Bienes</td>
+                    <td class="num bld brdbt padtop">Servicios</td>
+                    <td class="num bld brdbt padtop">Otros</td>
+                    <td class="num bld brdbt padtop">I.V.A.</td>
+                    <td class="num bld brdbt padtop">Total</td>
+                </tr>
+                {{else}}
+                {{/imprimir}}
+                {{#each docsop}}
+                <tr>
+                    <td class="bld">{{#estotdescr proveedor}}{{/estotdescr}}</td>
+                    <td class="bld nowrap">{{nit}}</td>
+                    <td class="bld nowrap">{{documento}}</td>
+                    <td class="bld">{{fecha}}</td>
+                    <td class="bld fontsm{{#estot2 proveedor}}{{/estot2}}">{{#shortStr proveedor 18}}{{/shortStr}}</td>
+                    <td class="bld num{{#estot proveedor}}{{/estot}}">{{bien}}</td>
+                    <td class="bld num{{#estot proveedor}}{{/estot}}">{{servicio}}</td>
+                    <td class="bld num{{#estot proveedor}}{{/estot}}">{{otros}}</td>
+                    <td class="bld num{{#estot proveedor}}{{/estot}}">{{iva}}</td>
+                    <td class="bld num{{#estot proveedor}}{{/estot}}">{{totfact}}</td>
+                </tr>
+                {{#imprimir detcontdsop}}
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="5" class="titulodetcon">DETALLE CONTABLE DE {{documento}}</td>
+                    <td colspan="3" style="border-bottom: solid 0.1em white !important">&nbsp;</td>
+                </tr>
+                {{else}}
+                {{/imprimir}}
+                {{#each detcontdsop}}
+                <tr>
+                    <td colspan="2"></td>
+                    <td>{{codigo}}</td>
+                    <td colspan="2" class="fontsm{{#estot2 cuenta}}{{/estot2}}">{{#shortStr cuenta 20}}{{/shortStr}}</td>
+                    <td class="num{{#estot cuenta}}{{/estot}}">{{debe}}</td>
+                    <td class="num{{#estot cuenta}}{{/estot}}">{{haber}}</td>
+                    <td colspan="3"></td>
+                </tr>
+                {{/each}}                
+                {{/each}}
+                <tr><td colspan="10" class="brdbt pdbtm"></td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

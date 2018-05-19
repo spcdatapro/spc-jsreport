@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+                font-weight: bold;
+                font-size:120%;
+                border-collapse:collapse;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+                border-collapse:collapse;
+            }
+            .factura{
+                border-top: 0.1em solid black;
+                border-collapse:collapse;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <tbody>
+                <tr>
+                    <td class="encabezado">Fecha</th>
+                    <td class="encabezado">Documento</th>
+                    <td class="encabezado">Tipo</th>
+                    <td class="encabezado">Credito</th>
+                    <td class="encabezado">Debito</th>
+                    <td class="encabezado">A fabor de</th>
+                    <td class="encabezado">Concepto</th>
+                </tr>
+                {{#each general.tran}}
+                <tr>
+                    <td class="factura">{{#formatDate fecha}}{{/formatDate}}</td>
+                    <td>{{numero}}</td>
+                    <td>{{tipo}}</td>
+                    <td class="numero">{{#numberWithCommas credito}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas debito}}{{/numberWithCommas}}</td>
+                    <td>{{beneficiario}}</td>
+                    <td>{{concepto}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+        <table class="resumen">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" colspan=2>RESUMEN DE TOTALES</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" colspan=2>Saldo Anterior</td>
+                    <td style="text-align: center;">{{general.saldoinicial}}</td>
+                </tr>
+                {{#each general.resumen}}
+                <tr>
+                    <td>{{cantidad}}</td>
+                    <td>{{tipo}}</td>
+                    <td class="numero">{{#numberWithCommas monto}}{{/numberWithCommas}} {{operacion}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td style="text-align: center;" colspan=2>Saldo Actual</td>
+                    <td style="text-align: center;">{{general.saldofinal}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

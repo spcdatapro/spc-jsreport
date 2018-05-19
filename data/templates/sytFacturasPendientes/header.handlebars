@@ -1,0 +1,56 @@
+<style>
+    .rghttxt{ text-align: right; }
+    .first {
+        width: 64%;
+        float:left; 
+    }
+    .second {
+        overflow: hidden; 
+    }
+    .tbl{ width: 100%; border-collapse: collapse; font-size: 10pt; }
+    .ltxt{ text-align: left; }
+    .tab {padding-left: 1em; }
+    .brdhead{ border-top: solid 0.1px black; border-bottom: solid 0.1px black;}
+    .ultcell { width: 25%; }
+    .tenw {width: 10%; }
+    .quinw {width: 30%; }
+    .resw { width: 35%; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="font-family:Arial; font-size: 12pt">
+    <div style="text-align:center; vertical-align: text-top">
+        <div class="first rghttxt">
+            <span style="font-weight: bold">FACTURAS PENDIENTES DE EMITIR</span>
+        </div>
+        <div class="second rghttxt">
+            <span style="font-weight: bold">{{generales.hoy}}</span>
+        </div>
+    </div>
+</div>
+<div style="font-family: Arial; font-size: 12pt; text-align: center; width: 100%">
+    <span style="font-weight: bold">
+        {{generales.empresa}} ({{generales.abreviaempre}})
+    </span>
+</div>
+<div style="font-family: Arial; font-size: 12pt; text-align: center; width: 100%">
+    <span style="font-weight: bold">
+        Al {{generales.fal}}
+    </span>
+</div>
+<table class="tbl">
+    <thead>
+        <tr>
+            <th class="ltxt brdhead">Cliente</th>
+            <th class="ltxt brdhead tenw">&nbsp;</th>
+            <th class="ltxt brdhead tab quinw">Tipo</th>
+            <th class="rghttxt brdhead tenw">Total Q.</th>
+            <th class="ltxt brdhead tenw tab">Fecha de cobro</th>
+        </tr>
+    </thead>
+</table>

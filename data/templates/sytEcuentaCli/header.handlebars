@@ -1,0 +1,90 @@
+<style>
+    .tituloXL{
+        font-size: 2em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .encabezado{
+        border-top: 0.1em solid black;
+        border-bottom: 0.1em solid black;
+    }
+    .encabezado2{
+        border-bottom: 0.1em solid black;
+    }
+    .numero{
+        text-align: right;
+        width: 10%;
+        border-spacing: 0px;
+    }
+    .total{
+        border-top: 0.1em solid black;
+        border-bottom: 0.3em double black;
+        text-align: right;
+        font-weight: bold;
+        width: 10%;
+    }
+    .factura{
+        border-spacing: 0px;
+    }
+    .subtotal{
+        border-top: 0.1em solid black;
+        text-align: right;
+        font-weight: bold;
+        width: 10%;
+        border-collapse:collapse;
+    }
+    .resumen{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:150%;
+        font-weight:bold;
+        border:2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .tab{
+        padding-left: 1em;
+    }
+    .dtab{
+        padding-left: 2em;
+    }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="text-align: center;font-family: Arial;">
+    <span class="tituloL">Estado de Cuenta de Clientes</span>
+    <br/>
+    <span class="tituloM">
+        Al {{#formatDate al}}{{/formatDate}}
+    </span>
+    
+    <table style='width: 100%;font-family: Arial;font-size:12; border-collapse:collapse;'>
+        <tbody>
+            <tr class="encabezado">
+                <td class="encabezado" style='width: 2%'></th>
+                <td class="encabezado tab" style='width: 20%'>Concepto</th>
+                <td class="encabezado" style='width: 8%'>Fecha</th>
+                <td class="encabezado" style='width: 20%'>Documento</th>
+                <td class="encabezado numero" style='width: 10%'>Monto Fact.</th>
+                <td class="encabezado numero" style='width: 10%'>ISR</th>
+                <td class="encabezado numero" style='width: 10%'>Ret. IVA</th>
+                <td class="encabezado numero" style='width: 10%'>A pagar</th>
+                <td class="encabezado numero" style='width: 10%'>Saldo</th>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

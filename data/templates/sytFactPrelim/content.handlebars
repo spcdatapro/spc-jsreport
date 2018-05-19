@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{
+                width: 60em;
+            }
+            .num{
+                text-align: right;
+            }
+            .tds{
+                width: 10em;
+            }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table class="tbl">
+            <tbody>
+                {{#each pendientes}}
+                <tr>
+                    <td class="tds">{{seriefact}}&nbsp;{{numfact}}</td>
+                    <td class="tds">{{cliente}}</td>
+                    <td class="tds">{{facturara}}</td>
+                    <td style="width: 20em">{{#fixCadena tipo}}{{/fixCadena}}</td>
+                    <td class="tds num">{{#nwc totapagar}}{{/nwc}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

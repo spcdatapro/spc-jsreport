@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tdw{ width: 10%; }
+            .strw{ width: 25%; }
+            .numw{ width: 15%; }
+            .brdtpbt{ border-top: solid 0.2em black; border-bottom: solid 0.2em black; }
+            .brdtp{ border-top: solid 0.15em black; }
+            .ltxt{ text-align: left; }
+            .tipo{ font-family: Arial; }
+            .bld{ font-weight: bold; }
+            .centxt{ text-align: center; }
+            .pdlft{ padding-left: 0.5em; }
+        </style>
+    </head>
+    <body>
+        <table class="tbl tipo">
+            <thead>
+                <tr>
+                    <th class="brdtpbt ltxt tdw">Fecha</th>
+                    <th class="brdtpbt ltxt">Documento</th>
+                    <th class="brdtpbt numw">Cr&eacute;dito</th>
+                    <th class="brdtpbt numw">D&eacute;bito</th>
+                    <th class="brdtpbt strw">Beneficiario</th>
+                    <th class="brdtpbt strw">Concepto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each correlativos.docs}}
+                <tr>
+                    <td class="tdw">{{fecha}}</td>
+                    <td>{{documento}}</td>
+                    <td class="num numw">{{credito}}</td>
+                    <td class="num numw">{{debito}}</td>
+                    <td class="strw pdlft">{{#shortStr beneficiario 20}}{{/shortStr}}</td>
+                    <td class="strw pdlft">{{#shortStr concepto 20}}{{/shortStr}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="2" class="tdw"></td>
+                    <td class="num brdtp bld">{{correlativos.sumas.credito}}</td>
+                    <td class="num brdtp bld">{{correlativos.sumas.debito}}</td>
+                    <td colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

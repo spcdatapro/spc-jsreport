@@ -1,0 +1,42 @@
+<style>
+    .tbl{
+        /*border: solid 0.1em black;*/
+        width: 60em;
+        border-collapse: collapse;
+    }
+    .colcap{
+        text-align:center;
+        font-weight: bold;
+        width:20em;
+    }
+    .colhd{
+        text-align:right;
+        font-weight: bold;
+        width: 10em;
+    }
+    .coltd{
+        width: 10em;
+        padding-left: 0.25em;
+    }
+    .rghttxt{ text-align: right; }
+    .first {
+        width: 58%;
+        float:left; /* add this */
+        /*border: 1px solid red;*/
+    }
+    .second {
+        /*border: 1px solid green;*/
+        overflow: hidden; /* if you don't want #second to wrap below #first */
+    }
+    .btmbrd{ border-bottom: solid 0.1em #DCDCDC }
+</style>
+<div style="font-family:Arial; font-size: 1em">
+    <div style="text-align:center; vertical-align: text-top">
+        <div class="first rghttxt">
+            <span style="font-weight: bold">FICHA DE CLIENTE</span>
+        </div>
+        <div class="second rghttxt">
+            <span style="font-weight: bold">{{fecha}}</span>
+        </div>
+    </div>
+</div>

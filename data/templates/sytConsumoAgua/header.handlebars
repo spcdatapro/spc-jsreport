@@ -1,0 +1,59 @@
+<style>
+    .tbl{ width: 100%; border-collapse: collapse; font-size:0.83em; font-family: Arial;}
+    .firsta { width: 55.5%; float:left; }
+    .firstb { width: 67%; float:left; }
+    .second { overflow: hidden; }
+    .rghttxt{ text-align: right; }
+    .tbl{width: 79em; border-collapse: collapse;}
+    .txtlft{ text-align: left; }
+    .brdbot{ border-bottom: solid 0.1em black; }
+    /*.brd{ border: solid 0.1em #DCDCDC; }*/
+    .brd{ border: 0; }
+    .txtmid{ text-align: center; }
+    .brdtop{ border-top: solid 0.1em black;}
+    .brdbtm{ border-bottom: solid 0.1em black;}
+    .num{ text-align: right; }
+    .cntr{ text-align: center; }
+</style>
+<div style="width: 100%; font-family: Arial;">
+    <div class="firsta rghttxt">
+        <span style="font-weight: bold">
+            Consumo de Agua
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">{{fecha}}</span>
+    </div>
+</div>
+<div style="width: 100%; font-family: Arial; text-align: center; padding-bottom: 1em">
+    <span style="font-weight: bold">
+        Mes de {{rango.mes}}
+    </span>
+</div>
+<!--<table class="tbl">-->
+<table style="width: 100%; border-collapse: collapse; font-family: Arial; font-size: 0.83em">
+    <thead>
+        <tr>
+            <th class="brdtop" colspan="3" style="width: 44%"></th>
+            <th class="brdtop" colspan="2" style="width: 14%">Fecha</th>
+            <th class="brdtop" colspan="2" style="width: 14%">Lectura</th>
+            <th class="brdtop" style="width: 7%">Consumo</th>
+            <th class="brdtop" style="width: 7%"></th>
+            <th class="brdtop" style="width: 7%">Base</th>
+            <th class="brdtop" style="width: 7%"></th>
+        </tr>
+        <tr>
+            <th class="brdbtm txtlft" style="width: 9%">No. Contador</th>
+            <th class="brdbtm txtlft" style="width: 9%">Unidad</th>
+            <th class="brdbtm txtlft" style="width: 26%">Cliente</th>
+            <th class="brdbtm cntr" style="width: 7%">Inicial</th>
+            <th class="brdbtm cntr" style="width: 7%">Final</th>
+            <th class="brdbtm num" style="width: 7%">Inicial</th>
+            <th class="brdbtm num" style="width: 7%">Final</th>
+            <th class="brdbtm num" style="width: 7%">m<sup>3</sup></th>
+            <th class="brdbtm num" style="width: 7%">Q/m<sup>3</sup></th>
+            <th class="brdbtm num" style="width: 7%">m<sup>3</sup></th>
+            <th class="brdbtm num" style="width: 7%">Total Q.</th>                    
+        </tr>
+    </thead>
+</table>

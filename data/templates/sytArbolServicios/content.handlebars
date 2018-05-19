@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial; font-size: 10pt; }
+            .bld{ font-weight: bold; }
+            .tbl{ width:100%; border-collapse: collapse; }
+            .num{ text-align: right; }
+            .cntxt{ text-align: center; }
+            table, th, td { border: 0.1em solid #ccc; }
+        </style>
+    </head>
+    <body class="tipo">
+        <table class="tbl tipo">
+            <tbody>
+                {{#genArbol arbol}}
+                {{/genArbol}}
+            </tbody>
+        </table>
+    </body>
+</html>

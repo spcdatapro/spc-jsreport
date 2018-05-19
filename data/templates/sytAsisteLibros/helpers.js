@@ -1,0 +1,1 @@
+function nl(){ return "\r\n"; }

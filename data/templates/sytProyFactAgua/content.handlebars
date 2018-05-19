@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; font-size:11pt; font-family: Arial;}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            .brdtp{ border-top: solid 0.1em black; }
+            .brdbt{ border-bottom: solid 0.1em black; }
+            .cntr{ text-align: center; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table class="tbl ">
+            <thead>
+                <tr>
+                    <th colspan="3" class="brdtp"></th>
+                    <th colspan="2" class="brdtp">Fecha</th>
+                    <th colspan="2" class="brdtp">Lectura</th>
+                    <th colspan="2" class="brdtp">Consumo</th>
+                    <th class="brdtp">Base</th>
+                    <th class="brdtp"></th>
+                </tr>
+                <tr>
+                    <th class="brdbt">Contador</th>
+                    <th class="brdbt">Unidad</th>
+                    <th class="brdbt">Cliente</th>
+                    <th class="brdbt cntr">Inicial</th>
+                    <th class="brdbt cntr">Final</th>
+                    <th class="brdbt">Inicial</th>
+                    <th class="brdbt">Final</th>
+                    <th class="brdbt">M<sup>3</sup></th>
+                    <th class="brdbt">Q/M<sup>3</sup></th>
+                    <th class="brdbt">m<sup>3</sup></th>
+                    <th class="brdbt">Total Q</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each contadores}}
+                <tr>
+                    <td>{{numidentificacion}}</td>
+                    <td>{{unidad}}</td>
+                    <td>{{nombre}}</td>
+                    <td class="cntr">{{fechaanterior}}</td>
+                    <td class="cntr">{{fechaactual}}</td>
+                    <td class="num">{{ultimalecturafact}}</td>
+                    <td class="num">{{lectura}}</td>
+                    <td class="num">{{consumo}}</td>
+                    <td class="num">{{preciomcubsug}}</td>
+                    <td class="num">{{mcubsug}}</td>
+                    <td class="num">{{montoconiva}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td class="brdtp brdbt" colspan="5"></td>
+                    <td class="bld brdtp brdbt num" colspan="2">Totales de empresa</td>
+                    <td class="bld brdtp brdbt num">{{totales.totconsumo}}</td>
+                    <td class="bld brdtp brdbt" colspan="2"></td>
+                    <td class="bld brdtp brdbt num">{{totales.totmonto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<style>
+    .firsta { width: 60%; float:left; }
+    .firstb { width: 67%; float:left; }
+    .second { overflow: hidden; }
+    .rghttxt{ text-align: right; }
+    .tbl{width: 79em; border-collapse: collapse;}
+    .txtlft{ text-align: left; }
+    .brdbot{ border-bottom: solid 0.1em black; }
+    /*.brd{ border: solid 0.1em #DCDCDC; }*/
+    .brd{ border: 0; }
+    .txtmid{ text-align: center; }
+</style>
+<div style="width: 100%; font-family: Arial;">
+    <div class="{{#lgHeading tasa}}{{/lgHeading}} rghttxt">
+        <span style="font-weight: bold">
+            PROYECCI&Oacute;N DE FACTURACI&Oacute;N{{#printTC tasa}}{{/printTC}}
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">{{fecha}}</span>
+    </div>
+</div>
+<div style="width: 100%; font-family: Arial; padding-bottom: 0.10em">
+    <div class="rghttxt" style="width: 58.5%; padding-right: 2.5em">
+        <span style="font-weight: bold">
+            Del {{rango.fdel}} al {{rango.fal}}
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">&nbsp;</span>
+    </div>
+</div>
+<div style="width: 100%; font-family: Arial">
+    <table class="tbl">
+        <tr>
+            <th class="brdbot txtlft"  style="width: 12.5em">Cliente</th>
+            <th class="brdbot txtlft"  style="width: 15.5em">&nbsp;</th>
+            <th class="brdbot rghttxt" style="width: 10.4em">Local</th>
+            <th class="brdbot rghttxt" style="width: 10.49em">Servicio</th>
+            <th class="brdbot txtmid" style="width: 10.41em">Monto</th>
+            <th class="brdbot txtmid" style="width: 10.41em">Inicia</th>
+            <th class="brdbot txtmid" style="width: 10.41em">Vence</th>
+        </tr>
+    </table>
+</div>

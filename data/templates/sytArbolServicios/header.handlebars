@@ -1,0 +1,51 @@
+<style>
+    .tipo{ font-family: Arial; }
+    .tbl{ width:100%; border-collapse: collapse; }
+    .first { width: 62%;  float:left; }
+    .second { overflow: hidden; }
+    .rghttxt{ text-align: right; }
+    .bold{ font-weight: bold; }
+    .brdtp{ border-top: solid 0.1em black; }
+    .brdbt{ border-bottom: solid 0.1em black; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+
+<div style="width: 100%; overflow: hidden" class="tipo">
+    <div class="first rghttxt">
+        <span class="bold">CONSUMO DE AGUA DELTA B&Aacute;RCENAS</span>
+    </div>
+    <div class="second rghttxt">
+        <span class="bold">{{fechas}}</span>
+    </div>
+</div>
+<div class="tipo" style="text-align: center; padding-bottom: 1.25em;">
+    <span class="bold">Mes {{generales.periodo}}</span>
+</div>
+<table class="tbl tipo">
+    <thead>
+        <tr>
+            <th colspan="2" class="brdtp">&nbsp;</th>
+            <th colspan="2" style="width: 14%;" class="brdtp">Fecha</th>
+            <th colspan="2" style="width: 14%;" class="brdtp">Lectura</th>
+            <th style="width: 7%;" class="brdtp">Consumo</th>
+            <th style="width: 7%;" class="brdtp">&nbsp;</th>
+            <th style="width: 7%;" class="brdtp">Base</th>
+            <th style="width: 7%;" class="brdtp">&nbsp;</th>
+        </tr>
+        <tr>
+            <th style="width: 15%;" class="brdbt">Contador</th>
+            <th class="brdbt">Ubicaci&oacute;n</th>
+            <th style="width: 7%;" class="brdbt">Inicial</th>
+            <th style="width: 7%;" class="brdbt">Final</th>
+            <th style="width: 7%;" class="brdbt">Inicial</th>
+            <th style="width: 7%;" class="brdbt">Final</th>
+            <th style="width: 7%;" class="brdbt">M<sup>3</sup></th>
+            <th style="width: 7%;" class="brdbt">Q/M<sup>3</sup></th>
+            <th style="width: 7%;" class="brdbt">m<sup>3</sup></th>
+            <th style="width: 7%;" class="brdbt">Total</th>
+        </tr>
+    </thead>
+</table>

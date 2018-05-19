@@ -1,0 +1,66 @@
+<style>
+    .tbl{
+        width: 60em;
+        border: solid 0.10em black;
+        display: inline;
+        float: none;
+    }
+    .tdhd{
+        font-weight: bold;
+        text-align: right;
+        width: 15em;
+    }
+    .tdsd{
+        width:15em;
+    }
+    .first {
+        width: 58%;
+        float:left; /* add this */
+        /*border: 1px solid red;*/
+    }
+    .second {
+        /*border: 1px solid green;*/
+        overflow: hidden; /* if you don't want #second to wrap below #first */
+    }    
+    .rghttxt{ text-align: right; }
+</style>
+<div style="width: 100%; font-family: Arial; padding-bottom: 0.5em">
+    <div class="first rghttxt">
+        <span style="font-weight: bold">FICHA DE PROYECTO</span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">{{fecha}}</span>
+    </div>
+</div>
+<div style="font-family:Arial; text-align: center; width: 100%">
+    <table class="tbl">
+        <tr>
+            <td class="tdhd">Nombre:</td>
+            <td class="tdsd">{{proyecto.proyecto}}</td>
+            <td class="tdhd">Referencia:</td>
+            <td class="tdsd">{{proyecto.referencia}}</td>
+        </tr>
+        <tr>
+            <td class="tdhd">Empresa:</td>
+            <td class="tdsd">{{proyecto.empresa}}</td>
+            <td class="tdhd">Tipo de proyecto:</td>
+            <td class="tdsd">{{proyecto.tipoproyecto}}</td>
+        </tr>
+        <tr>
+            <td class="tdhd">Direcci&oacute;n:</td>
+            <td class="tdsd" colspan="3">{{proyecto.direccion}}</td>
+        </tr>
+        <tr>
+            <td class="tdhd">M<sup>2</sup>&nbsp;&aacute;rea rentable:</td>
+            <td class="tdsd">{{#fnum proyecto.mcrentables}}{{/fnum}}</td>
+            <td class="tdhd">&Aacute;rea total:</td>
+            <td class="tdsd">{{#fnum proyecto.mcuad}}{{/fnum}}</td>
+        </tr>
+        <tr>
+            <td class="tdhd">Fecha de apertura:</td>
+            <td class="tdsd">{{#formatDate proyecto.fechaapertura}}{{/formatDate}}</td>
+            <td class="tdhd">&Aacute;rea com&uacute;n:</td>
+            <td class="tdsd">{{#fnum proyecto.areanorentable}}{{/fnum}}</td>
+        </tr>        
+    </table>
+</div>

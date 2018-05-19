@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                border-spacing: 0px;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                background-color: #cac9c9;
+            }
+            .factura{
+                border-spacing: 0px;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .total2{
+                text-align: right;
+                font-weight: bold;
+                font-size: 16;
+            }
+        </style>
+    </head>
+    <body>
+        {{#each empresas}}
+        <table style='width: 100%; font-family: Arial; font-size:14; border-collapse:collapse;'>
+            <caption style="font-size: 14.5pt; font-weight:bold; text-align: left; padding-bottom: 0.75em">
+                {{nomempresa}} ({{abreviatura}})
+            </caption>
+            <tbody>
+                {{#each facturas}}
+                    <tr>
+                        {{#if @last}}
+                        <td class="subtotal" colspan="3" style="font-weight:bold">{{fecha}}</td>
+                        <td class="subtotal" style='width:10%'>{{base}}</td>
+                        <td class="subtotal" style='width:10%'>{{iva}}</td>
+                        <td class="subtotal" style='width:10%'>{{retiva}}</td>                        
+                        {{else}}
+                        <td class="factura" style='width: 29%;'>{{serie}} {{numero}}</td>
+                        <td style='font-size:14;' style='width:30%'>{{#strCut nombre 30}}{{/strCut}}</td>
+                        <td class="factura" style='width:10%'>{{fecha}}</td>
+                        <td class="numero factura" style='width:10%'>{{base}}</td>
+                        <td class="numero factura" style='width:10%'>{{iva}}</td>
+                        <td class="numero factura" style='width:10%'>{{retiva}}</td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/each}}
+        <table style='width: 100%; font-family: Arial; font-size:14; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td class="total" colspan="3" style="font-weight:bold">GRAN TOTAL:</td>
+                    <td class="total" style='width:10%'>{{generales.totalbase}}</td>
+                    <td class="total" style='width:10%'>{{generales.totaliva}}</td>
+                    <td class="total" style='width:10%'>{{generales.totalretiva}}</td>                        
+                </tr>
+            </tbody>
+        </table>        
+    </body>
+</html>

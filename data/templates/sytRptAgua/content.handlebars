@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; font-size:0.83em; font-family: Arial;}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            /*.brd{ border: solid 0.1em #DCDCDC;}*/
+            .brd{ border: solid 0.1em darkgrey;}
+            /*.brd{ border: 0; }*/
+            .cntr{ text-align: center; }
+        </style>
+    </head>
+    <body style="font-family: Arial; font-size: 0.83em">
+        <table class="tbl brd">
+            <thead>
+                <th class="brd">Proyecto</th>
+                <th class="brd">Cliente</th>
+                <th class="brd">Nombre corto</th>
+                <th class="brd">Local</th>
+                <th class="brd">Contador</th>
+                <th class="brd">Fecha anterior</th>
+                <th class="brd">Fecha actual</th>
+                <th class="brd">Lectura anterior</th>
+                <th class="brd">Lectura actual</th>
+                <th class="brd">Consumo</th>
+            </thead>
+            <tbody>
+                {{#each contadores}}
+                <tr>
+                    <td class="brd">{{proyecto}}</td>
+                    <td class="brd">{{nombre}}</td>
+                    <td class="brd">{{nombrecorto}}</td>
+                    <td class="brd">{{unidad}}</td>
+                    <td class="brd">{{servicio}}</td>
+                    <td class="brd cntr">{{fechaanterior}}</td>
+                    <td class="brd cntr">{{fechaactual}}</td>
+                    <td class="brd num">{{anterior}}</td>
+                    <td class="brd num">{{actual}}</td>
+                    <td class="brd num">{{consumo}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

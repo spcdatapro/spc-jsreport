@@ -1,0 +1,1 @@
+function nl(){ return "\u000D\u000A"; }

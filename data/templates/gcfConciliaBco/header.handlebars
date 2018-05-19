@@ -1,0 +1,38 @@
+<style>
+    .titulo{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .subtitulo{
+        font-size: 1em;
+        font-weight: bold;
+    }
+    .first { float:left; }
+    .second { overflow: hidden; }
+</style>
+<div style="width: 100%">
+    <h1>GRUPO CORPORATIVO FINANCIERO, S. A.</h1>
+    <div style="width: 100%; text-align: center">
+        <h2>CONCILIACI&Oacute;N BANCARIA</h2>
+        <h3>DEL:&nbsp;{{concilia.banco.del}}&nbsp;AL:&nbsp;{{concilia.banco.al}}</h3>
+    </div>
+    <div class="first" style="width: 75%; border: solid 0.13em black">
+        <div style="padding-left:0.25em">
+            <span class="subtitulo">Datos del Banco</span>
+        </div>
+        <div style="padding-left:0.5em">
+            <table style="width: 50%">
+                <tr>
+                    <th style="text-align: right">Cuenta:</th>
+                    <td>{{concilia.banco.nocuenta}}</td>
+                    <th style="text-align: right">Cuenta contable:</th>
+                    <td>{{concilia.banco.cuentacont}}</td>
+                </tr>
+                <tr>
+                    <th style="text-align: right">Banco:</th>
+                    <td colspan="3">{{concilia.banco.nombre}}&nbsp;({{concilia.banco.simbolo}})</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

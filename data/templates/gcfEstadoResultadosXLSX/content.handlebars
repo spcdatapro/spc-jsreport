@@ -1,0 +1,42 @@
+{{#xlsxRemove "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row" 2}}{{/xlsxRemove}}
+{{#each cuentas}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t>{{nombrecta}}</t></is></c>
+        <c s="{{@root.$removedItem.c.[1].$.s}}">
+            <v>
+                {{#shouldPrint codigo 6}}
+                    {{saldo}}
+                {{else}}
+                {{/shouldPrint}}
+            </v>
+        </c>
+        <c s="{{@root.$removedItem.c.[2].$.s}}">
+            <v>
+                {{#shouldPrint codigo 4}}
+                    {{saldo}}
+                {{else}}
+                {{/shouldPrint}}
+            </v>
+        </c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}">
+            <v>
+                {{#shouldPrint codigo 2}}
+                    {{saldo}}
+                {{else}}
+                {{/shouldPrint}}
+            </v>
+        </c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}">
+            <v>
+                {{#shouldPrint codigo 1}}
+                    {{saldo}}
+                {{else}}
+                {{/shouldPrint}}
+            </v>
+        </c>
+    </row>
+{{/xlsxAdd}}
+{{/each}}
+
+{{{xlsxPrint}}}

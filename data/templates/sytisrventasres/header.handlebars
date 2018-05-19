@@ -1,0 +1,36 @@
+<style>
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+    .encabezado{
+         font-weight:bold;
+         font-family: Arial;
+         font-size:16;
+    }
+    .numero{
+                text-align: right;
+                border-spacing: 0px;
+            }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="width: 100%; font-family: Arial; font-size: 14pt; text-align: center">
+    <span style="font-weight: bold">{{empresa.nomempresa}}</span><br/>
+    <span style="font-weight: bold">Resumen de pago de ISR</span><br/>
+    <span>Mes de {{empresa.mesrep}} de {{empresa.aniorep}}</span><br/><br/>
+</div>
+

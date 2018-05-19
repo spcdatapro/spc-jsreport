@@ -1,0 +1,52 @@
+<style>
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+    .encabezado{
+         font-weight:bold;
+         font-family: Arial;
+         font-size:16;
+    }
+    .numero{
+                text-align: right;
+                border-spacing: 0px;
+            }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="width: 100%; font-family: Arial; font-size: 14pt; text-align: center">
+    <span style="font-weight: bold">{{empresa.nomempresa}}</span><br/>
+    <span style="font-weight: bold">{{empresa.titulo}}</span><br/>
+    <span>Mes de {{empresa.mesrep}} de {{empresa.aniorep}}</span><br/><br/>
+</div>
+
+<div>
+    <table style='width: 100%;font-family: Arial;font-size:14; border-collapse:collapse;'>
+        <tbody>
+            <tr class="encabezado">
+                <td class="encabezado" style='width:4%'>No</th>
+                <td class="encabezado" style='width:25%'>Factura</th>
+                <td class="encabezado" style='width:30%'>Cliente</th>
+                <td class="encabezado" style='width:10%'>Fecha</th>
+                <td class="encabezado numero" style='width:10%'>Base Q.</th>
+                <td class="encabezado numero" style='width:10%'>Impuesto</th>
+                <td class="encabezado" style='width:10%'>Retencion</th>
+                
+            </tr>
+        </tbody>
+    </table>    
+</div>

@@ -1,0 +1,35 @@
+<style>
+    .tbl{ width: 100%; }
+    .cel{ width: 33.33%; }
+    .cel2{ width: 25%; }
+    .dertxt{ text-align: right; }
+    .lfttxt{ text-align: left; }
+    .centxt{ text-align: center; }
+    .bld{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    .pad{ padding-top: 0.2em; padding-bottom: 0.2em; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<!--<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>-->
+<table class="tbl tipo">
+    <tr>
+        <td class="cel pad">&nbsp;</td>
+        <td class="cel centxt bld pad">{{generales.empresa}} ({{generales.abreviaempre}})</td>
+        <td class="cel dertxt bld pad">{{generales.fecha}} {{generales.hora}}</td>
+    </tr>
+    <tr>
+        <td class="centxt bld pad" colspan="3">Documentos en circulaci&oacute;n</td>
+    </tr>
+</table>
+<div class="tbl centxt tipo">
+    <div class="pad lfttxt" style="width: 100%; padding-top: 1em">
+        <span class="bld">Banco:</span>&nbsp;{{generales.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{generales.moneda}})
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="bld">No. de cuenta:</span>&nbsp;{{generales.nocuenta}}
+    </div>    
+</div>

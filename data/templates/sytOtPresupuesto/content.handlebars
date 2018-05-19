@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tbl2{ width: 96%; border-collapse: collapse; font-size: 10pt;}
+            .tipo{ font-family: Arial; }
+            .rtxt{ text-align: right; }
+            .ltxt{ text-align: left; }
+            .ctxt{ text-align: center; }
+            .smtxt{ font-size: 10.5pt; }
+            .pdbtm{ padding-bottom: 0.5em; }
+            .pdlft{ padding-left: 0.5em; }
+            .tblbrd{ border: solid 0.1em lightgray }
+            .otheader{ border-bottom: solid 0.1em black }
+        </style>
+    </head>
+    <body>
+        <table class="tipo tbl">
+            <tr>
+                <th class="rtxt">Solicitado el:</th>
+                <td colspan="11">{{ot.fechasolicitud}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Proyecto:</th>
+                <td colspan="11">{{ot.proyecto}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Proveedor:</th>
+                <td colspan="11">{{ot.proveedor}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Empresa a facturar:</th>
+                <td colspan="11">{{ot.empresa}} ({{ot.abreviaempresa}})</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Tipo de gasto:</th>
+                <td colspan="11">{{ot.tipogasto}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Sub-tipo de gasto:</th>
+                <td colspan="11">{{ot.subtipogasto}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Monto:</th>
+                <td colspan="11">{{ot.moneda}} {{ot.monto}}</td>
+            </tr>
+        </table>
+        <hr/>
+        <table class="tipo tbl">
+            <caption>
+                <h2>FORMAS DE PAGO</h2>
+            </caption>
+            <tbody>
+                <tr>
+                    <th class="ctxt">No.</th>
+                    <th class="rtxt">Porcentaje</th>
+                    <th class="rtxt">Monto</th>
+                    <th class="ltxt pdlft">Notas</th>
+                </tr>
+                {{#each ot.formaspago}}
+                <tr>
+                    <td class="ctxt">{{nopago}}</td>
+                    <td class="rtxt">{{porcentaje}}</td>
+                    <td class="rtxt">{{monto}}</td>
+                    <td class="ltxt pdlft"><p>{{notas}}</p></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tipo tbl">
+            <caption>
+                <h2>NOTAS</h2>
+            </caption>
+            <tbody>
+                <tr>
+                    <th class="ltxt">Fecha/Hora</th>
+                    <th class="ltxt">Usuario</th>
+                    <th class="ltxt">Nota</th>
+                </tr>
+                {{#each ot.notas}}
+                <tr>
+                    <td class="ltxt">{{fechahora}}</td>
+                    <td class="ltxt"><p>{{nota}}</p></td>
+                    <td class="ltxt">{{iniciales}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tipo tbl">
+            <caption>
+                <h2>AVANCE</h2>
+            </caption>
+            <tbody>
+                <tr>
+                    <th class="ltxt">Fecha</th>
+                    <th class="ltxt">Documento</th>
+                    <th class="rtxt">Monto</th>
+                    <th class="rtxt">I.S.R.</th>
+                    <th class="rtxt">T.C.</th>
+                    <th class="ltxt">Fact.</th>
+                    <th class="ltxt" style="width: 25%">Concepto</th>
+                </tr>
+                {{#each ot.avance}}
+                <tr>
+                    <td class="">{{fecha}}</td>
+                    <td class="">{{docto}}</td>
+                    <td class="rtxt">{{moneda}} {{monto}}</td>
+                    <td class="rtxt">{{isr}}</td>
+                    <td class="rtxt">{{tipocambio}}</td>
+                    <td class="">{{factura}}</td>
+                    <td class="" style="width: 25%"><p>{{concepto}}</p></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>        
+    </body>
+</html>

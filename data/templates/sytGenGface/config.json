@@ -1,0 +1,17 @@
+{
+    "shortid": "SJ2xzSzKx",
+    "recipe": "text",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "BJz1GSGFx"
+        }
+    ],
+    "modificationDate": {
+        "$$date": 1519941570002
+    },
+    "_id": "C8Qp4Q5Ca2jYfFQA",
+    "contentType": "text/plain; charset=windows-1252",
+    "contentDisposition": "attachment;filename=\"test.txt\"",
+    "fileExtension": "txt"
+}

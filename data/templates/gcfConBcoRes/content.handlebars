@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{
+                border: solid 0.2em black;
+                border-radius: 1em;
+                width: 30em;
+                font-size: 1.17em;
+                margin: 0 auto;
+            }
+            .tdtbl{
+                width: 10em;
+                /*border: dotted 0.1em black;*/
+                padding: 0.5em;
+            }
+            .brdtp{ 
+                border-top: solid 0.1em black; 
+                text-align:center; 
+                width: 20em; 
+                font-weight: bold;
+            }
+            .ltxt{ text-align: left; }
+            .padleft{ padding-left: 0.75em; }
+            /*.brd{ border:solid 0.1 #DCDCDC; }*/
+            .brd{ border: 0; }
+        </style>
+    </head>
+    <body>
+        <table class="tbl">
+             <tr>
+                 <th class="num tdtbl" colspan="2">Saldo seg&uacute;n estado de cuenta:</th>
+                 <td class="num tdtbl">{{#nwc concilia.banco.saldobco}}{{/nwc}}</td>
+             </tr>
+             <tr>
+                 <th class="num tdtbl" colspan="2">Saldo seg&uacute;n contabilidad:</th>
+                 <td class="num tdtbl">{{#nwc concilia.saldoconta}}{{/nwc}}</td>                 
+             </tr>
+             {{#each concilia.entransito}}
+             <tr>
+                 <td class="num tdtbl">{{cantTipo}}</td>
+                 <td class="tdtbl">{{tipo}}</td>
+                 <td class="num tdtbl">{{#nwc monto}}{{/nwc}}</td>
+             </tr>
+             {{/each}}
+             <tr>
+                 <th class="num tdtbl" colspan="2">Diferencia:</th>
+                 <td class="num tdtbl">{{#nwc concilia.diferencia}}{{/nwc}}</td>                 
+             </tr>
+        </table>
+        <div style="width:100%; padding-top: 2em;">
+            <table style="width:60em; border-collapse: collapse">
+                <thead>
+                    <tr>
+                        <th class="num" style="width:7em">No.</th>
+                        <th style="width:7em">Fecha</th>
+                        <th style="width:3em">Tipo</th>
+                        <th class="num" style="width:7em">Cr&eacute;dito</th>
+                        <th class="num" style="width:7em">D&eacute;bito</th>
+                        <th class="padleft ltxt" style="width:29em">Beneficiario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each concilia.detdocspend}}
+                    <tr>
+                        <td class="brd num" style="width:7em">{{numero}}</td>
+                        <td class="brd" style="width:7em; text-align: center">{{#formatDate fecha}}{{/formatDate}}</td>
+                        <td class="brd" style="width:3em; text-align: center">{{abreviatura}}</td>
+                        <td class="brd num" style="width:7em">{{#nwc credito}}{{/nwc}}</td>
+                        <td class="brd num" style="width:7em">{{#nwc debito}}{{/nwc}}</td>
+                        <td class="brd padleft" style="width:29em">{{beneficiario}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div style="width:100%; padding-top: 7em; text-align: center">
+            <table style="width:100%">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="brdtp">Hecho por</td>
+                    <td>&nbsp;</td>
+                    <td class="brdtp">Revisado por</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

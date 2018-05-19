@@ -1,0 +1,14 @@
+{
+    "shortid": "B1ICfUfDb",
+    "recipe": "text",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "r1WAzIzwW"
+        }
+    ],
+    "modificationDate": {
+        "$$date": 1503005978241
+    },
+    "_id": "vwt4339Jet4h3p3H"
+}

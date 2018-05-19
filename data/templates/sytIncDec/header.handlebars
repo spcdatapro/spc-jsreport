@@ -1,0 +1,53 @@
+<style>
+    .rghttxt{ text-align: right; }
+    .cntrtxt{ text-align: center; }
+    .lfttxt{ text-align: left; }
+    .bold{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    /*.first { width: 65%;  float:left; }*/
+    .first { width: {{#wTitle tipo}}{{/wTitle}};  float:left; }
+    .second { overflow: hidden; }
+    .tbl{ width: 78.5em; border-collapse: collapse; /*border: solid 0.1em #DCDCDC;*/}
+    .brdbtm{ border-bottom: solid 0.1em black;}
+    /*.brdbtm{ border: solid 0.1em #DCDCDC;}*/
+    .padleft{ padding-left: 4.5em; }
+</style>
+<div style="width: 100%; overflow: hidden" class="tipo">
+    <div class="first rghttxt">
+        <span class="bold">REPORTE DE {{IncDecStr}}</span>
+    </div>
+    <div class="second rghttxt">
+        <span class="bold">{{fecha}}</span>
+    </div>
+</div>
+<div class="tipo cntrtxt" style="padding-bottom: 0.75em">
+    <span class="bold">
+        Del {{#formatDate rango.del}}{{/formatDate}} al {{#formatDate rango.al}}{{/formatDate}}
+    </span>
+</div>
+<table class="tbl tipo">
+    <thead>
+        <tr>
+            <th style="width: 13.02em">&nbsp;</th>
+            <th style="width: 6.72em">&nbsp;</th>
+            <th style="width: 8.72em">&nbsp;</th>
+            <th style="width: 8.72em">&nbsp;</th>
+            <th colspan="2" style="width: 11.44em">Contrato</th>
+            <th style="width: 5.72em">&nbsp;</th>
+            <th class="padleft" colspan="2" style="width: 17.44em">Renta</th>
+            <th style="width: 6.72em">&nbsp;</th>
+        </tr>
+        <tr>
+            <th class="brdbtm" style="width: 13.02em">Cliente</th>
+            <th class="brdbtm" style="width: 6.72em">Abreviatura</th>
+            <th class="brdbtm" style="width: 8.72em">Concepto</th>
+            <th class="brdbtm lfttxt" style="width: 8.72em">Local</th>
+            <th class="brdbtm" style="width: 5.72em">Inicia</th>
+            <th class="brdbtm" style="width: 5.72em">Vence</th>
+            <th class="brdbtm" style="width: 5.72em">Fecha</th>
+            <th class="rghttxt brdbtm" style="width: 6.72em">Anterior</th>
+            <th class="rghttxt brdbtm" style="width: 6.72em">Actual</th>
+            <th class="cntrtxt brdbtm" style="width: 6.72em">Incremento</th>
+        </tr>
+    </thead>
+</table>

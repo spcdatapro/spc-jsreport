@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+                font-weight: bold;
+                font-size:120%;
+                border-collapse:collapse;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+                border-collapse:collapse;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <tbody>
+                {{#each anti}}
+                <tr>
+                    <td style='font-weight:bold;font-size:200%' colspan=2>{{moneda}} ({{simbolo}})</td>
+                </tr>
+                <tr>
+                    <td class="encabezado">Nit</th>
+                    <td class="encabezado">Nombre</th>
+                    <td class="encabezado">Vigente</th>
+                    <td class="encabezado">15+</th>
+                    <td class="encabezado">30+</th>
+                    <td class="encabezado">60+</th>
+                    <td class="encabezado">90+</th>
+                    <td class="encabezado">Total</th>
+                </tr>
+                {{#each dmnd}}
+                <tr>
+                    <td style='width: 10%'>{{nit}}</td>
+                    <td style='width: 43.5%'>{{#formatname nombre}}{{/formatname}}</td>
+                    <td class="numero">{{#numberWithCommas vigente tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas a15 tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas a30 tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas a60 tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas a90 tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas total tipocuenta}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td style='width: 10%; font-weight:bold'></td>
+                    <td style='width: 43.5%; font-weight:bold; text-align: right'>Totales Moneda:</td>
+                    <td style='font-weight:bold' class="total">{{#numberWithCommas vigente}}{{/numberWithCommas}}</td>
+                    <td style='font-weight:bold'class="total">{{#numberWithCommas a15}}{{/numberWithCommas}}</td>
+                    <td style='font-weight:bold'class="total">{{#numberWithCommas a30}}{{/numberWithCommas}}</td>
+                    <td style='font-weight:bold'class="total">{{#numberWithCommas a60}}{{/numberWithCommas}}</td>
+                    <td style='font-weight:bold'class="total">{{#numberWithCommas a90}}{{/numberWithCommas}}</td>
+                    <td style='font-weight:bold'class="total">{{#numberWithCommas total}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+        <table class="resumen">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" colspan=2>RESUMEN DE TOTALES</td>
+                </tr>
+                {{#each anti}}
+                <tr>
+                    <td>{{moneda}} ({{simbolo}})</td>
+                    <td class="numero">{{#numberWithCommas total}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

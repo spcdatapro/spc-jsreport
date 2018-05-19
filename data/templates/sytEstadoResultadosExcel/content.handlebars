@@ -1,0 +1,34 @@
+<table>
+    <tr>
+        <th colspan="3">
+            {{empresa}}
+        </th>
+    </tr>
+    <tr>
+        <th colspan="3">
+            Estado de Resultados
+        </th>
+    </tr>    
+    <tr>
+        <th colspan="3">
+            Del {{formatDate del}} al {{formatDate al}}
+        </th>
+    </tr>
+    {{#each cuentas}}
+    <tr>
+        <td>{{nombrecta}}</td>
+        <td>
+            {{#shouldPrint codigo 7}}
+                {{toFloat saldo}}
+            {{else}}
+            {{/shouldPrint}}
+        </td>
+        <td>
+            {{#shouldPrint codigo 5}}
+                {{toFloat saldo}}
+            {{else}}
+            {{/shouldPrint}}
+        </td>
+    </tr>
+    {{/each}}
+</table>

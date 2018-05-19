@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <style>
+        .num {
+            text-align: right;
+        }
+        
+        .tbl { width: 100%; }
+        
+        .brd { border: solid 0.1em black; border-collapse: collapse; }
+
+    </style>
+</head>
+
+<body>
+    <table class="tbl brd">
+        <caption style="text-align: center">
+            <h4>{{promedios.diashabiles}} d&iacute;as h&aacute;biles</h4>
+        </caption>
+        <thead>
+            <tr>
+                <th class="brd">Fuente</th>
+                <th class="num brd">Cantidad</th>
+                <th class="num brd">Porcentaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each promedios.promedios}}
+            <tr>
+                <td class="brd">{{descripcion}}</td>
+                <td class="num brd">{{#fnum cantidad}}{{/fnum}}</td>
+                <td class="num brd">{{porcentaje}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

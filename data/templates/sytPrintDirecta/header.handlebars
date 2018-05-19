@@ -1,0 +1,33 @@
+<style>
+    .tipo{ font-family: Arial; }
+    .rtxt{ text-align: right; }
+</style>
+<div class="tipo" style="width: 100%; text-align: center">
+    <h3>
+        {{directa.nomempresa}}<br/>
+        P&Oacute;LIZA DIRECTA
+    </h3>
+</div>
+<table class="tipo">
+    <tr>
+        <th class="rtxt padb">No.:</th><td class="padl padb">{{directa.id}}</td>
+    </tr>
+    <tr>
+        <th class="rtxt padb">Fecha:</th><td class="padl padb">{{directa.fecha}}</td>
+    </tr>
+    <tr>
+        <th class="rtxt padb">Concepto:</th><td class="padl padb"><p>{{directa.concepto}}</p></td>
+    </tr>
+</table>
+<div style="width: 85%; margin:0 auto; padding-top: 1em;">
+    <table class="tipo" style="width: 100%; font-size: 10pt; border-collapse: collapse;">
+        <caption style="padding-bottom: 0.08em"><h3>DETALLE CONTABLE</h3></caption>
+        <tr>
+            <th class="ltxt padb" style="width: 10%">CÓDIGO</th>
+            <th class="ltxt padb" style="width: 30%">CUENTA</th>
+            <th class="rtxt padb" style="width: 13%">DEBE</th>
+            <th class="rtxt padb" style="width: 13%">HABER</th>
+            <th class="ltxt padl padb" style="width: 34%">CONCEPTO</th>
+        </tr>
+    </table>
+</div>

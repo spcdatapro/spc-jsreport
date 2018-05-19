@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{
+                width: 110em;
+                font-size:0.83em;
+                /*border: solid 0.1em black;*/
+            }
+            .tds{
+                width: 10em;
+                text-align:left;
+                /*border: solid 0.1em black;*/
+            }
+            .num{
+                text-align:right;
+            }
+            .titulo{
+                font-weight:bold;
+                font-size: 1em;
+            }
+            .subtitulo{
+                font-weight:bold;
+                font-size: 1em;
+                padding-left:1.5em;
+            }
+        </style>
+    </head>
+    <body style="font-family: Arial; font-size:0.83em">
+        {{#each activos}}
+            <span class="titulo">{{empresa}}</span><br/>
+            {{#each depto}}
+            <span class="subtitulo">{{departamento}}</span><br/>
+            <table class="tbl">
+                <tbody>
+                    {{#each lista}}
+                    <tr>
+                        <td class="tds">{{tipoactivo}}</td>
+                        <td class="tds">{{ffl}}</td>
+                        <td class="tds" style="width:38em">{{#strCut direccion 85}}{{/strCut}}</td>
+                        <td class="tds num" style="width:7em">{{#nwc iusi}}{{/nwc}}</td>
+                        <td class="tds" style="width: 8em; text-align:center">{{multiproyectos}}</td>
+                        <td class="tds num" style="width:7em">{{#nwc valor_muni}}{{/nwc}}</td>
+                        <td class="tds num" style="width:7em">{{#nwc metros_muni}}{{/nwc}}</td>
+                        <td class="tds num" style="width:7em">{{#nwc valprop}}{{/nwc}}</td>
+                        <td class="tds" style="text-align:center">{{horizontal}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <br/>
+            {{/each}}
+            <hr/>
+        {{/each}}
+    </body>
+</html>

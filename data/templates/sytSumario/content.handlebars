@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .padtop{ padding-top: 0.5em; }
+            .dblbrd{ border-bottom: double 0.25em black; }
+            .subtotal{border-top: solid 0.1em black; border-bottom: double 0.25em black; font-weight:bold;}
+            .total{border-top: solid 0.13em black; border-bottom: double 0.31em black; font-weight:bold;}
+            .cntrtxt{ text-align: center; }
+            .tipo{ font-family: Arial; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table class="tbl tipo">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Cheques</th>
+                    <th colspan="2">Notas de</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="dblbrd">Empresa</th>
+                    <th class="dblbrd">Saldo Anterior</th>
+                    <th class="dblbrd">Dep&oacute;sitos</th>
+                    <th class="dblbrd">Girados</th>
+                    <th class="dblbrd">Cr&eacute;dito</th>
+                    <th class="dblbrd">D&eacute;bito</th>
+                    <th class="dblbrd">Saldo Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sumario.comercial}}
+                <tr>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}}">{{empresa}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum saldoanterior}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum depositos}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum girados}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum credito}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum debito}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum saldoactual}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+                {{#each sumario.personal}}
+                <tr>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}}">{{empresa}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum saldoanterior}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum depositos}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum girados}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum credito}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum debito}}{{/fnum}}</td>
+                    <td class="padbot padtop {{#subtot empresa}}{{/subtot}} num">{{#fnum saldoactual}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                    <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="total padbot padtop">{{sumario.grantotal.empresa}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.saldoanterior}}{{/fnum}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.depositos}}{{/fnum}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.girados}}{{/fnum}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.credito}}{{/fnum}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.debito}}{{/fnum}}</td>
+                    <td class="total num padbot padtop">{{#fnum sumario.grantotal.saldoactual}}{{/fnum}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

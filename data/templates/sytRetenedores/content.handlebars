@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial; font-size: 10pt;}
+            .tbl{ width: 100%; border-collapse: collapse}
+            .ctxt{ text-align: center; }
+            .ltxt{ text-align: left; }
+            .pad{ padding-top: 0.25em; padding-bottom: 0.25em; }
+        </style>
+    </head>
+    <body class="tipo">
+        <table class="tipo tbl">
+            <tbody>
+                {{#each retenedores}}
+                <tr>
+                    <td class="pad" style="width: 35%">{{shortStr nombre 20}} ({{nombrecorto}})</td>
+                    <td class="pad" style="width: 35%">{{shortStr facturara 30}}</td>
+                    <td class="pad" style="width: 10%">{{nit}}</td>
+                    <td class="ctxt pad" style="width: 10%">{{retisr}}</td>
+                    <td class="ctxt pad" style="width: 10%">{{retiva}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

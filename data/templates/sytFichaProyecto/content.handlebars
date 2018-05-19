@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{
+                width: 60em;
+                border: solid 0.10em black;
+                display: inline;
+                float: none;
+            }
+            .tbl2{
+                width: 60em;
+                display: inline;
+                float: none;
+            }
+            .tdhd{
+                font-weight: bold;
+                text-align: right;
+                width: 15em;
+            }
+            .tdsd{ width:15em; }
+            .padleft{padding-left: 1em;}
+            .padright{padding-right: 4em;}
+            .padtop{ padding-top: 2em; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table class="tbl2">
+            <caption>
+                <span style="font-weight: bold;">UNIDADES</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="tdsd" style="text-align: left; width: 3em">&nbsp;</th>
+                    <th class="tdsd padleft" style="text-align: left">Nombre</th>
+                    <th class="tdsd padright" style="text-align: right; width: 3em">M<sup>2</sup></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="tdsd padleft" style="text-align: right; font-weight: bold; padding-right: 2em">Total de &aacute;rea rentable</td>
+                    <td class="tdsd padright" style="text-align: right; width: 3em; border-top: solid 0.1em black; font-weight: bold">{{#fnum proyecto.arearentable}}{{/fnum}}</td>
+                </tr>
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="tdsd padleft" style="text-align: right; font-weight: bold; padding-right: 2em">Total de &aacute;rea com&uacute;n</td>
+                    <td class="tdsd padright" style="text-align: right; width: 3em; font-weight: bold">{{#fnum proyecto.areanorentable}}{{/fnum}}</td>
+                </tr>                
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="tdsd padleft" style="text-align: right; font-weight: bold; padding-right: 2em">Gran Total</td>
+                    <td class="tdsd padright" style="text-align: right; width: 3em; border-top: solid 0.1em black; border-bottom: double 0.3em black; font-weight: bold">{{#fnum proyecto.mtot}}{{/fnum}}</td>
+                </tr>                
+            </tfoot>
+            <tbody>
+                {{#each proyecto.tunidad}}
+                <tr>
+                    <th class="tdsd" style="text-align: left; width: 3em">&nbsp;</th>
+                    <th colspan="2" style="text-align: left">{{#toUpperCase tipo}}{{/toUpperCase}}</th>
+                </tr>
+                {{#each unidades}}
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="tdsd padleft" style="{{#setStyleNom nombre}}{{/setStyleNom}}">{{nombre}}</td>
+                    <td class="tdsd padright" style="text-align: right; width: 3em; {{#setStyleNum nombre}}{{/setStyleNum}}">{{#fnum mcuad}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+                {{#each proyecto.tunidadnorent}}
+                <tr>
+                    <th class="tdsd" style="text-align: left; width: 3em">&nbsp;</th>
+                    <th colspan="2" style="text-align: left">{{#toUpperCase tipo}}{{/toUpperCase}}</th>
+                </tr>
+                {{#each unidades}}
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="tdsd padleft" style="{{#setStyleNom nombre}}{{/setStyleNom}}">{{nombre}}</td>
+                    <td class="tdsd padright" style="text-align: right; width: 3em; {{#setStyleNum nombre}}{{/setStyleNum}}">{{#fnum mcuad}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tbl2">
+            <caption>
+                <span style="font-weight: bold;">ACTIVOS</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="tdsd" style="text-align: left; width: 3em">&nbsp;</th>
+                    <th class="padleft" style="text-align: left; width: 10em">Finca-Folio-Libro</th>
+                    <th class="padleft" style="text-align: left;">Descripci&oacute;n</th>
+                    <th class="padright" style="text-align: right; width: 10em">M<sup>2</sup></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="padleft" style="text-align: right; font-weight: bold; padding-right: 2em; width: 10em">&nbsp;</td>
+                    <td class="padleft" style="text-align: right; font-weight: bold; padding-right: 2em;">Gran Total</td>
+                    <td class="tdsd padright" style="text-align: right; width: 10em; border-top: solid 0.1em black; border-bottom: double 0.3em black; font-weight: bold">{{#fnum proyecto.atot}}{{/fnum}}</td>
+                </tr>                
+            </tfoot>
+            <tbody>
+                {{#each proyecto.tactivo}}
+                <tr>
+                    <th class="tdsd" style="text-align: left; width: 3em">&nbsp;</th>
+                    <th colspan="3" style="text-align: left">{{#toUpperCase empresa}}{{/toUpperCase}}</th>
+                </tr>
+                {{#each activos}}
+                <tr>
+                    <td class="tdsd" style="text-align: left; width: 3em">&nbsp;</td>
+                    <td class="padleft" style="width: 10em;">{{ffl}}</td>
+                    <td class="padleft" style="{{#setStyleNom descripcion}}{{/setStyleNom}}">{{#strCut descripcion 60}}{{/strCut}}</td>
+                    <td class="tdsd padright" style="text-align: right; width: 10em; {{#setStyleNum ffl}}{{/setStyleNum}}">{{#fnum metros_muni}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+            </tbody>
+        </table>        
+    </body>
+</html>

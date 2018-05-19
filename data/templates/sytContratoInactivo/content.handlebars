@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tipo{ font-family: Arial; }
+            .rtxt{ text-align: right; }
+            .ltxt{ text-align: left; }
+            .ctxt{ text-align: center; }
+            .wth{ width:20%; }
+            .padl{ padding-left: 0.50em; }
+            .padb{ padding-bottom: 0.25em; }
+        </style>
+    </head>
+    <body class="tipo">
+        <h3>{{contrato.cliente}} ({{contrato.abreviacliente}})</h3>
+        <table class="tbl tipo">
+            <tr>
+                <th class="rtxt wth padb">No. Contrato:</th>
+                <td colspan="3" class="padl padb">{{contrato.nocontrato}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Abogado:</th>
+                <td colspan="3" class="padl padb">{{contrato.abogado}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Inicia:</th>
+                <td class="padl padb">{{contrato.fechainicia}}</td>
+                <th class="rtxt wth padb">Vence:</th>
+                <td class="padl padb">{{contrato.fechavence}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Moneda:</th>
+                <td colspan="3" class="padl padb">{{contrato.moneda}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Dep&oacute;sito:</th>
+                <td colspan="3" class="padl padb">{{contrato.monedadep}} {{contrato.deposito}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Cuenta contable:</th>
+                <td colspan="3" class="padl padb">{{contrato.idcuentac}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Recibo provisional:</th>
+                <td colspan="3" class="padl padb">{{contrato.reciboprov}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Periodicidad de cobro:</th>
+                <td colspan="3" class="padl padb">{{contrato.periodicidad}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Documento:</th>
+                <td colspan="3" class="padl padb">{{contrato.documento}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Sub-arrendado:</th>
+                <td colspan="3" class="padl padb">{{contrato.subarrendado}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Tipo de cliente:</th>
+                <td colspan="3" class="padl padb">{{contrato.tipocliente}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Empresa:</th>
+                <td colspan="3" class="padl padb">{{contrato.empresa}} ({{contrato.abreviaempresa}})</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Ubicaci&oacute;n:</th>
+                <td colspan="3" class="padl padb">{{contrato.proyecto}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Unidades:</th>
+                <td colspan="3" class="padl padb">{{contrato.unidades}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Tipo de incremento:</th>
+                <td colspan="3" class="padl padb">{{contrato.tipoincremento}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Cobro vencido:</th>
+                <td colspan="3" class="padl padb">{{contrato.cobrovencido}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Plazo forzoso del:</th>
+                <td class="padl padb">{{contrato.plazofdel}}</td>
+                <th class="rtxt wth padb">al:</th>
+                <td class="padl padb">{{contrato.plazofal}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Per&iacute;odo de rescisi&oacute;n:</th>
+                <td colspan="3" class="padl padb">{{contrato.prescision}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Inactivo desde:</th>
+                <td colspan="3" class="padl padb"><p>{{contrato.fechainactivo}}</p></td>
+            </tr>
+            <tr>
+                <th class="rtxt wth padb">Observaciones:</th>
+                <td colspan="3" class="padl padb"><p>{{contrato.observaciones}}</p></td>
+            </tr>
+        </table>
+    </body>
+</html>

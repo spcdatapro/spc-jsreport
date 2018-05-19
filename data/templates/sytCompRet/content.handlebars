@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; font-family: Arial; font-size: 9pt}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            .brd{ border-top: solid 0.1em black; border-bottom: solid 0.1em black; }
+            .brdtitulo{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+            .cntrtxt{ text-align: center; }
+            .ltxt{ text-align: left; }
+            .nwrp{ white-space:nowrap; }
+        </style>
+    </head>
+    <body style="font-family: Arial; font-size: 8pt">
+        <table class="tbl">
+            <thead>
+                <th>
+                    <tr>
+                        <th class="ltxt tab nwrp brd">Fecha</th>
+                        <th class="ltxt tab brd">Factura</th>
+                        <th class="ltxt tab brd">Proveedor</th>
+                        <th class="num tab brd">Total</th>
+                        <th class="num tab brd">I.V.A.</th>
+                        <th class="num tab brd">Base</th>
+                        <th class="num tab brd">I.S.R.</th>
+                        <th class="ltxt tab brd">Retenci&oacute;n</th>
+                    </tr>
+                </th>
+            </thead>
+            <tbody>
+                {{#each facturas}}
+                <tr>
+                    <td class="tab nwrp">{{fechafactura}}</td>
+                    <td class="tab nwrp">{{serie}}-{{documento}}</td>
+                    <td class="tab">{{nit}} - {{nomproveedor}}</td>
+                    <td class="num nwrp">{{totfactlocal}}</td>
+                    <td class="num nwrp">{{iva}}</td>
+                    <td class="num nwrp">{{montobase}}</td>
+                    <td class="num nwrp">{{isrlocal}}</td>
+                    <td class="tab nwrp">{{noaccisr}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="3" class="num bld">Total de compras:</td>
+                    <td class="num nwrp bld brd">{{general.totfact}}</td>
+                    <td class="num nwrp bld brd">{{general.totiva}}</td>
+                    <td class="num nwrp bld brd">{{general.totbase}}</td>
+                    <td class="num nwrp bld brd">{{general.totisr}}</td>
+                    <td class="tab nwrp"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="width: 50%; margin: auto; padding-top: 5em">
+            <table style="width: 85%;">
+                <tr>
+                    <th colspan="2">Resumen</td>
+                </tr>
+                <tr>
+                    <td class="num">Pago de I.S.R. compras</td>
+                    <td class="num">{{general.totisr}}</td>
+                </tr>
+                <tr>
+                    <td class="num">Pago de I.S.R. empleados</td>
+                    <td class="num">{{general.isrempleados}}</td>
+                </tr>
+                <tr>
+                    <td class="num">Rentas de Capital</td>
+                    <td class="num">{{general.isrcapital}}</td>
+                </tr>
+                <tr>
+                    <td class="num">Pago de I.S.R.</td>
+                    <td class="num brdtitulo">{{general.isrpagar}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

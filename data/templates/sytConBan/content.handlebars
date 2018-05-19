@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{
+                border: solid 0.15em black;
+                border-radius: 1em;
+                width: 45em;
+                margin: 0 auto;
+            }
+            .tdtbl{ width: 15em; padding: 0.5em; }
+            .brdtp{ border-top: solid 0.2em black; }
+            .dblbrdbt{ border-bottom: double 0.5em black; }
+            .brdbt{ border-bottom: solid 0.2em black; }
+            .ltxt{ text-align: left; }
+            .padleft{ padding-left: 0.75em; }
+            .tipo{ font-family: Arial; }
+            .bld{ font-weight: bold; }
+            .centxt{ text-align: center; }
+        </style>
+    </head>
+    <body>
+        <div style="padding-top: 3em">
+        <table class="tbl tipo">
+            <tr>
+                <td colspan="2" class="bld tdtbl">Saldo del banco.................................................................................</td>
+                <td class="num tdtbl">{{concilia.banco.saldobco}}&nbsp;(+)</td>
+            </tr>
+            {{#each concilia.suman}}
+            <tr>
+                <td class="centxt tdtbl">{{cantidad}}</td>
+                <td class="bld tdtbl">{{descripcion}} no operados</td>
+                <td class="num tdtbl">{{sumatipo}}&nbsp;(+)</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td colspan="2" class="bld num tdtbl">Subtotal:</td>
+                <td class="num tdtbl brdtp brdbt">{{concilia.totsuman}}&nbsp;(+)</td>
+            </tr>
+            {{#each concilia.restan}}
+            <tr>
+                <td class="centxt tdtbl">{{cantidad}}</td>
+                <td class="bld tdtbl">{{descripcion}} no operados</td>
+                <td class="num tdtbl">{{sumatipo}}&nbsp;(-)</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td colspan="2" class="bld num tdtbl">Subtotal:</td>
+                <td class="num tdtbl brdtp brdbt">{{concilia.totrestan}}&nbsp;(-)</td>
+            </tr>            
+            <tr>
+                <td colspan="2" class="bld num tdtbl">Saldo:</td>
+                <td class="num tdtbl dblbrdbt">{{concilia.saldo}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bld centxt tdtbl">Saldo debe ser igual a su saldo contable</td>
+            </tr>
+        </table>
+        </div>
+        <div style="padding-top: 30em">
+            <table style="width: 22.5em; margin: 0 auto; border-collapse: collapse; font-family: Arial">
+                <tbody>
+                    <tr>
+                        <td style="height: 2.5em; width: 7.5em; border-bottom: solid 0.2em black; border-right: solid 0.2em black;"></td>
+                        <td style="height: 2.5em; width: 7.5em; border-bottom: solid 0.2em black; border-right: solid 0.2em black;"></td>
+                        <td style="height: 2.5em; width: 7.5em; border-bottom: solid 0.2em black;"></td>
+                    </tr>
+                    <tr>
+                        <th>Hecho por</th>
+                        <th>Revisado por</th>
+                        <th>Autorizado por</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

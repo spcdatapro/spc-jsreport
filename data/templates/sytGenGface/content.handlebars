@@ -1,0 +1,11 @@
+{{#each facturas}}
+1|{{fecha}}|{{tipodoc}}|{{nit}}|{{codmoneda}}|1.00|{{idfactura}}|{{tipoventa}}|1|S|{{nombre}}|{{direccion}}|{{nombrecorto}}|{{montodol}}|{{tipocambio}}|{{pagonetodol}}|{{pagoneto}}|{{retiva}}|{{isr}}|{{monto}}{{#nl}}{{/nl}}
+{{#each detfact}}
+2|{{cantidad}}|1|{{montoconiva}}|0.00|0.00|{{montoconiva}}|0.00|{{montosiniva}}|{{iva}}|0.00|{{montoconiva}}|{{idtiposervicio}}|{{descripcion}}{{#nl}}{{/nl}}
+{{/each}}
+{{#imprimir descuento.totdescconiva}}
+2|1.00000|1|{{descuento.totdescconiva}}|0.00|0.00|{{descuento.totdescconiva}}|0.00|{{descuento.totdesc}}|{{descuento.ivadesc}}|0.00|{{descuento.totdescconiva}}|9999|{{descuento.descripcion}}{{#nl}}{{/nl}}
+{{else}}
+{{/imprimir}}
+4|{{totales.totalconiva}}|0.00|0.00|{{totales.totalsiniva}}|{{totales.iva}}|0.00|{{totales.totalconiva}}||0.00|{{totales.lineasdet}}|0{{#nl}}{{/nl}}
+{{/each}}

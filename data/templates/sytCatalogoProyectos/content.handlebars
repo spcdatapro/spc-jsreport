@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial; }
+            .fntbld{ font-weight: bold; }
+            .tab{ padding-left: 2em; }
+            .dobtab{ padding-left: 4em; }
+            .cuadtab{ padding-left: 6em; }
+            .tbl{ border-collapse: collapse; width: 50em;}
+            .tbldet{ border-collapse: collapse; width: 21em; }
+            .lfttxt{ text-align: left; } 
+            .rghttxt{ text-align: right; } 
+            .padbot{ padding-bottom: 0.45em; }
+            .bldfnt{ font-weight: bold; }
+        </style>
+    </head>
+    <body class="tipo">
+        {{#each proyectos}}
+            <div class="padbot"><span class="fntbld">{{#toUpperCase empresa}}{{/toUpperCase}}</span><br/></div>
+            {{#each tipo}}
+                <div class="padbot"><span class="fntbld tab">{{#toUpperCase tipoproyecto}}{{/toUpperCase}}</span><br/></div>
+                {{#each proyectos}}
+                    <div class="dobtab padbot" style="width:100%">
+                        <table class="tbl">
+                            <tbody>
+                                <tr>
+                                    <th class="rghttxt" style="width: 10em">Nombre:</th>
+                                    <td style="width: 45em" colspan:"3"><strong>{{proyecto}}</strong></td>
+                                </tr>
+                                <tr>
+                                    <th class="rghttxt" style="width: 10em">Direcci&oacute;n:</th>
+                                    <td colspan="3">{{direccion}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="rghttxt" style="width: 10em">M<sup>2</sup>&nbsp;rentables:</th>
+                                    <td colspan="3">{{#fnum mcrentables}}{{/fnum}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="rghttxt" style="width: 10em">Fecha de apertura:</th>
+                                    <td colspan="3">{{#formatDate fechaapertura}}{{/formatDate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {{#if tactivo}}
+                        <div class="cuadtab padbot">
+                            <div class="padbot"><span>ACTIVOS DE {{proyecto}}</span><br/></div>
+                            {{#each tactivo}}
+                                <div class="tab padbot" {{#showDiv empresa}}{{/showDiv}}><span>{{empresa}}</span><br/></div>
+                                <div class="dobtab padbot">
+                                    <table class="tbldet">
+                                        <thead>
+                                            <tr>
+                                                <th class="lfttxt" style="width: 15em">Finca - Folio - Libro</th>
+                                                <th class="rghttxt" style="width: 6em">M<sup>2</sup></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each activos}}
+                                            <tr>
+                                                <td style="width: 15em; {{#estotstr ffl}}{{/estotstr}}">{{ffl}}</td>
+                                                <td class="rghttxt" style="width: 6em; {{#estotnum ffl}}{{/estotnum}}">{{#fnum metros_muni}}{{/fnum}}</td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    {{#if tunidad}}
+                        <div class="cuadtab padbot">
+                            <div class="padbot"><span>UNIDADES DE {{proyecto}}</span><br/></div>
+                            {{#each tunidad}}
+                                <div class="tab padbot"><span>{{tipo}}</span><br/></div>
+                                <div class="dobtab padbot">
+                                    <table class="tbldet">
+                                        <thead>
+                                            <tr>
+                                                <th class="lfttxt" style="width: 15em">Nombre</th>
+                                                <th class="rghttxt" style="width: 6em">M<sup>2</sup></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each unidades}}
+                                            <tr>
+                                                <td style="width: 15em; {{#estotstr nombre}}{{/estotstr}}">{{nombre}}</td>
+                                                <td class="rghttxt" style="width: 6em; {{#estotnum nombre}}{{/estotnum}}">{{#fnum mcuad}}{{/fnum}}</td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}                    
+                {{/each}}
+            {{/each}}
+            <hr/>
+        {{/each}}
+    </body>
+</html>

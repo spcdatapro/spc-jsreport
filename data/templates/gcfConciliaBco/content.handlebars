@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .mid{
+                display: inline;
+                float: none;
+            }
+            .tbl{ width:70em; }
+            .tdtbl{ 
+                width:10em; 
+                
+                
+            }
+            .num{ text-align: right; }
+            .txtleft{ text-align: left; }
+            .txtbold{ font-weight: bold; }
+            .tdbordfin{
+                border-top:solid 0.1em black;
+                border-bottom:double 0.25em black;
+            }
+            .paddbott{
+                padding-bottom: 0.4em;
+            }
+        </style>
+    </head>
+    <body>
+       <table class="mid tbl">
+           <caption class="txtbold">Documentos en tr&aacute;nsito</caption>
+           <thead>
+               <tr>
+                   <th class="tdtbl txtleft">Fecha</th>
+                   <th class="tdtbl txtleft">Tipo</th>
+                   <th class="tdtbl txtleft">No.</th>
+                   <th class="tdtbl txtleft">Beneficiario</th>
+                   <th class="tdtbl num">Cr&eacute;dito</th>
+                   <th class="tdtbl num">D&eacute;bito</th>
+                   <th class="tdtbl num">Saldo</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td class="num txtbold">Saldo inicial:</td>
+                   <td class="num">&nbsp;</td>
+                   <td class="num">&nbsp;</td>
+                   <td class="num txtbold">{{#nwc concilia.saldoinicial}}{{/nwc}}</td>                   
+               </tr>
+               {{#each concilia.entransito}}
+               <tr>
+                   <td class="paddbott">{{#formatDate fecha}}{{/formatDate}}</td>
+                   <td class="paddbott">{{abreviatura}}</td>
+                   <td class="paddbott">{{numero}}</td>
+                   <td class="paddbott" style="white-space:nowrap">{{beneficiario}}</td>
+                   <td class="num paddbott">{{#nwc credito}}{{/nwc}}</td>
+                   <td class="num paddbott">{{#nwc debito}}{{/nwc}}</td>
+                   <td class="num paddbott">{{#nwc saldo}}{{/nwc}}</td>
+               </tr>
+               {{/each}}
+               <tr>
+                   <td class="paddbott">&nbsp;</td>
+                   <td class="paddbott">&nbsp;</td>
+                   <td class="paddbott">&nbsp;</td>
+                   <td class="num txtbold paddbott">Saldo de documentos en tr&aacute;nsito:</td>
+                   <td class="num paddbott">&nbsp;</td>
+                   <td class="num paddbott">&nbsp;</td>
+                   <td class="num txtbold paddbott">{{#nwc concilia.sfentransito}}{{/nwc}}</td>                   
+               </tr>
+           </tbody>
+       </table>
+    </body>
+</html>

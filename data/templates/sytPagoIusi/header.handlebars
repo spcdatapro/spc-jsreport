@@ -1,0 +1,30 @@
+<style>
+    .first { width: 55%; float:left; }
+    .second { overflow: hidden; }
+    .rghttxt{ text-align: right; }
+    .tbl{width: 59.26em; border-collapse: collapse;}
+    .txtlft{ text-align: left; }
+    .brdbot{ border-bottom: solid 0.1em black; }
+    /*.brd{ border: solid 0.1em #DCDCDC; }*/
+    .brd{ border: 0; }
+    .txtmid{ text-align: center; }
+</style>
+<div style="width: 100%; font-family: Arial; padding-bottom: 1em">
+    <div class="first rghttxt">
+        <span style="font-weight: bold">PAGOS DE IUSI</span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">{{fecha}}</span>
+    </div>
+</div>
+<div style="width: 100%; font-family: Arial; padding-left: 2.7em">
+    <table class="tbl">
+        <tr>
+            <th class="brdbot txtlft"  style="width: 12.5em">Finca-Folio-Libro</th>
+            <th class="brdbot txtlft"  style="width: 15.5em">Horizontal</th>
+            <th class="brdbot rghttxt" style="width: 10.4em">Valor base IUSI (Q)</th>
+            <th class="brdbot rghttxt" style="width: 10.49em">A pagar (Q)</th>
+            <th class="brdbot txtmid" style="width: 10.41em">% IUSI (por millar)</th>
+        </tr>
+    </table>
+</div>

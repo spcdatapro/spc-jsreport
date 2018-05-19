@@ -1,0 +1,27 @@
+<style>
+    .rghttxt{ text-align: right; }
+    .cntrtxt{ text-align: center; }
+    .lfttxt{ text-align: left; }
+    .bold{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    .first { width: 63%;  float:left; }
+    .second { overflow: hidden; }
+    .tbl{ width: 78.5em; border-collapse: collapse; /*border: solid 0.1em #DCDCDC;*/}
+    .brdbtm{ border-bottom: solid 0.1em black;}
+    /*.brdbtm{ border: solid 0.1em #DCDCDC;}*/
+    .padleft{ padding-left: 4.5em; }
+</style>
+<div style="width: 100%; overflow: hidden" class="tipo">
+    <div class="first rghttxt">
+        <span class="bold">{{empresa.nombre}} ({{empresa.abreviatura}})</span>
+    </div>
+    <div class="second rghttxt">
+        <span class="bold">{{fecha}}</span>
+    </div>
+</div>
+<div class="tipo cntrtxt">
+    <span class="bold">REEMBOLSOS PENDIENTES DE LIQUIDAR</span>
+</div>
+<div class="tipo cntrtxt">
+    <span class="bold">Del {{rango.del}} al {{rango.al}}</span>
+</div>

@@ -1,0 +1,47 @@
+<style>
+    .titulo{
+        font-weight: bold;
+        font-size: 1.17em;
+    }
+    .subtitulo{
+        font-weight: bold;
+        font-size: 1em;
+    }
+    .tbl{
+        width: 60em;
+        border-bottom: solid 0.10em black;
+    }
+    .num{
+        text-align: right;
+        width: 10em;
+    }
+    .tds{
+        width: 10em;
+        text-align: left;
+    }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="font-family: Arial">
+    <span class="titulo">{{datos.empresa}}</span><br/>
+    <span class="subtitulo">{{datos.vence}}</span><br/>
+    <span class="subtitulo">{{datos.ffact}}</span><br/>
+    <span class="subtitulo">{{datos.tc}}</span><br/>
+    <span class="subtitulo">{{datos.facturar}}</span>
+</div>
+<table class="tbl" style="font-family: Arial">
+    <thead>
+        <tr>
+            <th class="tds">No.</th>
+            <th class="tds">Cliente</th>
+            <th class="tds">Facturar a</th>
+            <th style="width: 20em; text-align: left">Tipo</th>
+            <th class="num">A pagar (Q)</th>
+        </tr>
+    </thead>
+</table>

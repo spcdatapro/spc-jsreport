@@ -1,0 +1,49 @@
+{{#xlsxRemove "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row" 3}}{{/xlsxRemove}}
+
+{{#each cuentas}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t>{{poliza}}</t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{#formatDate fecha}}{{/formatDate}}</t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t>{{referencia}}&nbsp;{{concepto}}</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v></v></c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#each dld}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{#printCodigo codigo}}{{/printCodigo}}</t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t>{{nombrecta}}</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{debe}}</v></c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}"><v>{{haber}}</v></c>
+    </row>
+{{/xlsxAdd}}
+{{/each}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t></t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v></v></c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{/each}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t></t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v></v></c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+{{#resumen cuentas}}{{/resumen}}
+{{/xlsxAdd}}
+
+{{{xlsxPrint}}}

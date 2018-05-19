@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .encabezado2{
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                width: 10%;
+                border-spacing: 0px;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 10%;
+            }
+            .factura{
+                
+                border-spacing: 0px;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                width: 10%;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .tab{
+                padding-left: 1em;
+            }
+            .dtab{
+                padding-left: 2em;
+            }
+       
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+    </head>
+    <body>
+        <table style='width: 100%;font-family: Arial;font-size:14; border-collapse:collapse;'>
+            <tbody>
+                {{#each compra}}
+                    <tr>
+                        <td colspan="4">{{nomempresa}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">{{nomproveedor}}</td>
+                    </tr>
+                    <tr>
+                        <td>Serie: {{serie}}</td><td>Documento{{documento}}</td><td>Fecha de Ingreso: {{fechaingreso}}</td><td>Fecha de Factura: {{fechafactura}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Tipo de compra: {{siglas}}-{{desctipocompra}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Concepto: {{conceptomayor}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total:{{totfact}}</td><td>No Afecto:{{noafecto}}</td><td>IVA:{{iva}}</td><td>ISR:{{isr}}</td>
+                    </tr>
+                    <tr>
+                        <td>Moneda:{{moneda}}</td><td>Tipo de Cambio:{{tipocambio}}</td><td>IVA:{{iva}}</td><td>ISR:{{isr}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+    </body>
+</html>

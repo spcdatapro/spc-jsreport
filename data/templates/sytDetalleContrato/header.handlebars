@@ -1,0 +1,77 @@
+<style>
+    .lblenc{ text-align: right; width: 10%; /*white-space: nowrap;*/ }
+    .oneline{ white-space: nowrap; }
+    .num{ text-align: right; white-space: nowrap; width:13.5em; }
+    .padleft{padding-left: 1em;}
+    .padright{padding-right: 1em;}
+    .rghttxt{ text-align: right; }
+    .first { width: 57.5%; float:left; }
+    .second { overflow: hidden; }    
+    .third { width: 58%; float:left; }
+</style>
+<div style="width: 100%; overflow: hidden; font-family:Arial">
+    <div class="first rghttxt">
+        <span style="font-weight:bold">DETALLE DE CONTRATO</span>
+    </div>
+    <div class="second rghttxt">
+        <span style="padding-right: 4em">{{fecha}}</span>
+    </div>
+</div>
+<div style="font-family:Arial; text-align:center">
+    <div class="third rghttxt">
+        <span>
+            Del {{rango.del}} al {{rango.al}}
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="padding-right: 4em"></span>
+    </div>
+    <div style="width: 100%">
+        <!--<table style="width: 80em">-->
+        <table style="width: 100%">
+            <tr>
+                <th class="lblenc">No.:</th>
+                <td colspan="4">{{contrato.nocontrato}}</td>
+            </tr>
+            <tr>
+                <th class="lblenc">Nombre:</th>
+                <td colspan="2" style="width: 65%;">{{contrato.datacliente.nombre}}</td>
+                <th class="lblenc"></th>
+                <td>{{contrato.datacliente.nombrecorto}}</td>
+            </tr>
+            <tr>
+                <th class="lblenc">Facturar a:</th>
+                <td colspan="2" style="width: 65%;">{{contrato.datacliente.facturara}}</td>
+                <th class="lblenc">N.I.T.:</th>
+                <td>{{contrato.datacliente.nit}}</td>
+            </tr>
+            <tr>
+                <th class="lblenc">Empresa:</th>
+                <td class="oneline" colspan="4">{{contrato.empresa}}</td>
+            </tr>
+            <tr>
+                <th class="lblenc">Proyecto:</th>
+                <td colspan="4">{{contrato.proyecto}}</td>
+            </tr>
+            <tr>
+                <th class="lblenc">Unidades:</th>
+                <td colspan="4">{{contrato.unidades}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br/>
+<div style="width:100%; font-family: Arial; padding-left: 4em; padding-right: 4em">
+    <table style="width:81em; border-bottom:solid 0.10em black">
+        <thead>
+            <tr>
+                <th style="width:10em; text-align:center">Fecha</th>
+                <th class="num">Monto</th>
+                <th class="num">Descuento</th>
+                <th class="num">SubTotal</th>
+                <th class="num">I.V.A.</th>
+                <th class="num">Gran Total</th>
+            </tr>
+        </thead>
+    </table>    
+</div>

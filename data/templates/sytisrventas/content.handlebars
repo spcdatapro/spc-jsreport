@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                border-spacing: 0px;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                background-color: #cac9c9;
+            }
+            .factura{
+                
+                border-spacing: 0px;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .total2{
+                text-align: right;
+                font-weight: bold;
+                font-size: 16;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%;font-family: Arial;font-size:14; border-collapse:collapse;'>
+            <tbody>
+                {{#each lbisr}}
+                    <tr>
+                        <td class="numero factura" style='width: 4%;'>{{nolinea}}</td>
+                        <td class="factura" style='width: 25%;'>{{serie}} {{documento}}</td>
+                        <td style='font-size:14;' style='width:30%'>{{cliente}}</td>
+                        <td class="factura" style='width:10%'>{{#formatDate fechafactura}}{{/formatDate}}</td>
+                        <td class="numero factura" style='width:10%'>{{#numberWithCommas subtotal}}{{/numberWithCommas}}</td>
+                        <td class="numero factura" style='width:10%'>{{#numberWithCommas isr}}{{/numberWithCommas}}</td>
+                        <td class="numero factura" style='width:10%'>{{retencion}}</td>
+                    </tr>
+                {{/each}}
+                <tr><td height="15"></td></tr>
+                <tr>
+                    {{#getTotales lbisr}}{{/getTotales}}
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

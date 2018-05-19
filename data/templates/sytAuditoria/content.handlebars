@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial;}
+            .tbl{
+                width:100%;
+                font-size: 1em;
+                border-collapse: collapse;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            .brdtop{ border-top: solid 0.1em black; }
+            .brdlft{ border-left: solid 0.1em black; }
+            .brdrght{ border-right: solid 0.1em black; }
+            .brdbtt{ border-bottom: solid 0.1em black; }
+            .brdall{ border: solid 0.1em black; }
+            .padd{
+                padding-left: 0.5em;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+            .paddbtt{ 
+                padding-left: 0.5em;
+                padding-bottom: 0.5em; 
+            }
+            .paddbott{ 
+                padding-bottom: 0.5em; 
+            }
+        </style>
+    </head>
+    <body>
+        <table class="tbl tipo">
+            <tbody>
+                {{#each cambios}}
+                <tr>
+                    <td class="brdlft brdtop padd">
+                        <span class="bold">Fecha:</span>&nbsp;{{fechastr}}
+                    </td>
+                    <td class="brdtop padd">
+                        <span class="bold">Usuario:</span>&nbsp;{{nombrecompleto}}&nbsp;({{usuario}})
+                    </td>
+                    <td class="brdtop padd">
+                        <span class="bold">Tabla:</span>&nbsp;{{nombre}}
+                    </td>
+                    <td class="brdtop brdrght padd">
+                        <span class="bold">Acci&oacute;n:</span>&nbsp;{{descripcion}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="brdlft brdbtt brdrght paddbtt" colspan="4">
+                        <span class="bold">Cambio:</span>&nbsp;{{cambio}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; font-size: 10pt;}
+            .btmbrd{ border-bottom: solid 0.1em #DCDCDC }
+            .num{ text-align: right; }
+            .ltxt{ text-align: left; }
+            .bld{ font-weight: bold; }
+            .brdfin {border: solid 0.1em black; background-color: #D3D3D3; }
+            .nwrp {white-space: nowrap;}
+            .valign { vertical-align: top; }
+            .tab {padding-left: 1em; }
+            .brdhead{ border-top: solid 0.1px black; border-bottom: solid 0.1px black;}
+            .ultcell { width: 25%; }
+            .padtb {padding-top: 0.25em; padding-bottom: 0.25em; }
+            .tenw {width: 10%; }
+            .quinw {width: 15%; }
+            .resw { width: 35%; }
+        </style>
+    </head>
+    <body style="font-family:Arial; font-size: 10pt">
+        <table class="tbl">
+            <tbody>
+                {{#each facturas}}
+                <tr>
+                    <td class="ltxt nwrp valign padtb tenw">{{serie}}</td>
+                    <td class="ltxt nwrp valign tab padtb tenw">{{numero}}</td>
+                    <td class="ltxt valign tab padtb">{{#cutstr cliente 33}}{{/cutstr}}</td>
+                    <td class="ltxt valign tab padtb quinw">{{#cutstr tipo 27}}{{/cutstr}}</td>
+                    <td class="num nwrp valign padtb tenw">{{total}}</td>
+                    <td class="ltxt valign tab ultcell padtb">{{periodo}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="4" class="num bld padtb">Total de empresa:</td>
+                    <td class="num bld brdfin padtb tenw">{{general.totfacturado}}</td>
+                    <td class="ltxt padtb"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

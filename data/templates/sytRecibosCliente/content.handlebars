@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tdw{ width: 10%; }
+            .strw{ width: 25%; }
+            .numw{ width: 15%; }
+            .brdtpbt{ border-top: solid 0.2em black; border-bottom: solid 0.2em black; }
+            .brdsum{ border-top: solid 0.1em black; border-bottom: double 0.3em black; }
+            .brdtp{ border-top: solid 0.15em black; }
+            .ltxt{ text-align: left; }
+            .tipo{ font-family: Arial; font-size: 10pt;}
+            .bld{ font-weight: bold; }
+            .centxt{ text-align: center; }
+            .pdlft{ padding-left: 0.65em; }
+            .padr{ padding-right: 0.5em; }
+            .vtop{ vertical-align: top; }
+        </style>
+    </head>
+    <body>
+        {{#each documentos}}
+        <table class="tbl tipo">
+            <caption>
+                <h3 style="text-decoration: underline; ">{{moneda}} ({{simbolo}})</h3>
+            </caption>
+            {{#each empresas}}
+            <tr>
+                <td class="bld" colspan="8">{{empresa}}</td>
+            </tr>
+            {{#each recibos}}
+            <tr>
+                <td class="vtop" style="width:7%">{{fecha}}</td>
+                <td class="vtop" style="width:7%">{{serie}}{{numero}}</td>
+                <td class="vtop" style="width:26%">{{#shortStr cliente 35}}{{/shortStr}}</td>
+                <td class="vtop{{#if @last}} bld num padr{{/if}}" style="width:26%">{{#shortStr facturas 40}}{{/shortStr}}</td>
+                <td class="vtop num{{#if @last}} brdsum bld num{{/if}}" style="width:10%">Q {{totrecibo}}</td>
+                <td class="vtop pdlft" style="width:7%">{{banco}}</td>
+                <td class="vtop" style="width:7%">{{tranban}}</td>
+                <td class="vtop num{{#if @last}} brdsum bld num{{/if}}" style="width:10%">{{monedadep}} {{montotran}}</td>
+            </tr>
+            {{/each}}
+            {{/each}}
+        </table>
+        {{#if @last}}{{else}}<hr/>{{/if}}
+        {{/each}}
+    </body>
+</html>

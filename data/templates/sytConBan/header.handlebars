@@ -1,0 +1,31 @@
+<style>
+    .tbl{ width: 100%; }
+    .cel{ width: 33.33%; }
+    .cel2{ width: 25%; }
+    .dertxt{ text-align: right; }
+    .centxt{ text-align: center; }
+    .bld{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    .pad{ padding-top: 0.2em; padding-bottom: 0.2em; }
+</style>
+<table class="tbl tipo">
+    <tr>
+        <td class="cel pad">&nbsp;</td>
+        <td class="cel centxt bld pad">{{concilia.banco.empresa}}</td>
+        <td class="cel dertxt bld pad">{{fecha}}</td>
+    </tr>
+    <tr>
+        <td class="centxt bld pad" colspan="3">Conciliaci&oacute;n Bancaria</td>
+    </tr>
+</table>
+<div class="tbl centxt tipo">
+    <div class="pad">
+        <span class="bld">Banco:</span>&nbsp;{{concilia.banco.nombre}} ({{concilia.banco.simbolo}})&nbsp;&nbsp;&nbsp;
+        <span class="bld">No. de cuenta:</span>&nbsp;{{concilia.banco.nocuenta}}
+    </div>
+    <div class="pad">
+        <span class="bld">Per&iacute;odo del</span>&nbsp;{{concilia.banco.del}}&nbsp;
+        <span class="bld">al</span>&nbsp;{{concilia.banco.al}}        
+    </div>
+</div>
+<hr/>

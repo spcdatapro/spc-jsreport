@@ -1,0 +1,41 @@
+<style>
+    .encabezado{
+        border-top: 0.1em solid black;
+        border-bottom: 0.1em solid black;
+    }
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+    .tipo{ font-family: Arial; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+<div class="tipo" style="text-align: center">
+    <span class="tituloXL">{{empresa.nomempresa}}</span>
+    <br/>
+    <span class="tituloL">Libro de Diario</span>
+    <br/>
+    <span class="tituloM">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>
+<table class="tipo" style="width: 100%; border-collapse: collapse">
+    <thead>
+        <tr>
+            <th class="encabezado" style="width: 9.95em; text-align: left">Fecha</th>
+            <th class="encabezado" style="width: 29em; text-align: left">Concepto</th>
+            <th class="encabezado" style="text-align: right">Debe</th>
+            <th class="encabezado" style="text-align: right">Haber</th>
+        </tr>
+    </thead>
+</table>

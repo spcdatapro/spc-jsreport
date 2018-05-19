@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .str{ text-align: left; }
+            .strr{ text-align: right; }
+            .tbl{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .brdtot{
+                border-top: solid 0.1em black;
+                border-bottom: double 0.25em black;
+            }
+            .bld{ font-weight: bold; }
+            .dhsize{ width: 8em; }
+            .tab{ padding-left: 2em; }
+            .padrght{ padding-right: 0.5em; }
+        </style>
+    </head>
+    <body style="font-size: 0.83em">
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th class="str">Cuenta</th>
+                    <th class="str">Nombre</th>
+                    <th class="num">Saldo inicial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="str">{{datos.cuenta.codigo}}</td>
+                    <td class="str">{{datos.cuenta.nombrecta}}</td>
+                    <td class="num dhsize">{{#fNum datos.cuenta.saldoinicial}}{{/fNum}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tbl">
+            <caption><h3>P&oacute;lizas Directas</h3></caption>
+            <thead>
+                <tr>
+                    <th class="str">P&oacute;liza</th>
+                    <th class="str tab">Fecha</th>
+                    <th class="str tab">Concepto</th>
+                    <th class="num dhsize">Debe</th>
+                    <th class="num dhsize">Haber</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each datos.directas}}
+                <tr>
+                    <td class="str">{{poliza}}</td>
+                    <td class="str">{{#fDate fregistro}}{{/fDate}}</td>
+                    <td class="str tab" {{#esTotStr conceptomayor}}{{/esTotStr}}>{{#cutStr conceptomayor 50}}{{/cutStr}}</td>
+                    <td class="num dhsize {{#esTot conceptomayor}}{{/esTot}}">{{#fNum debe}}{{/fNum}}</td>
+                    <td class="num dhsize {{#esTot conceptomayor}}{{/esTot}}">{{#fNum haber}}{{/fNum}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tbl">
+            <caption><h3>P&oacute;lizas de Clientes</h3></caption>
+            <thead>
+                <tr>
+                    <th class="str" colspan="2">&nbsp;</th>
+                    <th class="str tab">P&oacute;liza</th>
+                    <th class="str tab">Fecha</th>
+                    <th class="str tab">Concepto</th>
+                    <th class="num dhsize">Debe</th>
+                    <th class="num dhsize">Haber</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each datos.clientes}}
+                <tr>
+                    <td class="str bld" colspan="6">Cliente:&nbsp;{{nombre}}</td>
+                </tr>
+                {{#each contratos}}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="str bld" colspan="5">Contrato:&nbsp;{{nocontrato}}</td>
+                </tr>
+                {{#each polizas}}
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="str tab">{{poliza}}</td>
+                    <td class="str tab">{{#fDate fregistro}}{{/fDate}}</td>
+                    <td class="str tab" {{#esTotStr conceptomayor}}{{/esTotStr}}>{{#cutStr conceptomayor 50}}{{/cutStr}}</td>
+                    <td class="num dhsize {{#esTot conceptomayor}}{{/esTot}}">{{#fNum debe}}{{/fNum}}</td>
+                    <td class="num dhsize {{#esTot conceptomayor}}{{/esTot}}">{{#fNum haber}}{{/fNum}}</td>
+                </tr>
+                {{/each}}
+                {{/each}}
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <table class="tbl">
+            <tbody>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td class="strr bld padrght">GRAN TOTAL:</td>
+                    <td class="num brdtot bld dhsize">{{#fNum datos.cuenta.sumdebe}}{{/fNum}}</td>
+                    <td class="num brdtot bld dhsize">{{#fNum datos.cuenta.sumhaber}}{{/fNum}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                    <td class="strr bld dhsize padrght">Saldo final:</td>
+                    <td class="num brdtot bld dhsize">{{#fNum datos.cuenta.saldofinal}}{{/fNum}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

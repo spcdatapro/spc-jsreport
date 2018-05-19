@@ -1,0 +1,50 @@
+<style>
+    .encabezado{
+        border-top: 0.1em solid black;
+        border-bottom: 0.1em solid black;
+        border-collapse:collapse;
+    }
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+    .tipo{ font-family: Arial !important; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="text-align: center">
+    <span class="tituloXL tipo">{{empresa}}</span>
+    <br/>
+    <span class="tituloL tipo">Libro Mayor</span>
+    <br/>
+    <span class="tituloL tipo">(Formato de construcciones en proceso)</span>
+    <br/>
+    <span class="tituloM tipo">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>
+<table class="tipo" style="width: 100%; border-collapse:collapse;">
+    <thead>
+        <tr>
+            <th class="encabezado" style="width: 14.5em; text-align: left">Fecha/Referencia</th>
+            <th class="encabezado" style="width: 5em; text-align: left">Concepto</th>
+            <th class="encabezado" style="width: 11em; text-align: center">Saldo Inicial</th>
+            <th class="encabezado" style="text-align: right">Debe</th>
+            <th class="encabezado" style="text-align: right">Haber</th>
+            <th class="encabezado" style="text-align: right">Saldo</th>
+        </tr>
+    </thead>
+</table>

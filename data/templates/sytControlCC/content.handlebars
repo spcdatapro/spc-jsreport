@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial; }
+            .tab{ padding-left: 0.9em; }
+            .dobtab{ padding-left: 1.8em; }
+            .triptab{ padding-left: 2.7em; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .padbotdob{ padding-bottom: 2em; }
+            .padtop{ padding-top: 0.5em; }
+            .padrght{ padding-right: 0.5em; }
+            .tbl{ width: 57em; border-collapse: collapse; }
+            .num{ text-align: right; }
+            .brdcc{ border: solid 0.1em lightgray; border-radius: 0.5em;}
+            .brdcont{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .ltxt{ text-align: left; }
+            .brdtot{ border-top: solid 0.1em black; border-bottom: solid 0.1em black; }
+            .brdgtot{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+        </style>
+    </head>
+    <body class="tipo">
+        {{#each cajas}}
+        <div class="tipo padbot"><span class="bld">{{empresa}}&nbsp;({{abreviaempre}})</span></div>
+        {{#each detalles}}
+        <div class="tipo tab brdcc" style="padding-top: 0.5em; padding-bottom: 0.5em">
+            <table class="tbl tipo">
+                <tr>
+                    <th>No.:</th><td>{{nocaja}}</td>
+                    <th>Inicio:</th><td>{{finicio}}</td>
+                    <th>Fin:</th><td>{{ffin}}</td>
+                    <th>Estatus:</th><td>{{estatusstr}}</td>
+                    <th>Asignado:</th><td>{{fondoasignado}}</td>
+                    <th>Tran. Ban.:</th><td style="border-bottom: solid 0.1em black;">{{tranban}}</td>
+                </tr>
+            </table>
+            <div class="padtop dobtab" style="margin-right: 0.5em">
+                <table class="tbl tipo" style="font-size: 10pt">
+                    <caption style="text-align: center; font-weight: bold; color: lightgray">Compras</caption>
+                    <tr>
+                        <th class="ltxt">Fecha</th>
+                        <th class="ltxt">Documento</th>
+                        <th class="ltxt">N.I.T.</th>
+                        <th class="ltxt">Proveedor</th>
+                        <th class="ltxt">Concepto</th>
+                        <th class="num">Valor</th>
+                    </tr>
+                    {{#each compras}}
+                    <tr>
+                        <td>{{fechafactura}}</td>
+                        <td>{{serie}}{{documento}}</td>
+                        <td>{{nit}}</td>
+                        <td>{{proveedor}}</td>
+                        <td {{#if @last}}class="bld num padrght"{{/if}}>{{conceptomayor}}</td>
+                        <td class="num{{#if @last}} bld brdtot{{/if}}">{{totfact}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+        <div class="padbot" style="width:100%;"><span>&nbsp;</span></div>
+        {{/each}}
+        {{/each}}
+        <div style="margin-right: 0.5em; padding-bottom: 2em">
+            <table class="tbl tipo" style="font-size: 10pt">
+                <tr>
+                    <th colspan="5" class="num padrght">GRAN TOTAL:</th>
+                    <th class="num brdgtot" style="width: 10%">{{generales.grantotal}}</th>
+                </tr>
+            </table>
+        </div>
+        <div style="border: solid 0.1em black; margin: auto; border-radius: 0.5em; width: 15em; padding: 1em">
+            <table style="width: 100%">
+                <tr>
+                    <td class="num">DOCUMENTOS:</td>
+                    <td class="num">{{generales.grantotal}}</td>
+                </tr>
+                <tr>
+                    <td class="num">EFECTIVO:</td>
+                    <td class="num">{{generales.resultado}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="num" style="border-top: solid 0.1em black">{{generales.totasignado}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

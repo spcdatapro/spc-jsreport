@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+                padding-bottom: 0.15em;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+            }
+            .resumen{
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%; font-family: Arial;'>
+            <tbody>
+                {{#each cuentas}}
+                <tr style="font-weight: {{#rowStyle codigo}}{{/rowStyle}}">
+                    <!--<td style='width: 5.5%'>{{codigo}}</td>-->
+                    <td style='padding-bottom:0.35em; width: 49%;{{#tab tipocuenta}}{{/tab}}'>{{#strcut nombrecta}}{{/strcut}}</td>
+                    <td class="numero" style='padding-bottom:0.35em;'>
+                        {{#shouldPrint codigo 7}}
+                            {{#numberWithCommas saldo 0}}{{/numberWithCommas}}
+                        {{else}}
+                        {{/shouldPrint}}
+                    </td>
+                    <td class="numero" style='padding-bottom:0.35em;'>
+                        {{#shouldPrint codigo 5}}
+                            {{#numberWithCommas saldo 0}}{{/numberWithCommas}}
+                        {{else}}
+                        {{/shouldPrint}}
+                    </td>
+                    <td class="numero" style='padding-bottom:0.35em; color: white !important;'>
+                        {{#shouldPrint codigo 3}}
+                            {{#numberWithCommas saldo 0}}{{/numberWithCommas}}
+                        {{else}}
+                        {{/shouldPrint}}
+                    </td>
+                    <td class="numero" style='padding-bottom:0.35em; color: white !important;'>
+                        {{#shouldPrint codigo 1}}
+                            {{#numberWithCommas saldo 0}}{{/numberWithCommas}}
+                        {{else}}
+                        {{/shouldPrint}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        <div class="resumen">
+            {{#resumen cuentas}}{{/resumen}}
+        </div>
+    </body>
+</html>

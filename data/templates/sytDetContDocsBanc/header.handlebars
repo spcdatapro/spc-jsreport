@@ -1,0 +1,53 @@
+<style>
+    .tbl{ width: 100%; border-collapse: collapse; }
+    .cel{ width: 33.33%; }
+    .cel2{ width: 25%; }
+    .dertxt{ text-align: right; }
+    .centxt{ text-align: center; }
+    .bld{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    .pad{ padding-top: 0.2em; padding-bottom: 0.2em; }
+    .ltxt{ text-align: left; }
+    .brdbt{ border-bottom: solid 0.2em black; }
+    .num{ text-align: right; }
+</style>
+<table class="tbl tipo">
+    <tr>
+        <td class="cel pad">&nbsp;</td>
+        <td class="cel centxt bld pad">{{documentos.banco.empresa}}</td>
+        <td class="cel dertxt bld pad">{{fecha}}</td>
+    </tr>
+    <tr>
+        <td class="centxt bld pad" colspan="3">Detalle contable de documentos bancarios</td>
+    </tr>
+</table>
+<div class="tbl centxt tipo">
+    <div class="pad">
+        <span class="bld">Del&nbsp;{{documentos.banco.del}}&nbsp;al&nbsp;{{documentos.banco.al}}</span>
+    </div>
+    <div class="pad">
+        <span class="bld">Banco:</span>&nbsp;{{documentos.banco.nombre}} ({{documentos.banco.simbolo}})&nbsp;&nbsp;&nbsp;
+        <span class="bld">No. de cuenta:</span>&nbsp;{{documentos.banco.nocuenta}}
+    </div>    
+</div>
+<table class="tbl tipo">
+    <thead>
+        <!--
+        <tr>
+            <th colspan="5"></th>
+            <th colspan="2" class="ltext">Concepto</th>
+            <th colspan="3"></th>
+        </tr>
+        -->
+        <tr>
+            <th class="ltxt brdbt">Tipo</th>
+            <th class="ltxt brdbt">Documento</th>
+            <th class="brdbt"></th>
+            <th class="ltxt brdbt">Fecha</th>
+            <th class="ltxt brdbt">A favor de</th>
+            <th colspan="2" class="ltxt brdbt">Concepto</th>
+            <th colspan="2" class="brdbt"></th>
+            <th class="num brdbt">Monto</th>
+        </tr>
+    </thead>
+</table>

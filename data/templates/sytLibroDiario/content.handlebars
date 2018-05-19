@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .num{
+                text-align: right;
+            }
+            .lineaTotales{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                font-weight: bold;
+            }
+            .lineaTotalesCod{
+                text-align: right;
+                font-weight: bold;
+                /*border-bottom: 0.25em double black;*/
+            }
+            .lineaTotalGen{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                font-weight: bold;
+            }
+            .resumen{
+                text-align: right;
+            }
+            .tipo{ font-family: Arial !important; }
+            .bld{ font-weight: bold; }
+        </style>
+    </head>
+    <body class="tipo">
+        {{#each cuentas}}
+        <div class="row tipo bld" style="padding-bottom: 0.6em !important;">
+            <div class="col-xs-1">{{#formatDate fecha}}{{/formatDate}}</div>
+            <div class="col-xs-11">{{#strcut referencia concepto}}{{/strcut}}</div>
+        </div>
+        {{#each dld}}
+        <div class="row tipo">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2 num">{{#printCodigo codigo}}{{/printCodigo}}</div>
+            <div class="col-xs-5 {{#esDeTotalesCod estotal}}{{/esDeTotalesCod}}">
+                {{#strcutnomcta nombrecta}}{{/strcutnomcta}}
+            </div>
+            <div class="col-xs-2 num {{#esDeTotales estotal}}{{/esDeTotales}}">
+                {{#numberWithCommas debe 0 estotal}}{{/numberWithCommas}}
+            </div>
+            <div class="col-xs-2 num {{#esDeTotales estotal}}{{/esDeTotales}}">
+                {{#numberWithCommas haber 0 estotal}}{{/numberWithCommas}}
+            </div>
+        </div>
+        {{/each}}
+        <br/>
+        {{/each}}
+        <div class="resumen tipo">
+            {{#resumen cuentas}}{{/resumen}}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,167 @@
+<table>
+    <tr>
+        <td style="text-align: right; font-weight: bold; width: 256px;">Total de máquinas activas:</td><td colspan="26">{{rep.maquinasactivas}}</td>
+    </tr>
+    <tr>
+        <td style="text-align: right; font-weight: bold; width: 256px;">Total de máquinas en el período:</td><td colspan="26">{{rep.maquinasperiodo}}</td>
+    </tr>
+    <tr>
+        <td style="text-align: center; font-weight: bold; width: 256px;" colspan="27">REPORTE POR TIPO DE LLAMADA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Enero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Febrero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Marzo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Abril</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Mayo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Junio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Julio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Agosto</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Septiembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Octubre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Noviembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Diciembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Acumulado</td>
+    </tr>
+    <tr>
+        <td style="text-align:center; font-weight: bold;">Llamada</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+    </tr>
+    {{#each rep.tipollamada}}
+    <tr>
+        <td style="width: 256px;">{{descripcion}}</td>
+        <td style="text-align: right">{{ene}}</td><td style="text-align: right">{{enemix}}</td>
+        <td style="text-align: right">{{feb}}</td><td style="text-align: right">{{febmix}}</td>
+        <td style="text-align: right">{{mar}}</td><td style="text-align: right">{{marmix}}</td>
+        <td style="text-align: right">{{abr}}</td><td style="text-align: right">{{abrmix}}</td>
+        <td style="text-align: right">{{may}}</td><td style="text-align: right">{{maymix}}</td>
+        <td style="text-align: right">{{jun}}</td><td style="text-align: right">{{junmix}}</td>
+        <td style="text-align: right">{{jul}}</td><td style="text-align: right">{{julmix}}</td>
+        <td style="text-align: right">{{ago}}</td><td style="text-align: right">{{agomix}}</td>
+        <td style="text-align: right">{{sep}}</td><td style="text-align: right">{{sepmix}}</td>
+        <td style="text-align: right">{{oct}}</td><td style="text-align: right">{{octmix}}</td>
+        <td style="text-align: right">{{nov}}</td><td style="text-align: right">{{novmix}}</td>
+        <td style="text-align: right">{{dic}}</td><td style="text-align: right">{{dicmix}}</td>
+        <td style="text-align: right">{{acu}}</td><td style="text-align: right">{{acumix}}</td>
+    </tr>
+    {{/each}}
+    <tr><td style="height: 20px" colspan="27"></td></tr>
+    <tr><td style="height: 20px" colspan="27"></td></tr>
+    <tr><td style="text-align: center; font-weight: bold;" colspan="27">REPORTE POR TIPO DE PROBLEMA</td></tr>
+    <tr>
+        <td></td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Enero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Febrero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Marzo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Abril</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Mayo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Junio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Julio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Agosto</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Septiembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Octubre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Noviembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Diciembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Acumulado</td>
+    </tr>
+    <tr>
+        <td style="text-align:center; font-weight: bold;">Problema</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+    </tr>
+    {{#each rep.tipocaso}}
+    <tr>
+        <td style="width: 256px;">{{descripcion}}</td>
+        <td style="text-align: right">{{ene}}</td><td style="text-align: right">{{enemix}}</td>
+        <td style="text-align: right">{{feb}}</td><td style="text-align: right">{{febmix}}</td>
+        <td style="text-align: right">{{mar}}</td><td style="text-align: right">{{marmix}}</td>
+        <td style="text-align: right">{{abr}}</td><td style="text-align: right">{{abrmix}}</td>
+        <td style="text-align: right">{{may}}</td><td style="text-align: right">{{maymix}}</td>
+        <td style="text-align: right">{{jun}}</td><td style="text-align: right">{{junmix}}</td>
+        <td style="text-align: right">{{jul}}</td><td style="text-align: right">{{julmix}}</td>
+        <td style="text-align: right">{{ago}}</td><td style="text-align: right">{{agomix}}</td>
+        <td style="text-align: right">{{sep}}</td><td style="text-align: right">{{sepmix}}</td>
+        <td style="text-align: right">{{oct}}</td><td style="text-align: right">{{octmix}}</td>
+        <td style="text-align: right">{{nov}}</td><td style="text-align: right">{{novmix}}</td>
+        <td style="text-align: right">{{dic}}</td><td style="text-align: right">{{dicmix}}</td>
+        <td style="text-align: right">{{acu}}</td><td style="text-align: right">{{acumix}}</td>
+    </tr>
+    {{/each}}    
+    <tr><td style="height: 20px" colspan="27"></td></tr>
+    <tr><td style="height: 20px" colspan="27"></td></tr>    
+    <tr><td style="text-align: center; font-weight: bold;" colspan="27">REPORTE POR UBICACIÓN</td></tr>
+    <tr>
+        <td></td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Enero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Febrero</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Marzo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Abril</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Mayo</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Junio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Julio</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Agosto</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Septiembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Octubre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Noviembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Diciembre</td>
+        <td style="text-align: center; font-weight: bold;" colspan="2">Acumulado</td>
+    </tr>
+    <tr>
+        <td style="text-align:center; font-weight: bold;">Ubicación</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+        <td style="text-align: right; font-weight: bold;">Cantidad</td><td style="text-align: right; font-weight: bold;">% Mix</td>
+    </tr>
+    {{#each rep.ubicacion}}
+    <tr>
+        <td style="width: 256px;">{{descripcion}}</td>
+        <td style="text-align: right">{{ene}}</td><td style="text-align: right">{{enemix}}</td>
+        <td style="text-align: right">{{feb}}</td><td style="text-align: right">{{febmix}}</td>
+        <td style="text-align: right">{{mar}}</td><td style="text-align: right">{{marmix}}</td>
+        <td style="text-align: right">{{abr}}</td><td style="text-align: right">{{abrmix}}</td>
+        <td style="text-align: right">{{may}}</td><td style="text-align: right">{{maymix}}</td>
+        <td style="text-align: right">{{jun}}</td><td style="text-align: right">{{junmix}}</td>
+        <td style="text-align: right">{{jul}}</td><td style="text-align: right">{{julmix}}</td>
+        <td style="text-align: right">{{ago}}</td><td style="text-align: right">{{agomix}}</td>
+        <td style="text-align: right">{{sep}}</td><td style="text-align: right">{{sepmix}}</td>
+        <td style="text-align: right">{{oct}}</td><td style="text-align: right">{{octmix}}</td>
+        <td style="text-align: right">{{nov}}</td><td style="text-align: right">{{novmix}}</td>
+        <td style="text-align: right">{{dic}}</td><td style="text-align: right">{{dicmix}}</td>
+        <td style="text-align: right">{{acu}}</td><td style="text-align: right">{{acumix}}</td>
+    </tr>
+    {{/each}}    
+</table>

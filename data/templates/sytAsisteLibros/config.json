@@ -1,0 +1,17 @@
+{
+    "shortid": "SkeEL5jvz",
+    "recipe": "text",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "SJFQLqivG"
+        }
+    ],
+    "modificationDate": {
+        "$$date": 1519869799067
+    },
+    "_id": "iz9k7a7UaXlx9feG",
+    "contentType": "text/plain",
+    "fileExtension": "asl",
+    "contentDisposition": "attachment;filename=\"test.asl\""
+}

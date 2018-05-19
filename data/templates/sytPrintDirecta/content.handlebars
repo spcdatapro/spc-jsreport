@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial;}
+            .rtxt{ text-align: right; }
+            .ltxt{ text-align: left; }
+            .padl{ padding-left: 0.85em; }
+            .padr{ padding-left: 0.75em; }
+            .padb{ padding-bottom: 0.15em; }
+            .bld{ font-weight: bold;}
+            .lstbrd{ border-top: solid 0.1em black; border-bottom: double 0.30em black; }
+            .partida-cuadrada { background-color: #e5ffe5; }
+            .partida-descuadrada { background-color: #ffe6e6; }
+        </style>
+    </head>
+    <body class="tipo">
+        <div style="width: 85%; margin:0 auto;">
+            <table class="tipo" style="width: 100%; font-size: 10pt; border-collapse: collapse;">
+                {{#each directa.detalle}}
+                <tr>
+                    <td class="padb{{#if @last}}{{#if valcuadre}} partida-cuadrada{{else}} partida-descuadrada{{/if}}{{/if}}" style="width: 10%">{{codigo}}</td>
+                    <td class="padb{{#if @last}} bld rtxt padr{{#if valcuadre}} partida-cuadrada{{else}} partida-descuadrada{{/if}}{{/if}}" style="width: 30%">
+                        {{#strcut nombrecta 25}}{{/strcut}}
+                    </td>
+                    <td class="rtxt padb{{#if @last}} bld lstbrd{{#if valcuadre}} partida-cuadrada{{else}} partida-descuadrada{{/if}}{{/if}}" style="width: 13%">{{debe}}</td>
+                    <td class="rtxt padb{{#if @last}} bld lstbrd{{#if valcuadre}} partida-cuadrada{{else}} partida-descuadrada{{/if}}{{/if}}" style="width: 13%">{{haber}}</td>
+                    <td class="padl padb{{#if @last}}{{#if valcuadre}} partida-cuadrada{{else}} partida-descuadrada{{/if}}{{/if}}" style="width: 34%; font-size: 9pt;">
+                        {{#strcut conceptomayor 30}}{{/strcut}}
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </body>
+</html>

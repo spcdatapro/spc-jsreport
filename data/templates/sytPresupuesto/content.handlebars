@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tbl2{ width: 96%; border-collapse: collapse; font-size: 10pt;}
+            .tipo{ font-family: Arial; }
+            .rtxt{ text-align: right; }
+            .ltxt{ text-align: left; }
+            .ctxt{ text-align: center; }
+            .smtxt{ font-size: 10.5pt; }
+            .pdbtm{ padding-bottom: 0.5em; }
+            .tblbrd{ border: solid 0.1em lightgray }
+            .otheader{ border-bottom: solid 0.1em black }
+            .espaciocell > tbody > tr > th, 
+            .espaciocell > tbody > tr > th { 
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="tipo tbl espaciocell">
+            <tr>
+                <th class="rtxt">Solicitado el:</th>
+                <td colspan="11">{{presupuesto.fechasolicitud}}</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Empresa:</th>
+                <td colspan="11">{{presupuesto.empresa}} ({{presupuesto.abreviaempresa}})</td>
+            </tr>
+            <tr>
+                <th class="rtxt">Proyecto:</th>
+                <td colspan="11"><b>{{presupuesto.proyecto}}</b></td>
+            </tr>
+            <tr>
+                <th class="rtxt">Gasto:</th>
+                <td colspan="11"><b>{{presupuesto.tipogasto}}</b></td>
+            </tr>
+            <tr>
+                <th class="rtxt">Total:</th>
+                <td colspan="11"><b>{{presupuesto.moneda}} {{presupuesto.totalpresupuesto}} </b>
+                </td>
+            </tr>
+            <tr>
+                <th class="rtxt" style="padding-bottom: 0.5em">Notas:</th>
+                <td colspan="11" style="padding-bottom: 0.5em"><p>{{presupuesto.notas}}</p></td>
+            </tr>
+            <!-- tr>
+                <th class="rtxt smtxt">Creado el:</th>
+                <td class="smtxt">{{presupuesto.fechacreacion}}</td>
+                <th class="rtxt smtxt">por:</th>
+                <td class="smtxt">{{presupuesto.creadopor}}</td>
+                <th class="rtxt smtxt" style="padding-left: 1em">Aprobado el:</th>
+                <td class="smtxt">{{presupuesto.fhaprobacion}}</td>
+                <th class="rtxt smtxt">por:</th>
+                <td class="smtxt">{{presupuesto.aprobadopor}}</td>
+                <th class="rtxt smtxt" style="padding-left: 1em">Modificado el:</th>
+                <td class="smtxt">{{presupuesto.modificadoel}}</td>
+                <th class="rtxt smtxt">por:</th>
+                <td class="smtxt">{{presupuesto.modificadopor}}</td>
+            </tr -->
+        </table>
+        <hr/>
+        <table class="tipo tbl">
+            <caption style="padding-top: 0.25em; padding-bottom:0.25em;">
+                <h2>&Oacute;RDENES DE TRABAJO</h2>
+            </caption>
+            <tbdody>
+                <tr>
+                    <th class="ctxt pdbtm otheader">No.</th>
+                    <th class="ltxt pdbtm otheader">Proveedor</th>
+                    <th class="ltxt pdbtm otheader">Subtipo de gasto</th>
+                    <th class="rtxt pdbtm otheader">Monto</th>
+                    <th class="pdbtm otheader">&nbsp;</th>
+                </tr>
+                {{#each presupuesto.ots}}
+                <tr>
+                    <td class="ctxt pdbtm">{{correlativo}}</td>
+                    <td class="pdbtm">{{proveedor}}</td>
+                    <td class="pdbtm">{{subtipogasto}}</td>
+                    <td class="rtxt pdbtm">{{monto}}</td>
+                    <td class="pdbtm" style="padding-left: 0.5em">{{coniva}}</td>
+                </tr>
+                {{#if ../detallado}}
+                <tr>
+                    <td colspan="5" style="margin-left: 1em !important; padding-bottom: 1em; border-bottom: solid 0.1em #b4b4b4">
+                        <small>
+                        <table class="tipo tbl2 " style="margin-left: 4% !important;">
+                            <tbody>
+                                <tr>
+                                    <th class="ltxt">Fecha</th>
+                                    <th class="ltxt">Documento</th>
+                                    <th class="ltxt">Beneficiario</th>
+                                    <th class="rtxt">MONTO</th>
+                                    <th class="rtxt">ISR</th>
+                                    <th class="rtxt">T.C.</th>
+                                    <th class="ltxt">Fact.</th>
+                                    <th class="ltxt" style="width: 15%">Concepto</th>
+                                    
+                                </tr>
+                                
+                                {{#each avance}}
+                                <tr>
+                                    <td class="tblbrd">{{fecha}}</td>
+                                    <td class="tblbrd">{{docto}}</td>
+                                    <td class="tblbrd">{{beneficiario}}</td>
+                                    <td class="tblbrd rtxt">{{moneda}} {{monto}}</td>
+                                    <td class="tblbrd rtxt">{{isr}}</td>
+                                    <td class="tblbrd rtxt">{{tipocambio}}</td>
+                                    <td class="tblbrd">{{factura}}</td>
+                                    <td class="tblbrd" style="width: 25%"><p>{{concepto}}</p></td>
+                                   
+                                </tr>
+                               
+                                {{/each}}
+                                <tr>
+                                    <td class="tblbrd"></td>
+                                    <td class="tblbrd"></td>
+                                    <td class="tblbrd rtxt"><strong>TOTAL:</strong> </td>
+                                    <td class="tblbrd rtxt"><strong>{{simbolo}} {{total}}</strong></td>
+                                    <td class="tblbrd rtxt"><strong>{{isr}}</strong></td>
+                                    <td class="tblbrd rtxt"></td>
+                                    <td class="tblbrd"></td>
+                                    <td class="tblbrd" style="width: 25%"></td>
+                                </tr>
+                            </tbody>
+                           
+                        </table>
+                        </small>
+                        
+                                 
+                    </td>
+                </tr>
+                
+                
+                {{/if}}
+                {{/each}}
+            </tbdody>
+        </table>
+        {{#if detallado}}
+        <table class="tbl" style=" border-bottom: solid 0.1em #000">
+            <tr>
+                <th></th><th class=" rtxt" style="width: 10%">MONTO</th><th class=" rtxt" style="width: 10%">ISR</th>    
+            </tr>
+            <tr> 
+                <td class=" rtxt" style="width: 75%"><strong>Gran Total:</strong> </td><td class=" rtxt" style="width: 15%"><strong>{{presupuesto.moneda}} {{presupuesto.totalf}}</strong></td><td class=" rtxt" style="width: 10%"><strong>{{presupuesto.totisr}}</strong></td>    
+            </tr>
+        </table>
+        {{/if}}
+        <p style="text-align: right; font-weight: bold;">AVANCE: {{presupuesto.porecentaje_total}} %</p>
+        <table class="espaciocell" style="position: fixed; bottom: 0px; right: 0px;">
+            <tbody>
+                <tr>
+                    <th class="rtxt smtxt">Creado el:</th>
+                    <td class="smtxt">{{presupuesto.fechacreacion}}</td>
+                    <th class="rtxt smtxt">Por:</th>
+                    <td class="smtxt">{{presupuesto.creadopor}}</td>
+                </tr>
+                <tr>
+                    <th class="rtxt smtxt" style="padding-left: 1em">Aprobado el:</th>
+                    <td class="smtxt">{{presupuesto.fhaprobacion}}</td>
+                    <th class="rtxt smtxt">Por:</th>
+                    <td class="smtxt">{{presupuesto.aprobadopor}}</td>
+                </tr>
+                <tr>
+                    <th class="rtxt smtxt" style="padding-left: 1em">Modificado el:</th>
+                    <td class="smtxt">{{presupuesto.modificadoel}}</td>
+                    <th class="rtxt smtxt">Por:</th>
+                    <td class="smtxt">{{presupuesto.modificadopor}}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </body>
+</html>

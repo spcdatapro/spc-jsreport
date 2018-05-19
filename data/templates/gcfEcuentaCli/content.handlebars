@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+            }
+            .factura{
+                border-top: 0.1em solid black;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <tbody>
+                {{#each anti}}
+                <tr>
+                    <td style='font-weight:bold;font-size:200%' colspan=2>{{moneda}} ({{simbolo}})</td>
+                </tr>
+                <tr>
+                    <td class="encabezado"></th>
+                    <td class="encabezado">Factura / Documento</th>
+                    <td class="encabezado">Fecha</th>
+                    <td class="encabezado">Cargo</th>
+                    <td class="encabezado">Abono</th>
+                    <td class="encabezado">Saldo</th>
+                </tr>
+                {{#each dmon}}
+                    <tr>
+                        <td style='font-weight:bold' colspan=5>{{nombre}}</td>
+                        <td class="numero" style='font-weight:bold'></td>
+                    </tr>
+                    {{#each dec}}
+                        <tr>
+                            <td></td>
+                            <td class="factura">{{serie}} - {{factura}}</td>
+                            <td class="factura">{{#formatDate fecha}}{{/formatDate}}</td>
+                            <td class="numero factura">{{#numberWithCommas totalfac}}{{/numberWithCommas}}</td>
+                            <td class="numero factura"></td>
+                            <td class="numero factura">{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                        </tr>
+                        {{#each dfac}}
+                            <tr>
+                                <td></td>
+                                <td>{{tipotrans}} - {{documento}}</td>
+                                <td>{{#formatDate fecha}}{{/formatDate}}</td>
+                                <td class="numero"></td>
+                                <td class="numero">{{#numberWithCommas monto}}{{/numberWithCommas}}</td>
+                                <td></td>
+                            </tr>
+                        {{/each}}
+                    {{/each}}
+                    <tr>
+                        <td style='text-align: right; font-weight:bold' colspan=5>Total:</td>
+                        <td class="total" style='font-weight:bold'>{{#numberWithCommas tsaldo}}{{/numberWithCommas}}</td>
+                    </tr>
+                {{/each}}
+                <tr>
+                        <td style='font-weight:bold'></td>
+                        <td style='text-align: right; font-weight:bold' colspan=5>Total de Moneda:</td>
+                        <td class="total" style='font-weight:bold'>{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+        <table class="resumen">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" colspan=2>RESUMEN DE TOTALES</td>
+                </tr>
+                {{#each anti}}
+                <tr>
+                    <td>{{moneda}} ({{simbolo}})</td>
+                    <td class="numero">{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

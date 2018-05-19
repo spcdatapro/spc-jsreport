@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+                padding-bottom: 0.15em;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.2em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <thead>
+                <tr>
+                    <th class="encabezado">Código</th>
+                    <th class="encabezado">Nombre</th>
+                    <th class="encabezado">Anterior</th>
+                    <th class="encabezado">Debe</th>
+                    <th class="encabezado">Haber</th>
+                    <th class="encabezado">Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each cuentas}}
+                <tr>
+                    <td style='width: 5.5%'>{{codigo}}</td>
+                    <td style='width: 43.5%'>{{#strcut nombrecta}}{{/strcut}}</td>
+                    <td class="numero">{{#numberWithCommas anterior tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas debe tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas haber tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas actual tipocuenta}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{#getTotales cuentas}}{{/getTotales}}
+    </body>
+</html>

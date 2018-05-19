@@ -1,0 +1,12 @@
+{
+    "shortid": "BJX1Jw82ce",
+    "name": "Orders",
+    "creationDate": {
+        "$$date": 1526309457560
+    },
+    "modificationDate": {
+        "$$date": 1526309457560
+    },
+    "_id": "ukLBskmXrCCJcqvx",
+    "$entitySet": "scripts"
+}

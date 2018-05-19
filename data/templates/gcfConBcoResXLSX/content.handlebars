@@ -1,0 +1,98 @@
+{{#xlsxRemove "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row" 0}}{{/xlsxRemove}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t>{{concilia.banco.nombre}} ({{concilia.banco.simbolo}})</t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t>Del: {{concilia.banco.del}} al: {{concilia.banco.al}}</t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t>Saldo según estado de cuenta:</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{concilia.banco.saldobco}}</v></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t>Saldo según sistema:</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{concilia.saldoinicial}}</v></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+
+{{#each concilia.entransito}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{cantTipo}}</t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[2].$.s}}"><is><t>{{tipo}}</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{monto}}</v></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{/each}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t>Saldo según banco:</t></is></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{concilia.saldofinal}}</v></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t></t></is></c>
+        <c t="inlineStr"><is><t>{{concilia.comparacion}}</t></is></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+        <c t="inlineStr"><v></v></c>
+    </row>
+{{/xlsxAdd}}
+
+{{{xlsxPrint}}}

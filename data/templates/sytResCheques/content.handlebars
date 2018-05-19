@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .brdbot{ border-bottom: solid 0.1em black; }
+            .brdfin{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+            .brdsubtot{ border-top: solid 0.1em black; border-bottom: solid 0.1em black; }
+            .cntrtxt{ text-align: center; }
+            .lfttxt{ text-align: left; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        {{#each empresas}}
+        <h3 style="text-decoration: underline">{{empresa}} ({{abreviaempre}})</h3>
+        <table class="tbl">
+            <tbody>
+                <tr>
+                    <th style="width: 3%">&nbsp;</th>
+                    <th style="width: 12%" class="lfttxt">No. cheque</th>
+                    <th style="width: 40%" class="lfttxt">Beneficiario</th>
+                    <th style="width: 15%" class="num">Monto</th>
+                    <th style="width: 30%" class="cntrtxt">Observaciones</th>
+                </tr>
+                {{#each cheques}}
+                <tr>
+                    <td style="width: 3%">&nbsp;</td>
+                    <td style="width: 12%">{{numero}}</td>
+                    <td style="width: 40%" class="{{#if @last}}num bld{{/if}}">{{beneficiario}}</td>
+                    <td style="width: 15%" class="num{{#if @last}} bld brdsubtot{{/if}}">{{monto}}</td>
+                    <td style="width: 30%{{#if @last}}; border: 0 !important{{/if}}" class="brdbot">&nbsp;</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr/>
+        {{/each}}
+        <table class="tbl">
+            <tbody>
+                <tr>
+                    <td style="width: 3%">&nbsp;</td>
+                    <td style="width: 12%">&nbsp;</td>
+                    <td style="width: 40%" class="num bld">TOTAL&nbsp;</td>
+                    <td style="width: 15%" class="num bld brdfin">{{generales.total}}</td>
+                    <td style="width: 30%">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>        
+    </body>
+</html>

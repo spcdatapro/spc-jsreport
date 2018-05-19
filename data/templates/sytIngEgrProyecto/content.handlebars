@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tab{ padding-left: 2em !important; }
+            .total{ text-align: right; font-weight: bold; background-color: #A9E2F3; }
+            .brdfin { border-top: solid 0.1em black !important; border-bottom: double 0.30em black !important;}            
+            .tituloIngEgr{ background-color: #E0F2F7; text-decoration: underline; text-align: left; }
+            .repHeader{
+                width: 80%; background-color: #FFFF00; margin: 0 auto; border-radius: 0.75em;
+                padding-left: 1em; padding-top: 0.1em; padding-bottom: 0.1em; padding-right: 1em; box-shadow: 0px 2px 5px lightgray;
+                font-family: Arial; color: #317EAC; font-weight: bold;
+                text-align: left;
+            }
+            .num{ text-align: right; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table style="font-family: Arial !important; width: 100%; border-collapse: collapse; ">
+            <caption style="padding-bottom: 1em">
+                <div class="repHeader">
+                    <span style="font-size: 14pt">{{proyecto.nomproyecto}} - {{proyecto.referencia}}</span><br/>
+                    <span style="font-size: 13pt">{{proyecto.empresa}} ({{proyecto.abreviaempresa}})</span><br/>
+                    <span style="font-size: 12pt">{{proyecto.mes}} {{proyecto.anio}}</span>
+                </div>
+            </caption>
+            <tr>
+                <th colspan="2" class="tituloIngEgr">INGRESOS</th>
+            </tr>
+            {{#each movs.ingresos}}
+            <tr class="{{#if @last}}total brdfin{{/if}}">
+                <td class="tab">{{#strCut concepto 80}}{{/strCut}}</td>
+                <td class="num">{{#nwc monto}}{{/nwc}}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <th colspan="2" class="tituloIngEgr">EGRESOS</th>
+            </tr>
+            {{#each movs.egresos}}
+            <tr class="{{#if @last}}total brdfin{{/if}}">
+                <td class="tab">{{#strCut concepto 80}}{{/strCut}}</td>
+                <td class="num">{{#nwc monto}}{{/nwc}}</td>
+            </tr>
+            {{/each}}
+        </table>        
+    </body>
+</html>

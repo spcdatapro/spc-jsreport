@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+           .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+            }
+            .num{
+                text-align: right;
+            }
+            .enc{
+                font-weight: bold;
+            }
+            .tab{
+                margin-left: 1em;
+            }
+            .smtext{
+                font-size: 0.85em;
+            }
+        </style>
+    </head>
+    <body>
+        {{#each cuentas}}
+        <div class="row">
+            <div class="col-xs-1 enc">{{codigo}}</div>
+            <div class="col-xs-3 enc">{{nombrecta}}</div>
+            <div class="col-xs-2 enc num">{{#numberWithCommas anterior 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num">{{#numberWithCommas debe 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num">{{#numberWithCommas haber 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num">{{#numberWithCommas actual 0}}{{/numberWithCommas}}</div>
+        </div>
+        {{#each dlm}}
+        <div class="row">
+            <div class="col-xs-6">{{poliza}}</div>
+        </div>
+        <div class="row">
+            <!--<div class="col-xs-1"></div>-->
+            <div class="col-xs-3">
+                <p class="tab smtext">{{#formatDate fecha}}{{/formatDate}}<br/>{{#strcut referencia}}{{/strcut}}</p>
+            </div>
+            <div class="col-xs-3 smtext">{{#strcut conceptomayor}}{{/strcut}}</div>
+            <div class="col-xs-2 num">{{#numberWithCommas debe 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 num">{{#numberWithCommas haber 0}}{{/numberWithCommas}}</div>
+        </div>
+        {{/each}}
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="width: 14.5em; text-align: left;"></th>
+                    <th style="width: 11em; text-align: left;"></th>
+                    <th style="width: 4em: text-align: right;">Totales:</th>
+                    <th class="encabezado" style="text-align: right">{{#numberWithCommas debe 0}}{{/numberWithCommas}}</th>
+                    <th class="encabezado" style="text-align: right">{{#numberWithCommas haber 0}}{{/numberWithCommas}}</th>
+                    <th class="encabezado" style="text-align: right">{{#numberWithCommas actual 0}}{{/numberWithCommas}}</th>
+                </tr>
+            </thead>
+        </table>
+        <hr/>
+        {{/each}}
+    </body>
+</html>

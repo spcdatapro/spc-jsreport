@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tab{ padding-left: 2em !important; }
+            .total{ text-align: right; font-weight: bold; background-color: #A9E2F3; }
+            .brdfin { border-top: solid 0.1em black !important; border-bottom: double 0.30em black !important;}            
+            .tituloIngEgr{ background-color: #E0F2F7; text-decoration: underline; text-align: left; }
+            .repHeader{
+                width: 80%; background-color: #FFFF00; margin: 0 auto; border-radius: 0.75em;
+                padding-left: 1em; padding-top: 0.1em; padding-bottom: 0.1em; padding-right: 1em; box-shadow: 0px 2px 5px lightgray;
+                font-family: Arial; color: #317EAC; font-weight: bold;
+                text-align: left;
+            }
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .subrayado{ text-decoration: underline; }
+            .smtxt{ font-size: smaller; }
+            .vatop{ vertical-align: top; }
+            .ltxt{ text-align: left; }
+            .brdbtm{ border-bottom: solid 0.1em #D0D0D0; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        <table style="font-family: Arial !important; width: 100%; border-collapse: collapse; ">
+            <caption style="padding-bottom: 1em">
+                <div class="repHeader">
+                    <span style="font-size: 14pt">{{proyecto.nomproyecto}} - {{proyecto.referencia}}</span><br/>
+                    <span style="font-size: 13pt">{{proyecto.empresa}} ({{proyecto.abreviaempresa}})</span><br/>
+                    <span style="font-size: 12pt">{{proyecto.mes}} {{proyecto.anio}}</span>
+                </div>
+            </caption>
+            <tr>
+                <th colspan="3" class="tituloIngEgr">INGRESOS</th>
+            </tr>
+            {{#each movs.ingresos}}
+            <tr class="{{#if @last}}total brdfin{{else}}brdbtm{{/if}}">
+                <td class="tab bld subrayado vatop" style="width: 15%">{{#strCut concepto 80}}{{/strCut}}</td>
+                <td class="num bld subrayado vatop" style="width: 15%">{{#nwc monto}}{{/nwc}}</td>
+                <td style="width:70% !important; vertical-align: top !important; padding-left: 0.75em; padding-top: 0.5em;">
+                    {{#imprimir detalle}}
+                    <table class="smtxt" style="width: 100%; border-collapse: collapse !important;">
+                        <caption class="ltxt"><strong>FACTURAS DE CLIENTES</strong></caption>
+                        <tr>
+                            <th style="width: 10%">Cliente</th>
+                            <th style="width: 10%">Contrato</th>
+                            <th style="width: 18%">Unidades</th>
+                            <th style="width: 18%">Factura</th>
+                            <th class="num" style="width: 14%">Monto</th>
+                        </tr>
+                        {{#each detalle}}
+                        <tr>
+                            <td style="width: 10%">{{abreviacliente}}</td>
+                            <td style="width: 10%">{{nocontrato}}</td>
+                            <td style="width: 18%">{{unidadescontrato}}</td>
+                            <td style="width: 18%">{{serie}}-{{numero}}</td>
+                            <td class="num" style="width: 14%">{{totalneto}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                    {{else}}
+                    {{/imprimir}}
+                </td>
+            </tr>
+            {{/each}}
+            <tr>
+                <th colspan="3" class="tituloIngEgr">EGRESOS</th>
+            </tr>
+            {{#each movs.egresos}}
+            <tr class="{{#if @last}}total brdfin{{else}}brdbtm{{/if}}">
+                <td class="tab bld subrayado vatop" style="width: 15%">{{#strCut concepto 80}}{{/strCut}}</td>
+                <td class="num bld subrayado vatop" style="width: 15%">{{#nwc monto}}{{/nwc}}</td>
+                <td style="width:70% !important; vertical-align: top !important; padding-left: 0.75em; padding-top: 0.5em;">
+                    {{#imprimir detalle}}
+                    <table class="smtxt" style="width: 100%; border-collapse: collapse !important;">
+                        <caption class="ltxt"><strong>TRANSACCIONES BANCARIAS</strong></caption>
+                        <tr>
+                            <th style="width: 10%; vertical-align: top;">Fecha</th>
+                            <th style="width: 10%; vertical-align: top;">Documento</th>
+                            <th style="width: 10%; vertical-align: top;">Beneficiario</th>
+                            <th style="width: 10%; vertical-align: top;">Concepto</th>
+                            <th class="num" style="width: 10%; vertical-align: top;">Monto</th>
+                            <th style="width: 10%; padding-left: 0.75em;; vertical-align: top;">Compra</th>
+                            <th class="num" style="width: 10%; vertical-align: top;">Monto</th>
+                        </tr>
+                        {{#each detalle}}
+                        <tr>
+                            <td style="width: 10%; vertical-align: top;">{{fecha}}</td>
+                            <td style="width: 10%; vertical-align: top;">{{tipotrans}}{{numero}}</td>
+                            <td style="width: 10%; vertical-align: top;">{{beneficiario}}</td>
+                            <td style="width: 10%; vertical-align: top;">{{concepto}}</td>
+                            <td class="num" style="width: 10%; vertical-align: top;">{{moneda}}&nbsp;{{#nwc montotranban}}{{/nwc}}</td>
+                            <td style="width: 10%;  padding-left: 0.75em;; vertical-align: top;">{{serie}}-{{documento}}</td>
+                            <td class="num" style="width: 10%; vertical-align: top;">{{monedafact}}&nbsp;{{#nwc montofact}}{{/nwc}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                    {{else}}
+                    {{/imprimir}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>        
+    </body>
+</html>

@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <style>
+        .tipo {
+            font-family: Arial;
+            font-size: 9.5pt;
+        }
+
+        .tbldet {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .btmbrd {
+            border-bottom: solid 0.1em black;
+        }
+
+        .padbot {
+            padding-bottom: 0.35em;
+        }
+
+        .izqtxt {
+            text-align: left;
+        }
+
+        .dertxt {
+            text-align: right;
+        }
+
+        .centxt {
+            text-align: center;
+        }
+
+        .bld {
+            font-weight: bold;
+        }
+
+        .total {
+            border-top: solid 0.1em black;
+            border-bottom: double 0.3em black;
+        }
+
+        .padder {
+            padding-right: 1.5em;
+        }
+
+        .codigo {
+            width: 5em;
+        }
+
+        .descrip {
+            width: 55em;
+        }
+    </style>
+</head>
+
+<body class="tipo">
+    <table class="tipo">
+        <tbody>
+            <tr>
+                <th class="dertxt">N&uacute;mero:</th>
+                <td>{{poliza.poliza}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Fecha:</th>
+                <td>{{poliza.fecha}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Referencia:</th>
+                <td>{{poliza.referencia}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Beneficiario:</th>
+                <td>{{poliza.beneficiario}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Monto:</th>
+                <td>{{poliza.moneda}}&nbsp;{{poliza.monto}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Tipo de cambio:</th>
+                <td>{{poliza.tipocambio}}</td>
+            </tr>
+            <tr>
+                <th class="dertxt">Concepto:</th>
+                <td>{{poliza.concepto}}</td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+
+    <hr/>
+    <table class="tipo tbldet">
+        <caption class="centxt bld">
+            <span>DETALLE CONTABLE</span>
+        </caption>
+        <thead>
+            <tr>
+                <th class="izqtxt btmbrd padbot codigo">C&oacute;digo</th>
+                <th class="izqtxt btmbrd padbot descrip">Descripci&oacute;n</th>
+                <th class="dertxt btmbrd padbot">Debe</th>
+                <th class="dertxt btmbrd padbot">Haber</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each poliza.detcont}}
+            <tr>
+                <td class="izqtxt codigo">{{#printCod estotal codigo}}{{/printCod}}</td>
+                <td class="{{#esTotalStr estotal}}{{/esTotalStr}}  descrip">{{nombrecta}}</td>
+                <td class="dertxt {{#esTotal estotal}}{{/esTotal}}">{{#printVal debe}}{{/printVal}}</td>
+                <td class="dertxt {{#esTotal estotal}}{{/esTotal}}">{{#printVal haber}}{{/printVal}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <table class="tipo tbldet">
+        <caption class="centxt bld">
+            <span>RECIBO(S) UTILIZADO(S)</span>
+        </caption>
+        <hr/>
+        <table>
+            <tr>
+                <th class="izqtxt btmbrd" style='width:10%'>No.de Recibo</th>
+                <th class="izqtxt btmbrd" style='width:15%'>Fecha de Recibo</th>
+                <th class="izqtxt btmbrd" style='width:30%'>Cliente</th>
+                <th class="izqtxt btmbrd" style='width:30%'>Dep&oacute;sito/Nota de cr&eacute;dito</th>
+
+            </tr>
+            {{#each poliza.reccont}}
+            <tr>
+                <td class="izqtxt" style='font-size:11;' style='width:15%'>{{idrec}}</td>
+                <td class="izqtxt" style='font-size:11;' style='width:15%'>{{fecha}}</td>
+                <td class="izqtxt" style='font-size:11;' style='width:30%'>{{cliente}}</td>
+                <td class="izqtxt" style='font-size:11;' style='width:30%'>{{tipotrans}} {{numero}} {{nombre}} {{simbolo}} {{monto}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </table>
+
+    <br>
+    <br>
+    <table class="tipo tbldet">
+        <caption class="centxt bld">
+            <span>FACTURA(S) UTILIZADA(S)</span>
+        </caption>
+        <hr/>
+        <table>
+            <tr>
+                <th class="izqtxt btmbrd" style='width:15%'>No.de factura</th>
+                <th class="izqtxt btmbrd" style='width:15%'>No. de Recibo</th>
+                <th class="izqtxt btmbrd" style='width:30%'>Documento</th>
+                <th class="dertxt btmbrd" style='width:15%'>Abono</th>
+                <th class="dertxt btmbrd" style='width:15%'>Interes</th>
+            </tr>
+            {{#each poliza.facrec}}
+            <tr>
+                <td class="izqtxt" style='font-size:11;' style='width:15%'>{{idfactura}}</td>
+                <td class="izqtxt" style='font-size:11;' style='width:15%'>{{idrecibocli}}</td>
+                <td class="izqtxt" style='font-size:11;' style='width:30%'>{{siglas}} {{serie}} {{numero}} {{fecha}} {{simbolo}} {{total}}</td>
+                <td class="dertxt" style='font-size:11;' style='width:15%'>{{monto}}</td>
+                <td class="dertxt" style='font-size:11;' style='width:15%'>{{interes}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </table>
+</body>
+
+</html>

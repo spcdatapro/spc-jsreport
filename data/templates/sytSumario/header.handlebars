@@ -1,0 +1,39 @@
+<style>
+    .first { width: 53%; float:left; }
+    .first2 { width: 62.25%; float:left; }
+    .second { overflow: hidden; }
+    .rghttxt{ text-align: right; }
+    .cntrtxt{ text-align: center; width: 100%;}
+    .tipo{ font-family: Arial; }
+    .padbot{ padding-bottom: 0.5em; }
+</style>
+<div class="tipo padbot">
+    <div class="first rghttxt">
+        <span style="font-weight: bold; text-decoration: underline;">
+            SUMARIO
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">Emisi&oacute;n:&nbsp;{{fecha}}</span>
+    </div>    
+</div>
+<div class="tipo padbot">
+    <div class="first2 rghttxt">
+        <span style="font-weight: bold; text-decoration: underline;">
+            Res&uacute;men de Saldos Bancarios
+        </span>
+    </div>
+    <div class="second rghttxt">
+        <span style="font-weight: bold">
+            P&aacute;gina No.:&nbsp;{#pageNum}
+        </span>
+    </div>    
+</div>
+<div class="tipo cntrtxt padbot">
+    <span style="font-weight: bold;">
+            Res&uacute;men del d&iacute;a: {{rango.al}}
+    </span>
+</div>
+<div class="tipo cntrtxt">
+    <span style="font-weight: bold;">Moneda: {{sumario.moneda}}</span>
+</div>

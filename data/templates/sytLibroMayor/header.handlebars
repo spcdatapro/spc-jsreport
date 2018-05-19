@@ -1,0 +1,38 @@
+<style>
+    .encabezadotop{ border-top: 0.1em solid black; }
+    .encabezado{ border-bottom: 0.1em solid black; }
+    .tituloXL{ font-size: 1.25em; font-weight: bold; }
+    .tituloL{ font-size: 1.17em; font-weight: bold; }
+    .tituloM{ font-size: 1.08em; font-weight: bold; }
+    .tipo{ font-family: Arial !important; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+</style>
+<div style="text-align: center">
+    <span class="tituloXL tipo">{{empresa}}</span>
+    <br/>
+    <span class="tituloL tipo">Diario Mayor General</span>
+    <br/>
+    <span class="tituloM tipo">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>
+<table class="tipo" style="width: 100%; border-collapse:collapse; font-size: 10pt">
+    <tr>
+        <th class="encabezadotop" style="width: 10%; text-align: left">Codigo</th>
+        <th class="encabezadotop" style="width: 42%; text-align: left" colspan="2"> y nombre de la cuenta</th>
+        <th class="encabezadotop" style="width: 12%; text-align: right">Anterior</th>
+        <th class="encabezadotop" style="width: 12%; text-align: right">Debe</th>
+        <th class="encabezadotop" style="width: 12%; text-align: right">Haber</th>
+        <th class="encabezadotop" style="width: 12%; text-align: right">Saldo</th>
+    </tr>
+    <tr>
+        <th class="encabezado" style="width: 10%; text-align: left">Fecha</th>
+        <th class="encabezado" style="width: 32%; text-align: left">Referencia</th>
+        <th class="encabezado" style="width: 10%; text-align: left">Transaccion</th>
+        <th class="encabezado" style="width: 12%; text-align: right"></th>
+        <th class="encabezado" style="width: 12%; text-align: right"></th>
+        <th class="encabezado" style="width: 12%; text-align: right"></th>
+        <th class="encabezado" style="width: 12%; text-align: right"></th>
+    </tr>
+</table>

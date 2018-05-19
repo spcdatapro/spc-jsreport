@@ -1,0 +1,25 @@
+<style>
+    .rghttxt{ text-align: right; }
+    .first {
+        width: 60%;
+        float:left; /* add this */
+        /*border: 1px solid red;*/
+    }
+    .second {
+        /*border: 1px solid green;*/
+        overflow: hidden; /* if you don't want #second to wrap below #first */
+    }
+</style>
+<div style="width: 100%; overflow: hidden; font-family:Arial">
+    <div class="first rghttxt">
+        <span style="font-weight:bold">RESUMEN DE CHEQUES</span>
+    </div>
+    <div class="second rghttxt">
+        <span style="padding-right: 4em">{{fecha}}</span>
+    </div>
+</div>
+<div style="font-family:Arial; text-align:center">
+    <span style="font-weight: bold">
+        Del {{generales.fdel}} al {{generales.fal}}<br/>Cantidades en {{generales.simbolo}}
+    </span>
+</div>

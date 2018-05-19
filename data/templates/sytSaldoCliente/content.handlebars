@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                width: 12.75%;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 12.75%;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <tbody>
+                {{#each saldos}}
+                <tr>
+                    <td style='font-weight:bold;font-size:200%' colspan=2>{{moneda}} ({{simbolo}})</td>
+                </tr>
+                <tr>
+                    <td class="encabezado">Nombre</th>
+                    <td class="encabezado">Anterior</th>
+                    <td class="encabezado">Cargos</th>
+                    <td class="encabezado">Abonos</th>
+                    <td class="encabezado">Saldo</th>
+                </tr>
+                {{#each det}}
+                <tr>
+                    <td style='width: 43.5%'>{{#formatname nombre}}{{/formatname}}</td>
+                    <td class="numero">{{#numberWithCommas anterior tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas cargos tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas abonos tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="numero">{{#numberWithCommas saldo tipocuenta}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td style='width: 43.5%'>{{#formatname nombre}}{{/formatname}}</td>
+                    <td class="total">{{#numberWithCommas anterior tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="total">{{#numberWithCommas cargos tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="total">{{#numberWithCommas abonos tipocuenta}}{{/numberWithCommas}}</td>
+                    <td class="total">{{#numberWithCommas saldo tipocuenta}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+        <table class="resumen">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" colspan=2>RESUMEN DE TOTALES</td>
+                </tr>
+                {{#each saldos}}
+                <tr>
+                    <td>{{moneda}} ({{simbolo}})</td>
+                    <td class="numero">{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

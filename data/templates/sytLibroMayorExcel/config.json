@@ -1,0 +1,14 @@
+{
+    "shortid": "HJwukPndf",
+    "recipe": "html-to-xlsx",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "rJeOe_o--"
+        }
+    ],
+    "modificationDate": {
+        "$$date": 1520362709053
+    },
+    "_id": "3ASLeRrd0rYtIbZh"
+}

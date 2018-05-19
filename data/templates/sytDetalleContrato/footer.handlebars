@@ -1,0 +1,28 @@
+<style>
+    .pie{
+        text-align: right;
+        font-family:Arial;
+        padding-right: 4em;
+        width: 100%; 
+        overflow: hidden;
+    }
+    .first {
+        width: 50%;
+        float:left; /* add this */
+        /*border: 1px solid red;*/
+    }
+    .second {
+        /*border: 1px solid green;*/
+        overflow: hidden; /* if you don't want #second to wrap below #first */
+    }    
+</style>
+<div class="pie">
+    <div class="first" style="text-align: left">
+        <span style="padding-left: 4em">
+            Vigencia del {{#formatDate contrato.fechainicia}}{{/formatDate}} al {{#formatDate contrato.fechavence}}{{/formatDate}}
+        </span>
+    </div>
+    <div class="second" style="text-align: right; font-weight: bold;">
+        <span style="padding-right: 4em">P&aacute;gina: {#pageNum}/{#numPages}</span>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+    "shortid": "HyxTB2Oub",
+    "recipe": "phantom-pdf",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "ByyNBnud-"
+        }
+    ],
+    "modificationDate": {
+        "$$date": 1511978659495
+    },
+    "_id": "EXKxx4C6q0SM3CVs",
+    "phantom": {
+        "format": "Letter",
+        "footerHeight": "1cm",
+        "headerHeight": "3.75cm",
+        "margin": "0.5cm"
+    }
+}

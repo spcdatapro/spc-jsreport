@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <style>
+        .num { text-align: right; }
+        .tbl { width: 100%; }
+        .brd { border: solid 0.1em lightgrey; border-collapse: collapse; }
+        .bld { font-weight: bold; }
+        .tam {font-size: 9pt;}
+    </style>
+</head>
+
+<body>
+    <table>
+        {{#each datos.parametros}}
+        <tr>
+            <td>{{param}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <hr/>
+    <table class="tbl brd tam">
+        <thead>
+            <tr>
+                <th class="brd">No. caso</th>
+                <th class="brd">Equipo</th>
+                <th class="brd">Ubicaci&oacute;n</th>
+                <th class="brd">Llamada</th>
+                <th class="brd">Tipo</th>
+                <th class="brd">Soluci&oacute;n</th>
+                <th class="brd">T&eacute;cnico</th>
+                <th class="brd">Cierre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each datos.cerrados}}
+            <tr>
+                <td class="brd">{{nocaso}}</td>
+                <td class="brd">{{equipo}}</td>
+                <td class="brd">{{ubicacion}}</td>
+                <td class="brd">{{tipollamada}}</td>
+                <td class="brd">{{tipocaso}}</td>
+                <td class="brd">{{tiposolucion}}</td>
+                <td class="brd">{{tecnico}}</td>
+                <td class="brd">{{fhcierre}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

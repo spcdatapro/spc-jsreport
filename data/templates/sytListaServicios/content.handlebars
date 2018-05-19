@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.25em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            .triptab{ padding-left: 2.5em; }
+            /*.brd{ border: solid 0.1em #DCDCDC;}*/
+            .brd{ border: 0; }
+            .cntrtxt{ text-align: center; }
+            .titulo{ font-size: 14pt; }
+            .lfttxt{ text-align: left; }
+            .fs{ font-size: 10pt; }
+            .brdnotas{ 
+                border-bottom: solid 0.1em gray; 
+                border-left: solid 0.1em gray; 
+                border-right: solid 0.1em gray; 
+            }
+            .brd{ border: solid 0.1em gray; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        {{#each matriz}}
+            <div class="tab padbot"><span class="bld titulo">{{#toUpperCase empresa}}{{/toUpperCase}} ({{abreviaempre}})</span></div>
+            {{#each tipos}}
+                <div class="dobtab padbot"><span class="bld">{{#toUpperCase tipo}}{{/toUpperCase}}</span></div>
+                <div class="triptab fs">
+                <table class="tbl fs">
+                    <tbody>
+                        <tr>
+                            <th class="lfttxt">Identificaci&oacute;n</th>
+                            <th class="lfttxt">Referencia</th>
+                            <th class="lfttxt">Ubicado en</th>
+                            <th class="lfttxt">Cobrar</th>
+                            <th class="lfttxt">De baja</th>
+                            <th class="lfttxt">Fecha de baja</th>
+                        </tr>                        
+                        {{#each servicios}}
+                        <tr>
+                            <td class="lfttxt brd">{{numidentificacion}}</td>
+                            <td class="lfttxt brd">{{numreferencia}}</td>
+                            <td class="lfttxt brd">{{ubicadoen}}</td>
+                            <td class="lfttxt brd">{{cobrar}}</td>
+                            <td class="lfttxt brd">{{debaja}}</td>
+                            <td class="lfttxt brd">{{fechabaja}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="lfttxt padbot brdnotas"><strong>Notas: {{notas}}</strong></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                </div>
+            {{/each}}
+            <hr/>
+        {{/each}}        
+    </body>
+</html>

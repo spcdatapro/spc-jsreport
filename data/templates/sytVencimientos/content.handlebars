@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 78.5em; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.25em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            /*.brd{ border: solid 0.1em #DCDCDC;}*/
+            .brd{ border: 0; }
+            .cntrtxt{ text-align: center; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        {{#each vencimientos}}
+            <div class="tab padbot"><span class="bld">{{#toUpperCase empresa}}{{/toUpperCase}}</span></div>
+            {{#each proyectos}}
+                <div class="dobtab padbot"><span class="bld">{{#toUpperCase proyecto}}{{/toUpperCase}}</span></div>
+                {{#each contratos}}
+                    <table class="tbl">
+                        <tr>
+                            <td class="brd padbot" style="width: 18.74em">{{#cutStr cliente 30}}{{/cutStr}}</td>
+                            <td class="cntrtxt brd padbot" style="width: 6.72em">{{#cutStr abreviatura 10}}{{/cutStr}}</td>
+                            <td class="brd padbot" style="width: 8.72em">{{#cutStr locales 13}}{{/cutStr}}</td>
+                            <td class="cntrtxt brd padbot" style="width: 5.72em">{{#formatDate fechainicia}}{{/formatDate}}</td>
+                            <td class="cntrtxt brd padbot" style="width: 5.72em">{{#formatDate fechavence}}{{/formatDate}}</td>
+                            <td class="brd padbot" style="width: 32.88em">&nbsp;</td>
+                        </tr>
+                    </table>
+                    {{#each cargos}}
+                        <table class="tbl">
+                            <tr>
+                                <td class="brd padbot" style="width: 45.7em">&nbsp;</td>
+                                <td class="num brd padbot" style="width: 4em">{{#fnum aumento}}{{/fnum}}%</td>
+                                <td class="cntrtxt brd padbot" style="width: 5.70em">{{#formatDate fechaaumento}}{{/formatDate}}</td>
+                                <td class="brd padbot" style="width: 8.5em">{{#cutStr servicio 13}}{{/cutStr}}</td>
+                                <td class="num brd padbot" style="width: 6.72em">{{moneda}}&nbsp;{{#fnum rentaactual}}{{/fnum}}</td>
+                                <td class="cntrtxt brd padbot" style="width: 6.72em; border-bottom: solid 0.1em black">&nbsp;</td>
+                            </tr>                            
+                        </table>
+                    {{/each}}
+                {{/each}}
+            {{/each}}
+        {{/each}}
+    </body>
+</html>

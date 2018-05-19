@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .tdw{ width: 10%; }
+            .strw{ width: 30%; }
+            .numw{ width: 9.5%; }
+            .brdtpbt{ border-top: solid 0.1em black; border-bottom: solid 0.1em black; padding-top: 0.5em;}
+            .brdtp{ border-top: solid 0.1em black; border-bottom: double 0.25em black;}
+            .ltxt{ text-align: left; }
+            .tipo{ font-family: Arial; font-size: 10pt;}
+            .bld{ font-weight: bold; }
+            .centxt{ text-align: center; }
+            .pdlft{ padding-left: 0.5em; }
+            .pdbott{ padding-top: 2em; }
+            .brdres{ border: solid 0.10em black; border-radius: 1em; width: 35em; margin: auto; }
+            .brdfin{ border-top: solid 0.1em black; border-bottom: double 0.2em black; }
+            .tblres{ width: 100%; border-collapse: collapse; }
+            .espacio{ padding-top: 0.35em; padding-bottom: 0.35em; }
+        </style>
+    </head>
+    <body>
+        <table class="tbl tipo">
+            <thead>
+                <tr>
+                    <th class="brdtpbt ltxt tdw">Fecha</th>
+                    <th class="brdtpbt ltxt">Documento</th>
+                    <th class="brdtpbt numw ltxt pdlft">A favor de</th>
+                    <th class="brdtpbt numw pdlft">Monto</th>
+                    <th class="brdtpbt strw ltxt pdlft">Concepto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each documentos}}
+                <tr>
+                    <td class="tdw espacio">{{fecha}}</td>
+                    <td style="width: 10%" class="espacio">{{abreviatura}}{{numero}}</td>
+                    <td class="pdlft espacio" style="width: 30%; font-size: 9pt;">{{#shortStr beneficiario 40}}{{/shortStr}}</td>
+                    <td class="num numw espacio">{{monto}}</td>
+                    <td class="strw pdlft espacio">{{#shortStr concepto 35}}{{/shortStr}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="2" class="brdtp tdw espacio"></td>
+                    <td class="num brdtp bld espacio">Total en circulaci&oacute;n..........</td>
+                    <td class="num brdtp bld espacio">{{generales.totcirculacion}}</td>
+                    <td class="brdtp espacio"></td>
+                </tr>
+        </table>
+    </body>
+</html>

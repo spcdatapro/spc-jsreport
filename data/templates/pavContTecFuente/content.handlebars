@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <style>
+        .num { text-align: right; }
+        .tbl { width: 100%; }
+        .brd { border: solid 0.1em black; border-collapse: collapse; }
+        .bld { font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <table class="tbl brd">
+        <thead>
+            <tr>
+                <th class="brd">Fuente</th>
+                {{#each encabezados}}
+                <th class="brd num">{{tecnico}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each conteos}}
+            <tr>
+                <td class="brd bld">{{descripcion}}</td>
+                {{#each tecnicos}}
+                <td class="brd num {{#if @../last}}bld{{/if}} {{#if @last}}bld{{/if}}">{{#fnum conteo}}{{/fnum}}</td>
+                {{/each}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

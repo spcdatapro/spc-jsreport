@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .encabezado2{
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                border-spacing: 0px;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+            }
+            .factura{
+                
+                border-spacing: 0px;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .tab{
+                padding-left: 1em;
+            }
+            .dtab{
+                padding-left: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%;font-family: Arial;font-size:12; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width: 2%'></td>
+                    <td style='width: 28%'></th>
+                    <td style='width: 14%'></th>
+                    <td style='width: 14%'></th>
+                    <td style='width: 14%'></th>
+                    <td style='width: 14%'></th>
+                    <td style='width: 14%'></th>
+                </tr>
+                {{#each anti}}
+                    {{#each dmnd}}
+                        <tr>
+                            <td style='font-weight:bold;font-size:150%' colspan=8>{{empresa}}</td>
+                        </tr>
+                        {{#each demp}}
+                            <tr class="encabezado2">
+                                <td class="tab" style='font-weight:bold;font-size:125%' colspan=8>{{nomproyecto}}</td>
+                            </tr>
+                            {{#each dproy}}
+                                <tr>
+                                    <td class="tab"></td>
+                                    <td class="tab">{{#formatname nombre}}{{/formatname}}</td>
+                                    <td class="numero">{{#numberWithCommas a30 tipocuenta}}{{/numberWithCommas}}</td>
+                                    <td class="numero">{{#numberWithCommas a60 tipocuenta}}{{/numberWithCommas}}</td>
+                                    <td class="numero">{{#numberWithCommas a90 tipocuenta}}{{/numberWithCommas}}</td>
+                                    <td class="numero">{{#numberWithCommas amas tipocuenta}}{{/numberWithCommas}}</td>
+                                    <td class="numero">{{#numberWithCommas total tipocuenta}}{{/numberWithCommas}}</td>
+                                </tr>
+                            {{/each}}
+                        {{/each}}
+                        <tr>
+                                <td class="tab"></td>
+                                <td style='font-weight:bold; text-align: right'>Total de Empresa:</td>
+                                <td style='font-weight:bold'class="total">{{#numberWithCommas a30}}{{/numberWithCommas}}</td>
+                                <td style='font-weight:bold'class="total">{{#numberWithCommas a60}}{{/numberWithCommas}}</td>
+                                <td style='font-weight:bold'class="total">{{#numberWithCommas a90}}{{/numberWithCommas}}</td>
+                                <td style='font-weight:bold'class="total">{{#numberWithCommas amas}}{{/numberWithCommas}}</td>
+                                <td style='font-weight:bold'class="total">{{#numberWithCommas total}}{{/numberWithCommas}}</td>
+                            </tr>
+                    {{/each}}
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<table>
+    <tr>
+        <th colspan="6">
+            {{empresa}}
+        </th>
+    </tr>
+    <tr>
+        <th colspan="6">
+            Balance de Saldos
+        </th>
+    </tr>    
+    <tr>
+        <th colspan="6">
+            Del {{formatDate del}} al {{formatDate al}}
+        </th>
+    </tr>    
+    <tr><th colspan="7"></th></tr>    
+    <tr>
+        <th style="text-align: left;">Código</th>
+        <th style="text-align: left;">Nombre</th>
+        <th style="text-align: right;">Anterior</th>
+        <th style="text-align: right;">Debe</th>
+        <th style="text-align: right;">Haber</th>
+        <th style="text-align: right;">Actual</th>
+    </tr>
+    {{#each cuentas}}
+    <tr>
+        <td style="text-align: right;">{{codigo}}</td>
+        <td>{{nombrecta}}</td>
+        <td style="text-align: right;">{{toFloat anterior}}</td>
+        <td style="text-align: right;">{{toFloat debe}}</td>
+        <td style="text-align: right;">{{toFloat haber}}</td>
+        <td style="text-align: right;">{{toFloat actual}}</td>
+    </tr>
+    {{/each}}
+</table>

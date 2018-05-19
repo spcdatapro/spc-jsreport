@@ -1,0 +1,31 @@
+<style>
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+
+<div style="text-align: center">
+    <span class="tituloXL">SAYET</span>
+    <br/>
+    <span class="tituloL">Saldo de Proveedores</span>
+    <br/>
+    <span class="tituloM">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>

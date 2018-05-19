@@ -1,0 +1,17 @@
+{
+    "shortid": "SyEQv5P8b",
+    "recipe": "phantom-pdf",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "SyhfPcv8-"
+        }
+    ],
+    "phantom": {
+        "format": "Letter"
+    },
+    "modificationDate": {
+        "$$date": 1511978659601
+    },
+    "_id": "tJer3lsJoFuESNVc"
+}

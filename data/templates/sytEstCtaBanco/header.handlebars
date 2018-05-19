@@ -1,0 +1,29 @@
+<style>
+    .tbl{ width: 100%; }
+    .cel{ width: 33.33%; }
+    .cel2{ width: 25%; }
+    .dertxt{ text-align: right; }
+    .centxt{ text-align: center; }
+    .bld{ font-weight: bold; }
+    .tipo{ font-family: Arial; }
+    .pad{ padding-top: 0.2em; padding-bottom: 0.2em; }
+</style>
+<table class="tbl tipo">
+    <tr>
+        <td class="cel pad">&nbsp;</td>
+        <td class="cel centxt bld pad">{{general.banco.empresa}}</td>
+        <td class="cel dertxt bld pad">{{fecha}}</td>
+    </tr>
+    <tr>
+        <td class="centxt bld pad" colspan="3">Detalle contable de documentos bancarios</td>
+    </tr>
+</table>
+<div class="tbl centxt tipo">
+    <div class="pad">
+        <span class="bld">Del&nbsp;{{general.banco.del}}&nbsp;al&nbsp;{{general.banco.al}}</span>
+    </div>
+    <div class="pad">
+        <span class="bld">Banco:</span>&nbsp;{{general.banco.nombre}} ({{general.banco.simbolo}})&nbsp;&nbsp;&nbsp;
+        <span class="bld">No. de cuenta:</span>&nbsp;{{general.banco.nocuenta}}
+    </div>    
+</div>

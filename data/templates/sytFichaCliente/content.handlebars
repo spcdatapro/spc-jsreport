@@ -1,0 +1,249 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+        .tbl{
+            /*border: solid 0.1em black;*/
+            width: 60em;
+            border-collapse: collapse;
+        }
+        .colcap{
+            text-align:center;
+            font-weight: bold;
+            width:20em;
+        }
+        .colhd{
+            text-align:right;
+            font-weight: bold;
+            width: 10em;
+        }
+        .coltd{
+            width: 10em;
+            padding-left: 0.25em;
+        }
+        .colhdfia{
+            text-align:left;
+            font-weight: bold;
+            width: 10em;
+        }
+        .tblcap{
+            font-weight: bold;
+        }
+        .btmbrd{ border-bottom: solid 0.1em #DCDCDC }
+        .rghttxt{ text-align: right; }
+</style>
+    </head>
+    <body style="font-family:Arial; font-size: 1em">
+
+        <table class="tbl">
+            <caption class="btmbrd">
+                <span style="font-weight: bold">DATOS GENERALES</span>
+            </caption>
+            <tbody>
+                <tr>
+                    <td class="colhd">Cliente:</td>
+                    <td class="coltd" colspan="5">{{cliente.id}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Nombre comercial:</td>
+                    <td class="coltd" colspan="4">{{cliente.nombre}}</td>
+                    <td class="coltd" style="font-weight:bold;">{{cliente.nombrecorto}}</td>
+                </tr>                
+                <tr>
+                    <td class="colhd">Facturar a:</td>
+                    <td class="coltd" colspan="3">{{cliente.datafact.facturara}}</td>
+                    <td class="colhd">N.I.T.:</td>
+                    <td class="coltd">{{cliente.datafact.nit}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Dir. de facturaci&oacute;n:</td>
+                    <td class="coltd" colspan="5">{{cliente.datafact.direccion}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Dir. de entrega:</td>
+                    <td class="coltd" colspan="5">{{cliente.direntrega}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">P.B.X.:</td>
+                    <td class="coltd" colspan="5">{{cliente.telpbx}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Directo:</td>
+                    <td class="coltd" colspan="5">{{cliente.teldirecto}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Celular:</td>
+                    <td class="coltd" colspan="5">{{cliente.telcel}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Cargo:</td>
+                    <td class="coltd" colspan="5">{{cliente.cargolegal}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Nombre:</td>
+                    <td class="coltd" colspan="5">{{cliente.nomlegal}}&nbsp;{{cliente.apellidolegal}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">E-mail:</td>
+                    <td class="coltd" colspan="5">{{cliente.correo}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Administraci&oacute;n:</td>
+                    <td class="coltd" colspan="5">{{cliente.nomadmon}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">E-mail:</td>
+                    <td class="coltd" colspan="5">{{cliente.mailadmon}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Pagos:</td>
+                    <td class="coltd" colspan="5">{{cliente.nompago}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">E-mail:</td>
+                    <td class="coltd" colspan="5">{{cliente.mailcont}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">E-mail fact:</td>
+                    <td class="coltd" colspan="5">{{cliente.datafact.emailfactura}}</td>
+                </tr>                
+                <tr>
+                    <td class="colhd">Cuenta contable:</td>
+                    <td class="coltd" colspan="5">{{cliente.idcuentac}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        {{#each cliente.contratos}}
+        <br/>
+        <table class="tbl">
+            <caption class="btmbrd">
+                <span class="tblcap">DATOS DE CONTRATO</span>
+            </caption>
+            <tbdody>
+                <tr>
+                    <td class="colhd">Empresa:</td>
+                    <td class="coltd tblcap" colspan="5">{{empresa}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Proyecto:</td>
+                    <td class="coltd tblcap" colspan="3">{{proyecto}}</td>
+                    <td class="colhd rghttxt">M<sup>2</sup> arrendados:</td>
+                    <td class="coltd rghttxt" style="width: 6em">{{#fnum mcrentados}}{{/fnum}}</td>
+                </tr>                
+                <tr>
+                    <td class="colhd">Contrato No.:</td>
+                    <td class="coltd" colspan="5">{{nocontrato}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Abogado:</td>
+                    <td class="coltd" colspan="5">{{abogado}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Inicia:</td>
+                    <td class="coltd">{{#formatDate fechainicia}}{{/formatDate}}</td>
+                    <td class="colhd" colspan="2">&nbsp;</td>
+                    <td class="colhd rghttxt">Dep&oacute;sito:</td>
+                    <td class="coltd rghttxt" style="width: 6em">{{monedadep}}&nbsp;{{#fnum deposito}}{{/fnum}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Vence:</td>
+                    <td class="coltd" colspan="5">{{#formatDate fechavence}}{{/formatDate}}</td>
+                </tr>                
+                <tr>
+                    <td class="colhd">Unidades:</td>
+                    <td class="coltd" colspan="5"><strong>{{unidades}}</strong></td>
+                </tr>
+                <tr>
+                    <td class="colhd">Documento:</td>
+                    <td class="coltd" colspan="5">{{#qdoc documento}}{{/qdoc}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Tipo de cliente:</td>
+                    <td class="coltd" colspan="5">{{tipocliente}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Incrementos:</td>
+                    <td class="coltd" colspan="5">{{incrementos}}</td>
+                </tr>                
+                <tr>
+                    <td class="colhd">Retiene I.V.A.:</td>
+                    <td class="coltd" colspan="5">{{#sino retiva}}{{/sino}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Retiene I.S.R.:</td>
+                    <td class="coltd" colspan="5">{{#sino retisr}}{{/sino}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Subarrendado:</td>
+                    <td class="coltd" colspan="5">{{#sino subarrendado}}{{/sino}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Observaciones:</td>
+                    <td class="coltd" colspan="5">{{observaciones}}</td>
+                </tr>                
+            </tbdody>
+        </table>
+        <br/>
+        {{#imprimir fiadores}}
+        <table class="tbl">
+            <caption class="btmbrd">
+                <span class="tblcap">FIADORES</span>
+            </caption>
+            <tbody>
+                {{#each fiadores}}
+                <tr>
+                    <td class="colhd">Nombre:</td>
+                    <td class="coltd" colspan="5">{{nombre}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Empresa:</td>
+                    <td class="coltd" colspan="5">{{empresa}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Direcci&oacute;n:</td>
+                    <td class="coltd" colspan="5">{{direccion}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Tel&eacute;fono:</td>
+                    <td class="coltd" colspan="5">{{telefono}}</td>
+                </tr>
+                <tr>
+                    <td class="colhd">Identificaci&oacute;n:</td>
+                    <td class="coltd" colspan="5">{{identificacion}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <br/>
+        {{else}}
+        {{/imprimir}}
+        <table class="tbl">
+            <caption class="btmbrd">
+                <span class="tblcap">DETALLE DE CONTRATO NO. {{nocontrato}}</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="colhdfia" style="text-align:center">Per&iacute;odo</th>
+                    <th class="colhdfia">Del</th>
+                    <th class="colhdfia">Al</th>
+                    <th class="colhdfia" colspan="2">Servicio</th>
+                    <th class="colhdfia" style="text-align:right">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each detalle}}
+                <tr>
+                    <td class="coltd" style="text-align:center">{{noperiodo}}</td>
+                    <td class="coltd">{{#formatDate fdel}}{{/formatDate}}</td>
+                    <td class="coltd">{{#formatDate fal}}{{/formatDate}}</td>
+                    <td class="coltd" colspan="2">{{desctiposervventa}}</td>
+                    <td class="coltd" style="text-align:right">{{simbolo}}&nbsp;{{#fnum monto}}{{/fnum}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <br/>
+        {{/each}}
+    </body>
+</html>

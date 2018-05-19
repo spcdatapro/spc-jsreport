@@ -1,0 +1,41 @@
+{{#xlsxRemove "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row" 3}}{{/xlsxRemove}}
+{{#each cuentas}}
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t>{{codigo}}</t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>{{nombrecta}}</t></is></c>
+        <c s="{{@root.$removedItem.c.[2].$.s}}"><v>{{anterior}}</v></c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}"><v>{{debe}}</v></c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}"><v>{{haber}}</v></c>
+        <c s="{{@root.$removedItem.c.[5].$.s}}"><v>{{actual}}</v></c>
+    </row>
+{{/xlsxAdd}}
+{{/each}}
+
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    <row>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[0].$.s}}"><is><t></t></is></c>
+        <c t="inlineStr" s="{{@root.$removedItem.c.[1].$.s}}"><is><t>Total de cuentas</t></is></c>
+        <c s="{{@root.$removedItem.c.[2].$.s}}">
+            <f>
+                SUM(C4:C{{contCuentas}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[3].$.s}}">
+            <f>
+                SUM(D4:D{{contCuentas}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[4].$.s}}">
+            <f>
+                SUM(E4:E{{contCuentas}})
+            </f>
+        </c>
+        <c s="{{@root.$removedItem.c.[5].$.s}}">
+            <f>
+                SUM(F4:F{{contCuentas}})
+            </f>
+        </c>
+    </row>
+{{/xlsxAdd}}
+{{{xlsxPrint}}}

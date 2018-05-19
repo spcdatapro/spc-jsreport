@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tipo{ font-family: Arial; }
+            .tab{ padding-left: 0.9em; }
+            .dobtab{ padding-left: 1.8em; }
+            .triptab{ padding-left: 2.7em; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .padtop{ padding-top: 0.5em; }
+            .tbl{ width: 57em; border-collapse: collapse; }
+            .num{ text-align: right; }
+            /*.brd{ border: solid 0.1em #DCDCDC; }*/
+            .brd{ border: 0; }
+            .brdcont{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+        </style>
+    </head>
+    <body class="tipo">
+        {{#each pagos}}
+            <div class="tab padbot">
+                <span class="bld">{{#toUC empresa}}{{/toUC}}</span>
+                {{#each deptos}}
+                    <div class="tab padtop padbot">
+                        <span class="bld">{{departamento}}</span>
+                        <div class="tab">
+                            <table class="tbl tab">
+                                {{#each activos}}
+                                    <tr>
+                                        <td style="width: 12em" class="brd">{{finca}}</td>
+                                        <td style="width: 15em" class="brd {{#estot eshorizontal}}{{/estot}}">
+                                            {{#strCut eshorizontal 30}}{{/strCut}}
+                                        </td>
+                                        <td style="width: 10em" class="num brd {{#estot eshorizontal}}{{/estot}}">{{#nwc iusi}}{{/nwc}}</td>
+                                        <td style="width: 10em" class="num brd {{#estot eshorizontal}}{{/estot}}">{{#nwc apagar}}{{/nwc}}</td>
+                                        <td style="width: 10em" class="num brd">{{#nwc por_iusi}}{{/nwc}}</td>
+                                    </tr>
+                                {{/each}}
+                            </table>                            
+                        </div>
+                    </div>
+                {{/each}}
+                <div class="dobtab padbot">
+                    <table class="tbl">
+                        <tr>
+                            <td style="width: 12em" class="brd">&nbsp;</td>
+                            <td style="width: 15em" class="brd num bld">Total de {{#strCut empresa 18}}{{/strCut}}</td>
+                            <td style="width: 10em" class="brd num bld brdcont">{{#nwc totiusiempre}}{{/nwc}}</td>
+                            <td style="width: 10em" class="brd num bld brdcont">{{#nwc totapagarempre}}{{/nwc}}</td>
+                            <td style="width: 10em" class="num brd">&nbsp;</td>                        
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        {{/each}}
+        <div class="triptab padbot">
+            <table class="tbl">
+                <tr>
+                    <td style="width: 12em" class="brd">&nbsp;</td>
+                    <td style="width: 15em" class="brd num bld">Total General</td>
+                    <td style="width: 10em" class="brd num bld brdcont">{{#nwc totiusi}}{{/nwc}}</td>
+                    <td style="width: 10em" class="brd num bld brdcont">{{#nwc totapagar}}{{/nwc}}</td>
+                    <td style="width: 10em" class="num brd">&nbsp;</td>                        
+                </tr>
+            </table>
+        </div>        
+    </body>
+</html>

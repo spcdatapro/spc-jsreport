@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{
+                text-align: right;
+                white-space: nowrap;
+                width:13.5em;
+            }
+            .padleft{padding-left: 1em;}
+            .padright{padding-right: 1em;}
+            .padbot{padding-bottom: 0.25em;}
+        </style>
+    </head>
+    <body style="font-family:Arial; font-size: 1em">
+        {{#each contrato.servicios}}
+            <div style="width: 100%; padding-left: 4em; padding-right: 4em">
+                <span class="padleft" style="font-weight:bold">{{#toUpperCase descripcion}}{{/toUpperCase}}</span>
+                <br/>
+                <table style="width:81em">
+                    <tbody>
+                        {{#each detalle}}
+                        <tr>
+                            <td class="padleft" style="width:10em; text-align:center">{{#formatDate fechacobro}}{{/formatDate}}</td>
+                            <td class="num padbot">{{simbolo}}&nbsp;{{#fnum monto}}{{/fnum}}</td>
+                            <td class="num padbot">{{#fnum descuento}}{{/fnum}}</td>
+                            <td class="num padbot">{{simbolo}}&nbsp;{{#fnum subtotal}}{{/fnum}}</td>
+                            <td class="num padbot">{{simbolo}}&nbsp;{{#fnum iva}}{{/fnum}}</td>
+                            <td class="padbot num">{{simbolo}}&nbsp;{{#fnum grantotal}}{{/fnum}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/each}}
+    </body>
+</html>

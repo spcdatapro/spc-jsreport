@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .num{ text-align: right; }
+            .tipo{ font-family: Arial !important; }
+            .tbl{ width: 100%; border-collapse: collapse; }
+            .ltxt{ text-align: left; }
+            .padbt{ padding-bottom: 0.25em;}
+            .padbtenc{ padding-bottom: 0.5em;}
+            .brdbt{ border-bottom: solid 0.15em #C3C3C3; }
+        </style>
+    </head>
+    <body>
+        <table class="tbl tipo" style="font-size: 10pt;">
+            {{#each cuentas}}
+            <tr>
+                <th class="ltxt padbtenc" style="width: 10%;">{{codigo}}</th>
+                <th class="ltxt padbtenc" style="width: 42%;" colspan="2">{{nombrecta}}</th>
+                <th class="num padbtenc" style="width: 12%;">{{numberWithCommas anterior 0}}</th>
+                <th class="num padbtenc" style="width: 12%;">{{numberWithCommas debe 0}}</th>
+                <th class="num padbtenc" style="width: 12%;">{{numberWithCommas haber 0}}</th>
+                <th class="num padbtenc" style="width: 12%;">{{numberWithCommas actual 0}}</th>
+            </tr>
+            {{#each dlm}}
+            <tr>
+                <td class="padbt" style="width: 10%;">{{formatDate fecha}}</td>
+                <td class="padbt" style="width: 32%;">{{strcut referencia 35}}</td>
+                <td class="padbt" style="width: 10%;">{{strcut transaccion 10}}</td>
+                <td class="num padbt" style="width: 12%;"></td>
+                <td class="num padbt" style="width: 12%;">{{numberWithCommas debe 0}}</td>
+                <td class="num padbt" style="width: 12%;">{{numberWithCommas haber 0}}</td>
+                <td class="num padbt" style="width: 12%;"></td>
+            </tr>
+            {{/each}}
+            {{#if @last}}
+            {{else}}
+            <tr>
+                <td class="padbt brdbt" style="width: 10%;"></td>
+                <td class="padbt brdbt" style="width: 32%;"></td>
+                <td class="padbt brdbt" style="width: 10%;"></td>
+                <td class="num padbt brdbt" style="width: 12%;"></td>
+                <td class="num padbt brdbt" style="width: 12%;"></td>
+                <td class="num padbt brdbt" style="width: 12%;"></td>
+                <td class="num padbt brdbt" style="width: 12%;"></td>
+            </tr>
+            {{/if}}
+            {{/each}}
+        </table>
+    </body>
+</html>

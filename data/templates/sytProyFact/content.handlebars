@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 78.5em; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.5em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            /*.brd{ border: solid 0.1em #DCDCDC;}*/
+            .brd{ border: 0; }
+            .cntrtxt{ text-align: center; }
+        </style>
+    </head>
+    <body style="font-family: Arial; font-size: 0.83em">
+        {{#each proyeccion}}
+        <div class="padbot"><span class="bld">{{nomempresa}}</span></div>
+            {{#each proyectos}}
+            <div class="padbot"><span class="bld tab">{{nomproyecto}}</span></div>
+                {{#each clientes}}
+                <div class="padbot tab">
+                    <table style="width:78.5em; border-collapse: collapse">
+                        <tr>
+                            <td style="width: 25em; vertical-align: top;">{{#strCut cliente 25}}{{/strCut}}</td>
+                            <td style="width: 5em; vertical-align: top;"><span style="font-size: 9pt">{{#strCut nombrecorto 10}}{{/strCut}}</span></td>
+                            <td style="width: 48.5em; vertical-align: top; padding-left:5em">
+                                <table style="width:100%; border-collapse: collapse">
+                                    {{#each locales}}
+                                    <tr>
+                                        <td style="width: 9.7em; vertical-align: top;">{{#strCut locales 10}}{{/strCut}}</td>
+                                        <td style="width: 9.7em; vertical-align: top;{{#if ../../../../traetc}}{{#if @last}} text-align: right; font-weight: bold; padding-right: 1em;{{/if}}{{/if}}">{{#strCut servicio 15}}{{/strCut}}</td>
+                                        <td style="width: 9.7em; vertical-align: top;{{#if ../../../../traetc}}{{#if @last}} font-weight: bold; border-top: solid 0.1em black; border-bottom: double 0.25em black{{/if}}{{/if}}" class="num">{{moneda}}&nbsp;{{monto}}</td>
+                                        <td style="width: 9.7em; vertical-align: top;" class="cntrtxt">{{fechainicia}}</td>
+                                        <td style="width: 9.7em; vertical-align: top;" class="cntrtxt">{{fechavence}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {{/each}}
+            {{/each}}
+        {{/each}}
+    </body>
+</html>

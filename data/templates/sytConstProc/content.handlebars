@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+           .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+            }
+            .num{
+                text-align: right;
+            }
+            .enc{
+                font-weight: bold;
+            }
+            .tab{
+                margin-left: 1em;
+            }
+            .smtext{
+                font-size: 0.85em !important; 
+            }
+            .tipo{ font-family: Arial !important; }
+        </style>
+    </head>
+    <body>
+        {{#each cuentas}}
+        <div class="row tipo">
+            <div class="col-xs-1 enc tipo">{{codigo}}</div>
+            <div class="col-xs-3 enc tipo">{{nombrecta}}</div>
+            <div class="col-xs-2 enc num tipo">{{#numberWithCommas anterior 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num tipo">{{#numberWithCommas debe 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num tipo">{{#numberWithCommas haber 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 enc num tipo">{{#numberWithCommas actual 0}}{{/numberWithCommas}}</div>
+        </div>
+        {{#each dlm}}
+        <div class="row">
+            <div class="col-xs-1 smtext tipo">{{#formatDate fecha}}{{/formatDate}}</div>
+            <div class="col-xs-5 smtext tipo">{{#strcut referencia}}{{/strcut}}</div>
+            <div class="col-xs-2 num tipo">{{#numberWithCommas debe 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 num tipo">{{#numberWithCommas haber 0}}{{/numberWithCommas}}</div>
+            <div class="col-xs-2 num tipo">&nbsp;</div>
+        </div>
+        {{#shouldPrint detalle}}
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-condensed table-bordered smtext tipo" style="width: 100% !important">
+                    <caption>Compras relacionadas</caption>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Proveedor</th>
+                        <th>Documento</th>
+                        <th class="num">Total</th>
+                        <th class="num">I.V.A.</th>
+                        <th class="num">I.S.R.</th>
+                    </tr>
+                    {{#each detalle}}
+                    <tr>
+                        <td>{{#formatDate fechaingreso}}{{/formatDate}}</td>
+                        <td>{{proveedor}}({{nit}})</td>
+                        <td>{{tipofactura}}{{serie}}{{documento}}</td>
+                        <td class="num">{{#numberWithCommas totfact 0}}{{/numberWithCommas}}</td>
+                        <td class="num">{{#numberWithCommas iva 0}}{{/numberWithCommas}}</td>
+                        <td class="num">{{#numberWithCommas isr 0}}{{/numberWithCommas}}</td>
+                    </tr>
+                    <tr>
+                        <th>Concepto:</th><td colspan="5">{{conceptomayor}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+        {{else}}
+        {{/shouldPrint}}
+        <hr/>
+        {{/each}}
+        <hr/>
+        {{/each}}
+    </body>
+</html>

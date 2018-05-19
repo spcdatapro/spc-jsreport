@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .encabezado{
+                border-top: 0.1em solid black;
+                border-bottom: 0.1em solid black;
+            }
+            .encabezado2{
+                border-bottom: 0.1em solid black;
+            }
+            .numero{
+                text-align: right;
+                width: 10%;
+                border-spacing: 0px;
+            }
+            .total{
+                border-top: 0.1em solid black;
+                border-bottom: 0.3em double black;
+                text-align: right;
+                font-weight: bold;
+                width: 10%;
+            }
+            .factura{
+                
+                border-spacing: 0px;
+            }
+            .subtotal{
+                border-top: 0.1em solid black;
+                text-align: right;
+                font-weight: bold;
+                width: 10%;
+                border-collapse:collapse;
+            }
+            .resumen{
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size:150%;
+                font-weight:bold;
+                border:2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .tab{
+                padding-left: 1em;
+            }
+            .dtab{
+                padding-left: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%;font-family: Arial;font-size:12; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width: 2%'></th>
+                    <td style='width: 20%'></th>
+                    <td style='width: 8%'></th>
+                    <td style='width: 20%'></th>
+                    <td style='width: 10%'></th>
+                    <td style='width: 10%'></th>
+                    <td style='width: 10%'></th>
+                    <td style='width: 10%'></th>
+                    <td style='width: 10%'></th>
+                </tr>
+                {{#each anti}}
+                {{#each dmon}}
+                    <tr>
+                        <td style='font-weight:bold;font-size:150%' colspan=9>{{empresa}}</td>
+                    </tr>
+                    {{#each demp}}
+                        <tr class="encabezado2">
+                            <td class="tab" style='font-weight:bold;font-size:125%' colspan=5>{{nomproyecto}}</td>
+                        </tr>
+                        {{#each dproy}}
+                            <tr>
+                                <td class="dtab" style='font-weight:bold' colspan=9>{{nombre}}</td>
+                                
+                            </tr>
+                            {{#each dec}}
+                                <tr>
+                                    <td class="tab"></td>
+                                    <td class="factura">{{serie}} {{factura}}</td>
+                                    <td class="factura">{{#formatDate fecha}}{{/formatDate}}</td>
+                                    <td class="tab">{{concepto}}</td>
+                                    <td class="numero factura">{{#numberWithCommas totalfac}}{{/numberWithCommas}}</td>
+                                    <td class="numero factura">{{#numberWithCommas isr}}{{/numberWithCommas}}</td>
+                                    <td class="numero factura">{{#numberWithCommas retiva}}{{/numberWithCommas}}</td>
+                                    <td class="numero factura">{{#numberWithCommas apagar}}{{/numberWithCommas}}</td>
+                                    <td class="numero factura">{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                                </tr>
+                                {{#each dfac}}
+                                    <tr>
+                                        <td colspan="4">
+                                            <table style='width: 100%;font-family: Arial;font-size:12; border-collapse:collapse;'>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style='width: 10%'>
+                                                        <td class="dtab" style='width: 25%'>{{recibo}}</td>
+                                                        <td class="tab" style='width: 20%'>{{#formatDate fecha}}{{/formatDate}}</td>
+                                                        <td class="tab" style='width: 20%'>{{tipotrans}} - {{documento}}</td>
+                                                        <td class="numero" style='width: 25%'>{{#numberWithCommas monto}}{{/numberWithCommas}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        
+                                    </tr>
+                                {{/each}}
+                            {{/each}}
+                            <tr>
+                                <td style='text-align: right; font-weight:bold' colspan=8>Total:</td>
+                                <td class="subtotal" style='font-weight:bold'>{{#numberWithCommas tsaldo}}{{/numberWithCommas}}</td>
+                            </tr>
+                        {{/each}}
+                    {{/each}}
+                    <tr>
+                        <td style='font-weight:bold'></td>
+                        <td style='text-align: right; font-weight:bold' colspan=7>Total de Empresa:</td>
+                        <td class="total" style='font-weight:bold'>{{#numberWithCommas saldo}}{{/numberWithCommas}}</td>
+                    </tr>
+                {{/each}}
+                
+                {{/each}}
+            </tbody>
+        </table>
+        </br>
+        </br>
+    </body>
+</html>

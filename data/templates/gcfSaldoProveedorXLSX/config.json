@@ -1,0 +1,17 @@
+{
+    "shortid": "ryWQaagbl",
+    "recipe": "xlsx",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "SkekT6l-e"
+        }
+    ],
+    "xlsxTemplate": {
+        "shortid": "SJo5_pgWg"
+    },
+    "modificationDate": {
+        "$$date": 1478708895416
+    },
+    "_id": "Yjay1ivuMes9PsfC"
+}

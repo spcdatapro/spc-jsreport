@@ -1,0 +1,27 @@
+<style>
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+
+<div style="text-align: center; font-family: Arial">
+    <span class="tituloXL">{{empresa}}</span>
+    <br/>
+    <span class="tituloL">Balance de Saldos</span>
+    <br/>
+    <span class="tituloM">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 100%; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .brdfin{ border-top: solid 0.1em black; border-bottom: double 0.25em black; }
+            .brdbtm{border-bottom: solid 0.1em black; }
+            .lfttxt{ text-align: left; }
+            .tam{ width: 10%; }
+            .tipo{ font-family: Arial }
+            .padleft{ padding-left:0.5em; }
+            .nowrap{white-space:nowrap;}
+        </style>
+    </head>
+    <body class="tipo">
+        <table class="tbl tipo">
+            <thead>
+                <th class="tam lfttxt brdbtm">Inicia</th>
+                <th class="tam num brdbtm">No.</th>
+                <th class="tam lfttxt padleft brdbtm">Tipo</th>
+                <th class="lfttxt padleft brdbtm">Beneficiario</th>
+                <th class="num brdbtm">Monto (Q)</th>
+            </thead>
+            <tbody>
+                {{#each pendientes}}
+                <tr>
+                    <td class="tam">{{finicio}}</td>
+                    <td class="tam num">{{noreembolso}}</td>
+                    <td class="tam padleft">{{tipo}}</td>
+                    <td class="padleft nowrap">{{beneficiario}}</td>
+                    <td class="num">{{totreembolso}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <th colspan="4" class="num">{{resumen.cantidad}} reembolsos con un monto total de:</th>
+                    <td class="num brdfin">{{resumen.sumtotreem}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

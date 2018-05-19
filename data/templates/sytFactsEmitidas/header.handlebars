@@ -1,0 +1,59 @@
+<style>
+    .rghttxt{ text-align: right; }
+    .first {
+        width: 56.5%;
+        float:left; 
+    }
+    .second {
+        overflow: hidden; 
+    }
+    .tbl{ width: 100%; border-collapse: collapse; font-size: 10pt; }
+    .ltxt{ text-align: left; }
+    .tab {padding-left: 1em; }
+    .brdhead{ border-top: solid 0.1px black; border-bottom: solid 0.1px black;}
+    .ultcell { width: 25%; }
+    .tenw {width: 10%; }
+    .quinw {width: 15%; }
+    .resw { width: 35%; }
+	.padbot{ padding-bottom: 0.15em; }
+
+</style>
+ 
+
+<div style="font-family:Arial; font-size: 12pt">
+    <div style="text-align:center; vertical-align: text-top">
+        <div class="first rghttxt">
+            <span style="font-weight: bold">FACTURAS EMITIDAS</span>
+        </div>
+        <div class="second rghttxt">
+            <span style="font-weight: bold">{{fechas}}</span>
+        </div>
+    </div>
+</div>
+<div style="font-family: Arial; font-size: 12pt; text-align: center; width: 100%">
+    <span style="font-weight: bold">
+        {{general.empresa}} ({{general.abreviaempre}})
+    </span>
+</div>
+<div style="font-family: Arial; font-size: 12pt; text-align: center; width: 100%">
+    <span style="font-weight: bold">
+        Del {{general.fdel}} al {{general.fal}}
+    </span>
+</div>
+<div style="font-family: Arial; font-size: 12pt; text-align: center; width: 100%; padding-bottom: 2em">
+    <span style="font-weight: bold">
+        {{general.tipo}}
+    </span>
+</div>
+<table class="tbl">
+    <thead>
+        <tr>
+            <th class="ltxt brdhead tenw">Serie</th>
+            <th class="ltxt brdhead tab tenw">Factura</th>
+            <th class="ltxt brdhead tab">Cliente</th>
+            <th class="ltxt brdhead tab quinw">Tipo</th>
+            <th class="rghttxt brdhead tenw">Total Q.</th>
+            <th class="ltxt brdhead ultcell tab">Per&iacute;odo</th>
+        </tr>
+    </thead>
+</table>

@@ -1,0 +1,27 @@
+<style>
+    .encabezado{ font-weight:bold; font-family: Arial; font-size:16; border-top: solid 0.1em black; border-bottom: solid 0.1em black; }
+    .numero{ text-align: right; border-spacing: 0px; }
+	.padbot{ padding-bottom: 0.15em; }
+	.rghttxt{ text-align: right; }
+
+</style>
+ 
+<div class="second rghttxt">
+   <span style="font-weight: bold">{{fechas}}</span>
+</div>
+<div style="width: 100%; font-family: Arial; font-size: 14pt; text-align: center; font-weight: bold; padding-bottom: 1em;">
+    <span>RETENCI&Oacute;N DE I.V.A.</span><br/>
+    <span>Mes de {{generales.mes}} de {{generales.anio}}</span><br/>
+</div>
+<table style='width: 100%;font-family: Arial; border-collapse:collapse;'>
+    <tbody>
+        <tr class="encabezado">
+            <td class="encabezado" style='width:29%'>Factura</td>
+            <td class="encabezado" style='width:30%'>Cliente</td>
+            <td class="encabezado" style='width:10%'>Fecha</td>
+            <td class="encabezado numero" style='width:10%'>Base Q.</td>
+            <td class="encabezado numero" style='width:10%'>I.V.A.</td>
+            <td class="encabezado numero" style='width:10%'>Retenci&oacute;n</td>
+        </tr>
+    </tbody>
+</table>

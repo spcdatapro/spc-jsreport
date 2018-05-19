@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <style>
+            .tbl{ width: 78.5em; border-collapse: collapse}
+            .num{ text-align: right; }
+            .bld{ font-weight: bold; }
+            .padbot{ padding-bottom: 0.25em; }
+            .tab{ padding-left: 0.5em; }
+            .dobtab{ padding-left: 1.5em; }
+            .triptab{ padding-left: 2.5em; }
+            /*.brd{ border: solid 0.1em #DCDCDC;}*/
+            .brd{ border: 0; }
+            .cntrtxt{ text-align: center; }
+            .titulo{ font-size: 15pt; }
+        </style>
+    </head>
+    <body style="font-family: Arial">
+        {{#each alquileres}}
+            <div class="tab padbot"><span class="bld titulo">{{#toUpperCase nomempresa}}{{/toUpperCase}}</span></div>
+                {{#each clientes}}
+                    <table class="tbl">
+                        <tr>
+                            <td class="brd padbot triptab" style="width: 22.3em; vertical-align: top;">{{#cutStr nombre 30}}{{/cutStr}}</td>
+                            <td class="cntrtxt brd padbot" style="width: 12.5em; vertical-align: top;">{{#cutStr nombrecorto 10}}{{/cutStr}}</td>
+                            <td class="brd padbot" style="width: 43.7em">
+                                {{#each contratos}}
+                                <table style="width: 100%; border-collapse: collapse">
+                                    <tr>
+                                        <td class="brd padbot" style="width: 8.72em">{{#cutStr unidades 15}}{{/cutStr}}</td>
+                                        <td class="brd padbot" style="width: 6.72em">{{#cutStr servicio 13}}{{/cutStr}}</td>
+                                        <td class="num brd padbot" style="width: 5.72em">{{simbolo}}&nbsp;{{#fnum monto}}{{/fnum}}</td>
+                                        <td class="cntrtxt brd padbot" style="width: 5.72em">{{#formatDate fechainicia}}{{/formatDate}}</td>
+                                        <td class="cntrtxt brd padbot" style="width: 5.72em">{{#formatDate fechavence}}{{/formatDate}}</td>
+                                    </tr>                            
+                                </table>
+                                {{/each}}
+                            </td>
+                        </tr>
+                    </table>
+                {{/each}}
+        {{/each}}        
+    </body>
+</html>

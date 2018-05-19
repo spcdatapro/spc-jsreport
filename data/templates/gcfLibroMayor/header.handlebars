@@ -1,0 +1,39 @@
+<style>
+    .encabezado{
+        border-top: 0.1em solid black;
+        border-bottom: 0.1em solid black;
+    }
+    .tituloXL{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    .tituloL{
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+    .tituloM{
+        font-size: 1.08em;
+        font-weight: bold;
+    }
+</style>
+<div style="text-align: center">
+    <span class="tituloXL">GRUPO CORPORATIVO FINANCIERO, S.A.</span>
+    <br/>
+    <span class="tituloL">Libro Mayor</span>
+    <br/>
+    <span class="tituloM">
+        Del {{#formatDate del}}{{/formatDate}} al {{#formatDate al}}{{/formatDate}}
+    </span>
+</div>
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th class="encabezado" style="width: 14.5em; text-align: left">Póliza/Fecha/Referencia</th>
+            <th class="encabezado" style="width: 5em; text-align: left">Concepto</th>
+            <th class="encabezado" style="width: 11em; text-align: center">Saldo Inicial</th>
+            <th class="encabezado" style="text-align: right">Debe</th>
+            <th class="encabezado" style="text-align: right">Haber</th>
+            <th class="encabezado" style="text-align: right">Saldo</th>
+        </tr>
+    </thead>
+</table>
